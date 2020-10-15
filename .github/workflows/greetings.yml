@@ -17,7 +17,7 @@ jobs:
     - run: git add .
       working-directory: sdk2-src
 
-    - run: git commit -m "pulling v2 src in"
+    #- run: git commit -m "pulling v2 src in"
     - name: GitHub Push
       uses: ad-m/github-push-action@v0.6.0
       with:
