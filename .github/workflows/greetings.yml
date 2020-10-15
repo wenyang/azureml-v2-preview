@@ -9,6 +9,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2.3.3
     - run: git clone https://user:${{ secrets.AZDEVOPS_PAT }}@msdata.visualstudio.com/DefaultCollection/Vienna/_git/sdk-cli-v2  sdk-src
+    - run: ls
+      working-directory: sdk-src
     - run: git add .
       working-directory: sdk-src
     - run: git config --global user.email "azureml@microsoft.com"
