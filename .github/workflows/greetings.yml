@@ -9,6 +9,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2.3.3
     - run: git clone https://user:${{ secrets.AZDEVOPS_PAT }}@msdata.visualstudio.com/DefaultCollection/Vienna/_git/sdk-cli-v2  sdk-src
+    - run: git add .
+    - run: git commit -m "pulling v2 src in"
     - name: GitHub Push
       uses: ad-m/github-push-action@v0.6.0
       with:
