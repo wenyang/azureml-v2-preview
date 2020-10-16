@@ -32,5 +32,5 @@ jobs:
       with:
         python-version: 3.7
     - run: npm install -autorest
-    - run: python ./sdk2-src/scripts/dev_setup.py -sdk
-    - run: python ./sdk2-src/scripts/dev_setup.py -cli
+    - run: python sdk2-src/scripts/dev_setup.py -sdk
+    - run: python sdk2-src/scripts/dev_setup.py -cli
