@@ -84,7 +84,7 @@ def setup_sdk(args: Namespace, shell: bool) -> None:
     run_command([
         'autorest', '--python', '--track2', '--use=@autorest/python@5.3.0',
         f'--python-sdks-folder={python_sdk_path.absolute()}', '--python-mode=create', '--package-version=0.1.0',
-        f'{Path("./autorest/readme.md")}', '--modelerfour.lenient-model-deduplication',
+        f'{Path("./autorest/readme.md").absolute()}', '--modelerfour.lenient-model-deduplication',
         '--title=Azure Machine Learning Workspaces'
     ],
                 throw_on_retcode=True,
