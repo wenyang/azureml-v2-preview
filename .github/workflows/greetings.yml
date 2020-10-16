@@ -31,6 +31,6 @@ jobs:
       uses: actions/setup-python@v2.1.4
       with:
         python-version: 3.7
-    - run: npm install -g autorest
+    - run: npm install -autorest
     - run: python ./sdk2-src/scripts/dev_setup.py -sdk
     - run: python ./sdk2-src/scripts/dev_setup.py -cli
