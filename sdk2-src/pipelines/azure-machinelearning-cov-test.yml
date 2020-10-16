@@ -15,9 +15,5 @@ variables:
 
 steps:
  - checkout: self
- - task: Npm@1
-   inputs:
-     command: 'custom'
-     customCommand: 'install -g autorest'
  - template: ./templates/sdk_setup/template-sdk-setup.yml
  - template: ./templates/coveragetests/template-coverage-tests.yml

@@ -6,7 +6,8 @@ from typing import Any, Iterable
 
 from azure.core.polling import LROPoller
 
-from azure.machinelearning._restclient.machinelearningservices._azure_machine_learning_workspaces import AzureMachineLearningWorkspaces
+from azure.machinelearning._restclient.machinelearningservices._azure_machine_learning_workspaces import \
+    AzureMachineLearningWorkspaces
 from azure.machinelearning._restclient.machinelearningservices.models import Workspace, WorkspaceListResult
 from azure.machinelearning._workspace_dependent_operations import WorkspaceScope
 

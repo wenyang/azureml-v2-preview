@@ -56,6 +56,22 @@ cli:
       - where:
           group: "ModelContainers"
         hidden: true
+      - where:
+          group: 'CodeContainers'
+        hidden: true
+      - where:
+          group: 'CodeVersions'
+        hidden: true
+      - where:
+          group: "CustomAssetContainers"
+        hidden: true
+      - where:
+          group: "CustomAssetVersions"
+        hidden: true
+      - where:
+          group: "LabelingJobs"
+        hidden: true
+
 
 directive:
   - where:

@@ -25,6 +25,7 @@ These settings apply only when `--tag=package-2020-06` is specified on the comma
 ```yaml $(tag) == 'package-2020-06-01'
 input-file:
   - mfe.json
+  - run-history.json
   - machineLearningServices.json
 ```
 ---

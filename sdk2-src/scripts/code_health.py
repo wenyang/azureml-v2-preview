@@ -12,7 +12,6 @@ def run_flake8(testpath, flake_rules):
         '--ignore={0}'.format(",".join(flake_rules.get('ignore', []))),
         '--exclude={0}'.format(",".join(flake_rules.get('exclude', []))),
         '--max-line-length={0}'.format(flake_rules.get('max-line-length', MLN)),
-        '--disable-noqa',
         testpath]
 
     return run_command(cmd, throw_on_retcode=False, stream_stdout=False)

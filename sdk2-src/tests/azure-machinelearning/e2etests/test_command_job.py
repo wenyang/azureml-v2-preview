@@ -15,6 +15,7 @@ def client() -> MachineLearningClient:
 def test_command_job(client: MachineLearningClient, randstr: str) -> None:
     # TODO: need to create a workspace under a e2e-testing-only subscription and reousrce group
     command_job_resource = client.jobs.submit(
+        file="./tests/test_configs/command_job_test.yml",
         job_name=randstr,
         compute_id="testCompute",
         experiment_name="mfe-test-hw",

@@ -2,41 +2,32 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # ---------------------------------------------------------
 
-from typing import Optional, Union
+import os
+from typing import Tuple, Optional
 
-from ._storage_helper import StorageClient
-from azure.storage.blob import BlobLeaseClient
-from azure.core.exceptions import ResourceExistsError
+from azure.machinelearning._artifacts._storage_helper import StorageClient
+from azure.machinelearning._restclient.machinelearningservices.models import AssetPath
+from azureml.core.datastore import Datastore
 
 
-def upload_artifact(name: str, local_path: str, storage_account: str, container_name: str,
-                    account_key: str, overwrite: bool = False, show_progress: bool = True,
-                    lease: Optional[Union[str, BlobLeaseClient]] = None) -> None:
-    """
-    Upload artifact object to blob storage.
-        :param: name: The name of the artifact.
-        :param: local_path: The local path to the artifact file or directory.
-        :param storage_account: The name of the Azure storage account.
-        :param container_name: The name of the Azure storage account container.
-        :param account_key: The Azure storage account shared access key.
-        :param overwrite: Indicates whether to overwrite the artifact if it already exists
-            in the container.
-        :param show_progress: Indicates whether to show progress bar during upload.
-        :param lease: Required if the blob has an active lease. If specified, upload_blob only succeeds if the
-            blob's lease is active and matches this ID. Value can be a BlobLeaseClient object
-            or the lease ID as a string.
-    """
-    if name.endswith(('/', '.')):
-        raise Exception("Blob names cannot end with a dot (.), a forward slash (/), or a sequence "
-                        "or combination of the two.")
+resource_id_template = "/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Storage/{storage_account}"
 
-    account_url = f"https://{storage_account}.blob.core.windows.net"
-    blob_client = StorageClient(account_url=account_url, credential=account_key,
-                                container_name=container_name)
 
-    try:
-        blob_client.upload(local_path, name, overwrite=overwrite, show_progress=show_progress, lease=lease)
-    except ResourceExistsError as e:
-        print(f"A blob already exists at {storage_account}/{container_name}/{name}. Set `overwrite=True` "
-              f"if you would like to overwrite the existing blob in storage.")
-        raise e
+def upload_artifact(local_path: str, datastore: Optional[Datastore] = None,
+                    storage_account: Optional[str] = None, container_name: Optional[str] = None,
+                    account_key: Optional[str] = None, show_progress: bool = True) -> Tuple[AssetPath, str]:
+
+    if not storage_account:
+        storage_account = datastore.account_name
+    if not container_name:
+        container_name = str(datastore.container_name)
+    if not account_key:
+        account_key = datastore.account_key
+
+    blob_client = StorageClient(credential=account_key, container_name=container_name,
+                                storage_account=storage_account)
+    uploaded_asset_id = blob_client.upload(local_path, show_progress=show_progress)
+
+    asset_path = AssetPath(f"{container_name}/{uploaded_asset_id}", is_directory=os.path.isdir(local_path))
+
+    return asset_path, resource_id_template.format(storage_account=storage_account)

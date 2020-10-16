@@ -11,8 +11,11 @@ from .workspace_operations import WorkspaceOperations
 from .model_operations import ModelOperations
 from .online_endpoint_operations import OnlineEndpointOperations
 from .dataset_operations import DatasetOperations
+from .code_operations import CodeOperations
+from .run_operations import RunOperations
 
 __all__ = [
     "ComputeOperations", "DatastoreOperations", "JobOperations", "ModelOperations", "WorkspaceOperations",
-    "DatasetOperations", "OnlineEndpointOperations"
+    "DatasetOperations", "OnlineEndpointOperations", "CodeOperations", "RunOperations"
 ]
+
