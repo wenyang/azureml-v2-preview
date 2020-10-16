@@ -8,18 +8,25 @@ from typing import Iterable, Union, Any, Optional
 import yaml
 from marshmallow import ValidationError, RAISE
 from collections import OrderedDict
-
+from .run_operations import RunOperations
+from azure.machinelearning._utils.utils import camel_case_transformer, download_file_stream, get_all_logs
 from azure.machinelearning.constants import API_VERSION_2020_09_01_PREVIEW
 from azure.machinelearning._restclient.machinelearningservices._azure_machine_learning_workspaces import AzureMachineLearningWorkspaces
 from azure.machinelearning._restclient.machinelearningservices.models import ComputeBinding, CommandJobResourceArmPaginatedResult, \
     CommandJobResource
 from azure.machinelearning._schema import CommandJobSchema, InternalCommandJob
 from azure.machinelearning._workspace_dependent_operations import _WorkspaceDependentOperations, WorkspaceScope
+from .workspace_operations import WorkspaceOperations
+from urllib.parse import urlparse
+import azure.machinelearning._utils.utils
+from pathlib import Path
+import json
 
 
 class JobOperations(_WorkspaceDependentOperations):
     def __init__(self, workspace_scope: WorkspaceScope,
                  service_client: AzureMachineLearningWorkspaces,
+                 workspace_ops: WorkspaceOperations = None,
                  **kwargs: Any):
         super(JobOperations, self).__init__(workspace_scope)
         self._operation = service_client.code_jobs
@@ -38,10 +45,22 @@ class JobOperations(_WorkspaceDependentOperations):
         # setup yaml to load and dump in order
         yaml.add_representer(OrderedDict, dict_representer)
         yaml.add_constructor(_mapping_tag, dict_constructor, Loader=yaml.SafeLoader)
+        self._runs = RunOperations(workspace_scope, service_client)
+        self._workspaces = workspace_ops
+
+
+    def get_job_logs(self, exp_name: str, id: str, download_path: str = Path.home()) :
+        self._runs._operation._client._base_url = self._get_workspace_url()
+        logs = get_all_logs(self._runs.get_run_details(exp_name, id), download_path)
+        if logs:
+            print("Logs downloaded: ", logs)
+
 
     def list(self) -> Iterable[CommandJobResourceArmPaginatedResult]:
-        return self._operation.list(self._workspace_scope.subscription_id, self._workspace_scope.resource_group_name,
-                                    self._workspace_name)
+        return self._operation.list(self._workspace_scope.subscription_id,
+                                    self._workspace_scope.resource_group_name,
+                                    self._workspace_name,
+                                    api_version=API_VERSION_2020_09_01_PREVIEW)
 
     def get(self, job_name: str) -> CommandJobResource:
         return self._operation.get(id=job_name,
@@ -79,6 +98,12 @@ class JobOperations(_WorkspaceDependentOperations):
         # Only write to stdout if save_as_name not set
         else:
             return result
+
+    def _get_workspace_url(self):
+        workspace_details = self._workspaces.get(self._workspace_scope.workspace_name).as_dict(key_transformer=camel_case_transformer)
+        discovery_url = workspace_details['discoveryUrl']
+        all_urls = json.loads(download_file_stream(discovery_url))
+        return  all_urls["history"]
 
     def _load(self,
               file: Union[str, os.PathLike, None],

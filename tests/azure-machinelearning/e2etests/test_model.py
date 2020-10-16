@@ -24,5 +24,5 @@ class TestModel:
 
     def test_list(self, client: MachineLearningClient, randstr: str) -> None:
         models = client.model.list(None)
-        assert isinstance(models, Iterator)
+        assert isinstance(models, list)
         # assert any((_model.id == model.id for model in models)) # too slow!

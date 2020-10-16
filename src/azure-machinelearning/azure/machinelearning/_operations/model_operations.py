@@ -84,13 +84,13 @@ class ModelOperations(_WorkspaceDependentOperations):
                                                  resource_group_name=self._workspace_scope.resource_group_name,
                                                  workspace_name=self._workspace_name,
                                                  api_version=API_VERSION_2020_09_01_PREVIEW))
-        return chain.from_iterable((
+        return list(chain.from_iterable((
             self._model_versions_operation.list(
                 name=model_container.name,  # type: ignore
                 subscription_id=self._workspace_scope.subscription_id,
                 resource_group_name=self._workspace_scope.resource_group_name,
                 workspace_name=self._workspace_name,
-                api_version=API_VERSION_2020_09_01_PREVIEW) for model_container in model_containers))
+                api_version=API_VERSION_2020_09_01_PREVIEW) for model_container in model_containers)))
 
     def _upload_to_storage(self, dir: Union[str, os.PathLike]) -> Tuple[List[AssetPath], Dict[str, List[str]]]:
         # TODO: use the real upload function here

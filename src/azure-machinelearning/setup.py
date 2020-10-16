@@ -67,6 +67,7 @@ setup(
         "azure-mgmt-core<2.0.0,>=1.2.0",
         "marshmallow<4.0.0,>=3.5",
         "tqdm",
-        "azure-storage-blob<=12.5.0,>12.0.0b4"
+        "azure-storage-blob<=12.5.0,>12.0.0b4",
+        "azureml-sdk<1.16.0,>=1.1.5"
     ]
 )

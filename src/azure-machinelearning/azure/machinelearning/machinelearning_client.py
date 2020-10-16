@@ -6,12 +6,16 @@ from typing import Optional
 
 from azure.identity import DefaultAzureCredential
 
-from .constants import MFE_BASE_URL
-from ._operations import ComputeOperations, DatastoreOperations, JobOperations, WorkspaceOperations, ModelOperations, DatasetOperations
-from ._restclient.machinelearningservices._azure_machine_learning_workspaces import AzureMachineLearningWorkspaces
-from ._workspace_dependent_operations import WorkspaceScope
-from ._utils.utils import _get_developer_override
-from ._operations.online_endpoint_operations import OnlineEndpointOperations
+from azure.machinelearning.constants import MFE_BASE_URL
+from azure.machinelearning._operations import ComputeOperations, DatastoreOperations, JobOperations, \
+    WorkspaceOperations, ModelOperations, DatasetOperations, CodeOperations,RunOperations
+from azure.machinelearning._restclient.machinelearningservices._azure_machine_learning_workspaces import \
+    AzureMachineLearningWorkspaces
+from azure.machinelearning._workspace_dependent_operations import WorkspaceScope
+from azure.machinelearning._utils.utils import _get_developer_override
+from azure.machinelearning._operations.online_endpoint_operations import OnlineEndpointOperations
+
+from urllib.parse import urlparse
 
 
 class MachineLearningClient(object):
@@ -20,7 +24,8 @@ class MachineLearningClient(object):
                  resource_group_name: str,
                  default_workspace_name: str = None,
                  base_url: str = MFE_BASE_URL,
-                 credential: DefaultAzureCredential = None):
+                 credential: DefaultAzureCredential = None
+                ):
         base_url, enforce_https = _get_developer_override(base_url)
         kwargs = {"enforce_https": enforce_https}
 
@@ -34,13 +39,14 @@ class MachineLearningClient(object):
                                                               base_url=base_url)
 
         self._workspaces = WorkspaceOperations(self._workspace_scope, self._service_client)
-
-        self._jobs = JobOperations(self._workspace_scope, self._service_client, **kwargs)
+        self._jobs = JobOperations(self._workspace_scope, self._service_client, self._workspaces, **kwargs)
         self._computes = ComputeOperations(self._workspace_scope, self._service_client)
         self._model = ModelOperations(self._workspace_scope, self._service_client)
         self._online_endpoints = OnlineEndpointOperations(self._workspace_scope, self._service_client)
         self._datastores = DatastoreOperations(self._workspace_scope, self._service_client)
         self._datasets = DatasetOperations(self._workspace_scope, self._service_client)
+        self._code_assets = CodeOperations(self._workspace_scope, self._service_client)
+
 
     @property
     def workspaces(self) -> WorkspaceOperations:
@@ -67,12 +73,17 @@ class MachineLearningClient(object):
         return self._online_endpoints
 
     @property
+    def code_assets(self) -> CodeOperations:
+        return self._code_assets
+
+    @property
     def default_workspace_name(self) -> Optional[str]:
         return self._workspace_scope.workspace_name
 
     @property
     def datastores(self) -> DatastoreOperations:
         return self._datastores
+
 
     @default_workspace_name.setter
     def default_workspace_name(self, value: str) -> None:
