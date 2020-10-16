@@ -5,6 +5,9 @@ on: [push]
 jobs:
   dev-setup:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sdk2-src
     steps:
     - name: Checkout
       uses: actions/checkout@v2.3.3
@@ -13,5 +16,5 @@ jobs:
       with:
         python-version: 3.7
     - run: npm install -autorest
-    - run: python sdk2-src/scripts/dev_setup.py -sdk
-    - run: python sdk2-src/scripts/dev_setup.py -cli
+    - run: python scripts/dev_setup.py -sdk
+    - run: python scripts/dev_setup.py -cli
