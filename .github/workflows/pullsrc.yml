@@ -1,0 +1,35 @@
+# This is a basic workflow that is manually triggered
+
+name: Manual workflow
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: branch to pull
+        default: master
+        
+jobs:
+  pull-src:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2.3.3
+    - run: git config --global user.email "azureml@microsoft.com"
+    - run: git config --global user.name "Azure ML"
+    - run: git subtree add --prefix sdk2-src https://user:${{ secrets.AZDEVOPS_PAT }}@msdata.visualstudio.com/DefaultCollection/Vienna/_git/sdk-cli-v2 master --squash
+      continue-on-error: true
+    - run: git clone https://user:${{ secrets.AZDEVOPS_PAT }}@msdata.visualstudio.com/DefaultCollection/Vienna/_git/sdk-cli-v2  sdk-src
+    - run: ls
+      working-directory: sdk2-src
+    - run: git add .
+      working-directory: sdk2-src
+
+    - run: git commit -m "pulling v2 src in"
+    - name: GitHub Push
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        github_token: \{{ secrets.GITHUB_TOKEN }}
+        branch: main
