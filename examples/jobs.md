@@ -32,7 +32,7 @@ trial:
   job_id: my_job_id // reuses values from job, only things specified are overridden
   command:  >-
       python train.py
-      --data { mount: /to/my/data }
+      --data { mount: dataset_id_or_name }
       --epochs 14
       --batch-size 64
       --test-batch-size 1000
