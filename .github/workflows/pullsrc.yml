@@ -20,6 +20,7 @@ jobs:
     - run: git config --global user.email "azureml@microsoft.com"
     - run: git config --global user.name "Azure ML"
     - run: rm -r -f sdk2-src
+    - run: git commit -am 'removed out of date sdk'
     - run: ls
     - run: git subtree add --prefix sdk2-src https://user:${{ secrets.AZDEVOPS_PAT }}@msdata.visualstudio.com/DefaultCollection/Vienna/_git/sdk-cli-v2 master --squash
       continue-on-error: true
