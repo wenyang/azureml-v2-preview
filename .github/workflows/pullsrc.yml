@@ -21,7 +21,7 @@ jobs:
     - run: git config --global user.name "Azure ML"
     - run: rm -r -f sdk2-src
     - run: ls
-    - run: git subtree pull --prefix sdk2-src https://user:${{ secrets.AZDEVOPS_PAT }}@msdata.visualstudio.com/DefaultCollection/Vienna/_git/sdk-cli-v2 master --squash
+    - run: git subtree add --prefix sdk2-src https://user:${{ secrets.AZDEVOPS_PAT }}@msdata.visualstudio.com/DefaultCollection/Vienna/_git/sdk-cli-v2 master --squash
       continue-on-error: true
     - name: GitHub Push
       uses: ad-m/github-push-action@v0.6.0
