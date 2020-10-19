@@ -18,4 +18,5 @@ jobs:
     - run: sudo npm install -g autorest
     - run: python scripts/dev_setup.py -sdk
     - run: python scripts/dev_setup.py -cli
+    - run: az -h
     - run: az ml -h
