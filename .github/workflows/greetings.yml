@@ -18,5 +18,6 @@ jobs:
     - run: sudo npm install -g autorest
     - run: python scripts/dev_setup.py -sdk
     - run: python scripts/dev_setup.py -cli
-    - run: az -h
+    - run: pip install -e ./src/cli/src/machinelearningservices
+    - run: az extension list
     - run: az ml -h
