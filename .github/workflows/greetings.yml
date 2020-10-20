@@ -19,7 +19,9 @@ jobs:
     - run: python scripts/dev_setup.py -sdk
     - run: python scripts/dev_setup.py -cli
     - run: pip install -e ./src/cli/src/machinelearningservices
+    - run: echo $AZURE_EXTENSION_DIR
     - run: az extension list
     - run: export AZURE_EXTENSION_DIR=$GITHUB_WORKSPACE/src/cli/src
+    - run: echo $AZURE_EXTENSION_DIR
     - run: az extension list
     - run: az ml -h
