@@ -1,9 +1,18 @@
-// run a job
 ```
+az ml dataset create dataset.yml
+```
+
+```
+az ml compute create gpu-cluster.yml
+```
+
+```
+az ml job create traintorch.yml
+
+traintorch.yml
 command: >-
     python train.py
     --data { mount: dataset_id_or_name }
-    --epochs 14
     --batch-size 64
     --test-batch-size 1000
     --lr 1.0
@@ -18,7 +27,15 @@ compute:
 
 // sweep this job //
 ```
+az ml job create sweepjob.yml
+
 type: Sweep
+inputs:
+  mnist: 
+   - https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz
+   - https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz
+   - https://azureopendatastorage.blob.core.windows.net/mnist/t10k-images-idx3-ubyte.gz
+   - https://azureopendatastorage.blob.core.windows.net/mnist/t10k-labels-idx1-ubyte.gz 
 search_space:
   lr:
     uniform:
@@ -29,10 +46,10 @@ objective:
     goal: maximize     
 algorithm: random
 trial:
-  job_id: my_job_id // reuses values from job, only things specified are overridden
+  job: traintorch.yml
   command:  >-
       python train.py
-      --data { mount: dataset_id_or_name }
+      --data { inputs.mnist }
       --epochs 14
       --batch-size 64
       --test-batch-size 1000
