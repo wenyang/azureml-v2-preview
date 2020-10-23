@@ -48,15 +48,9 @@ objective:
     goal: maximize     
 algorithm: random
 trial:
-  job: traintorch.yml
-  command:  >-
-      python train.py
-      --data { job.inputs.mnist }
-      --epochs { inputs.epochs }
-      --batch-size 64
-      --test-batch-size 1000
-      --lr {search_space.lr}
-      --gamma 0.7
+  uses: component_guid
+  with:  
+    
 ```
 
  // workflow job
