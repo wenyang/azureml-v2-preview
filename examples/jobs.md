@@ -19,7 +19,7 @@ inputs:
 command: >-
     python train.py
     --data { inputs.mnist }
-    --epochs { inputs.epochs }
+    --epochs 14
     --batch-size 64
     --test-batch-size 1000
     --lr 1.0
