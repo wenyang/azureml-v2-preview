@@ -43,7 +43,7 @@ run:
   code: ./samples/LightGBM/examples
   command: python ./examples/python-guide/advanced_example.py
   environment:
-    name: /subscriptions/5f08d643-1910-4a38-a7c7-84a39d4f42e0/resourceGroups/paulshmaster2/providers/Microsoft.MachineLearningServices/Environments/AzureML-AutoML-DNN-GPU
+    name: /Environments/AzureML-LightGBM
 name: single_job
 on_compute:
   target: goazurego
@@ -85,7 +85,7 @@ early_termination:
   slack_factor: 0.2
   delay_evaluation: 200
 compute: goazurego
-environment: /subscriptions/5f08d643-1910-4a38-a7c7-84a39d4f42e0/resourceGroups/paulshmaster2/providers/Microsoft.MachineLearningServices/Environments/AzureML-AutoML-DNN-GPU
+environment: /Environments/AzureML-LightGBM
 ```
 
 ## Datasets
