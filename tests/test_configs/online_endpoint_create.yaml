@@ -1,0 +1,7 @@
+{
+    "location": "centraluseuap",
+    "name": "myendpoint",
+    "sub_type": "online",
+    "compute_type": "AMLCompute",
+    "auth_mode": "AMLTokenAuth"
+}

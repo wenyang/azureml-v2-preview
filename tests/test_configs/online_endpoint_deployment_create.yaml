@@ -1,0 +1,11 @@
+{
+  "location": "centraluseuap",
+  "name": "bluedeployment",
+  "sub_type": "online",
+  "model": "modelid",
+  "endpoint" : "myendpoint",
+  "code": "codeid",
+  "environment": "environmentid",
+  "compute_type": "AMLCompute",
+  "instance_count": 2
+}
