@@ -15,10 +15,11 @@ jobs:
       uses: actions/setup-python@v2.1.4
       with:
         python-version: 3.7
-    - run: sudo npm install -g autorest
-    - run: python scripts/dev_setup.py -sdk
-    - run: python scripts/dev_setup.py -cli
-    - run: pip install -e ./src/cli/src/machinelearningservices
+ #   - run: sudo npm install -g autorest
+ #   - run: python scripts/dev_setup.py -sdk
+ #   - run: python scripts/dev_setup.py -cli
+    - run: echo $GITHUB_WORKSPACE
+ #   - run: pip install -e ./src/cli/src/machinelearningservices
     - run: echo $AZURE_EXTENSION_DIR
     - run: az extension list
     - run: export AZURE_EXTENSION_DIR=$GITHUB_WORKSPACE/src/cli/src
