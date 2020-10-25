@@ -3,14 +3,16 @@ This is the private preview for the Azure ML 2.0 developer experience.
 
 The 2.0 developer platform provides first class API / CLI / SDK support for model training and scoring scenarios.
 
+Private preview launches at the end of November, this repo is in progress.
+
 # Key goals
 
 ## New CLI experience
-- consistent progression from simple job to sweep job to workflow  job
-- consistent progression from model to endpoint (real time and batch)
+- consistent job story
+- consistent endpoint story
 - all ML resources, assets and artifacts can be serialized and exported in a human readable format (git-compatible)
-- support for reusable Components - all jobs are now composable
-- reduce concepts to fundamentals of: Job, Component, Data, Environment, Model, Endpoint, LinkedService (aka AttachedResource)
+- all jobs are now composable
+- reduce concepts to fundamentals of: Job, Dataset, Environment, Model, Endpoint, LinkedService (Compute & Storage)
 
 ## ARM support
 - Improved API surface area and clean APIs for ISVs and language SDKs to build on top of
@@ -20,9 +22,20 @@ The 2.0 developer platform provides first class API / CLI / SDK support for mode
 - X-workspace discovery, consumption and sharing (CI/CD) of assets and resources, proper git-flow support
 
 # Concepts
+Note that all schemas are still in the process of being finalized, but the overall structure shouldn't change too much.
+
+**Key Nouns**
+- Job
+- Dataset
+- Environment
+- Compute
+- Model
+- Endpoint
 
 ## 	Job (training)
-To run a job, execute the following cli command: ```az ml job create jobspec.yaml```
+ARM example: https://github.com/mrudulan/DevPlatv2Template
+
+CLI example: ```az ml job create jobspec.yaml```
 
 **Command Job:**
 ```yaml
@@ -61,7 +74,7 @@ objective:
   goal: minimize
 trial: 
   command: python ./examples/python-guide/advanced_example.py
-  code: C:\Users\paulsh\Documents\sdk-cli-v2\samples\LightGBM\examples
+  code: ./samples/LightGBM/examples
 limits:
   max_total_runs: 10
   max_concurrent_runs: 5
@@ -76,11 +89,16 @@ environment: /subscriptions/5f08d643-1910-4a38-a7c7-84a39d4f42e0/resourceGroups/
 ```
 
 ## Datasets
+```bash
+az ml dataset create sample
 ```
-name: testDataset
+
+```
+name: test
+type: AzureBlob
 version: "1.0"
 description: "this is a test dataset"
-linkedServiceId: "/subscriptions/5f08d643-1910-4a38-a7c7-84a39d4f42e0/resourceGroups/sdk_vnext_cli/providers/Microsoft.MachineLearningServices/workspaces/sdk_vnext_cli/workspaceblobstore"
+linked_service: "./workspaceblobstore"
 assetPaths:
   -
     path: "v2test/test.rtf"
@@ -88,6 +106,9 @@ assetPaths:
 ```
 
 ## Environment
+```bash
+az ml environment create pytorchenv.yaml
+```
 
 ```
 name: AzureML-Pytorch
@@ -108,50 +129,86 @@ conda:
             - fastai
       prefix: "aml"
    interpreter_path: "python" # defaults to python
-
 ```
 
-## -	Compute
-Coming soon
+## Compute
+```bash
+az ml compute create cpucluster.yaml
+```
+
+```yaml
+type: AzureMLCompute
+name: cpu-cluster
+min_nodes: 0
+max_nodes: 4
+sku: STANDARD_D3_V2
+```
 
 ## -	Model
-Coming soon
+```bash
+az ml model create thismodel.yaml
+```
+
+```yaml
+path: ./model
+flavors:
+  python_function:
+    data: model.pkl
+    env: conda.yaml
+    loader_component: mlflow.sklearn
+    python_version: 3.8.2
+  sklearn:
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 0.23.1
+```
 
 ## -	Endpoint (scoring) 
-Coming soon
 
-## Run a job in 2.0 (CLI)
+**Real-time**
+```yaml
+name: myEndpoint
+compute: ws:/aks-prod
+auth_mode: token
+traffic:
+  blue: 100
 
-> Note: The CLI is handling upload and registration of local assets (code / data) as required. Upload and download will leverage Azure Storage recommended solution, eg. az storage 
+deployments:
+  blue:    
+    model: ws:/thatmodel:1
+    code: ./src/onlinescoring/m1/
+    entry_script: ./src/onlinescoring/m1/score.py
+    environment: ./src/onlinescoring/env_m1.yaml  
+    sku: Standard_FS4_v2
+    scale_settings:
+      scale_type: auto
+      instance_count: 3
+      min_instances: 1
+      max_instances: 5
+    request_settings:
+      scoring_timeout_ms: 3000
+```
 
-## Run a job in 2.0 (REST API)
+**Batch**
+```yaml
+name: mnist-sklearn-deployment
+endpoint: mnist-sklearn-endpoint
+type: Batch
+code: ./src
+environment: pets-Environment.yaml # or an environment identifier
+model: ws:/my-model:1
+batch_settings:
+  scale_settings:
+    node_count: 10 # ? Can we move this up and make it similar to instanceCount in Online?
+  partitioning_scheme:
+    mini_batch_size: 20
+  output_configuration:
+    append: row
+  error_threshold: 3
+  retry_settings:
+    timeout_in_seconds: 30
 
-Here we see the relevate section of the ARM template (and REST API) to achive the same as shown above.
-
-```json 
-PUT .../providers/Microsoft.MachineLearningServices/workspaces/my_ws/jobs/great_job_007
-
-{
-  ...
-  "properties": {
-    "run": {
-      "command": "python train.py  --data $AZUREML_DATASET_inputs.data  --epochs 14 --batch-size 64 --test-batch-size 1000 --lr 1.0 --gamma 0.7 --save_model outputs/model",
-      "environment": {
-        "docker": {
-          "image": "pytorch/pytorch"
-        }
-      },
-      "code": {
-        "id": "eff289b6-416f-41f0-8a8b-7aa5e5d154bf"
-      }
-    },
-    "inputs": {
-      "data": {
-        "mount": "mnist-data"
-      }
-    }
-  }
-}
+runs-on: ws:/gpu-cluster 
 ```
 
 > Note: The REST API requires the user to first upload and register their code/assets before calling the job create API. Also in the command line, parameters need to be replaced before sending it to the REST API. 
