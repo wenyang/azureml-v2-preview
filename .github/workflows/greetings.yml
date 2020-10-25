@@ -1,7 +1,9 @@
-name: Greetings
+name: Build and run CLI
 
-on: [push]
-
+on: 
+  push:
+    branches:
+      - main
 jobs:
   dev-setup:
     runs-on: ubuntu-latest
@@ -25,3 +27,4 @@ jobs:
     - run: echo $AZURE_EXTENSION_DIR
     - run: az extension list
     - run: az ml -h
+    - run: az ml job -h
