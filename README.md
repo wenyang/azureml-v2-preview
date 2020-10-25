@@ -90,7 +90,7 @@ environment: /Environments/AzureML-LightGBM
 
 ## Datasets
 ```bash
-az ml dataset create sample
+az ml dataset create sample.yaml
 ```
 
 ```
