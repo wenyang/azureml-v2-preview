@@ -39,14 +39,13 @@ CLI example: ```az ml job create jobspec.yaml```
 
 **Command Job:**
 ```yaml
-name: single_job
+name: lightgbm
 run:
   code: ./samples/LightGBM/examples
   command: python ./examples/python-guide/advanced_example.py --lr 0.01 --feature_fraction 0.7 --bagging_fraction 0.6
   environment:
-    name: /Environments/AzureML-LightGBM
+    name: lightgbm
 compute: goazurego
-experiment_name: lightgbm
 properties:
   source: repo
 ```
@@ -56,35 +55,22 @@ properties:
 name: sweep_lightgbm
 algorithm: random
 search_space:
-  --lr:
+  lr:
     spec: uniform
     min_value: 0.01
     max_value: 0.1
-  --feature_fraction:
-    spec: uniform
-    min_value: 0.7
-    max_value: 0.9
-  --bagging_fraction:
-    spec: uniform
-    min_value: 0.6
-    max_value: 0.8     
 objective:
   primary_metric: rmse
   goal: minimize
 trial: 
-  command: python ./examples/python-guide/advanced_example.py {search_space}
+  command: python ./examples/python-guide/advanced_example.py  --lr {search_space.lr} --feature_fraction 0.7 --bagging_fraction 0.6
   code: ./samples/LightGBM/examples
-limits:
-  max_total_runs: 10
-  max_concurrent_runs: 5
-  max_duration_minutes: 10000
+  environment: lightgbm
 early_termination:
-  spec: bandit
-  evaluation_interval: 100
-  slack_factor: 0.2
-  delay_evaluation: 200
+  spec: median
+  evaluation_interval: 1
+  delay_evaluation: 5
 compute: goazurego
-environment: /Environments/AzureML-LightGBM
 ```
 
 ## Datasets
