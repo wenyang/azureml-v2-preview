@@ -150,6 +150,7 @@ az ml model create thismodel.yaml
 ```
 
 ```yaml
+name: mymodel
 path: ./model
 flavors:
   python_function:
