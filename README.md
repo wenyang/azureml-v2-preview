@@ -42,7 +42,7 @@ CLI example: ```az ml job create jobspec.yaml```
 name: single_job
 run:
   code: ./samples/LightGBM/examples
-  command: python ./examples/python-guide/advanced_example.py
+  command: python ./examples/python-guide/advanced_example.py --lr 0.01 --feature_fraction 0.7 --bagging_fraction 0.6
   environment:
     name: /Environments/AzureML-LightGBM
 compute: goazurego
@@ -72,7 +72,7 @@ objective:
   primary_metric: rmse
   goal: minimize
 trial: 
-  command: python ./examples/python-guide/advanced_example.py
+  command: python ./examples/python-guide/advanced_example.py {search_space}
   code: ./samples/LightGBM/examples
 limits:
   max_total_runs: 10
