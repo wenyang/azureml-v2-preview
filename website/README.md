@@ -1,8 +1,8 @@
 # Website
 
-![deploy-website](https://github.com/Azure/azureml-examples/workflows/deploy-website/badge.svg)
+![deploy-website](https://github.com/Azure/azureml-v2-preview/workflows/deploy-website/badge.svg)
 
-Website is available here: https://azure.github.io/azureml-examples/
+Website is available here: https://azure.github.io/azureml-v2-preview/
 
 This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
 
@@ -11,8 +11,8 @@ This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern 
 Make PR's against the `main` branch
 
 ```bash
-git clone git@github.com:Azure/azureml-examples.git
-cd azureml-examples
+git clone git@github.com:Azure/azureml-v2-preview.git
+cd azureml-v2-preview
 git checkout -b user/contrib
 ```
 
