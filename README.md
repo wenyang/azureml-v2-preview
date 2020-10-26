@@ -39,14 +39,13 @@ CLI example: ```az ml job create jobspec.yaml```
 
 **Command Job:**
 ```yaml
+name: single_job
 run:
   code: ./samples/LightGBM/examples
   command: python ./examples/python-guide/advanced_example.py
   environment:
     name: /Environments/AzureML-LightGBM
-name: single_job
-on_compute:
-  target: goazurego
+compute: goazurego
 experiment_name: lightgbm
 properties:
   source: repo
@@ -54,7 +53,7 @@ properties:
 
 **Sweep Job:**
 ```yaml
-experiment_name: lightgbm
+name: sweep_lightgbm
 algorithm: random
 search_space:
   --lr:
