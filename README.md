@@ -112,8 +112,6 @@ conda:
             - torch
             - torchvision
             - fastai
-      prefix: "aml"
-   interpreter_path: "python" # defaults to python
 ```
 
 ## Compute
