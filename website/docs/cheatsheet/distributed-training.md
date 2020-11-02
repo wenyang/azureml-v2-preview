@@ -62,25 +62,15 @@ No matter which launch style user choose, users can follow these steps:
 4. Prepare the user script and map environment variables AzureML set up to your needs. See [detailed instruction](#environment-variables-from-openmpi) and [examples](#examples).
 
 Here is a code snippet:
-```python
-from azureml.core import Workspace, ScriptRunConfig, Environment
-from azureml.core.runconfig import MpiConfiguration
+```yaml
+name: dist_pytorch
+source_directory: ./src
+command: python train.py
+compute_target: gpu_cluster
+distributed: { mpi: { process_count_per_node: 4, node_count: 2} }
+environment: azureml/pytorch_16_gpu
 
-curated_env_name = 'AzureML-PyTorch-1.6-GPU'
-pytorch_env = Environment.get(workspace=ws, name=curated_env_name)
-mpiconfig = MpiConfiguration(process_count_per_node=4, node_count=2)
-
-run_cf = ScriptRunConfig(
-    source_directory= 'src' ,
-    script="train.py",
-    compute_target=compute_target,
-    distributed_job_config=mpiconfig,
-    environment=pytorch_env 
-)
-
-# submit the runconfig and run the job
-experiment = Experiment(ws, "experiment_name")
-experiment.submit(run_cf)
+az ml job create dist_pytorch.yaml
 ```
 
 :::caution
