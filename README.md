@@ -32,6 +32,9 @@ Note that all schemas are still in the process of being finalized, but the overa
 - Model
 - Endpoint
 
+# User Guide (WIP)
+https://azure.github.io/azureml-v2-preview/
+
 ## 	Job (training)
 ARM example: https://github.com/mrudulan/DevPlatv2Template
 
