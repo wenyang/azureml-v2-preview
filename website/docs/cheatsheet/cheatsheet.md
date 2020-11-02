@@ -10,7 +10,7 @@ slug: /cheatsheet/
 
 ```python
 az ml workspace init
-a```
+```
 
 For more details: [Workspaces](workspace)
 
