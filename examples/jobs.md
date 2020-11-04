@@ -68,7 +68,9 @@ limits:
 ```
 type: TBD
 inputs: 
-  previous_run_id: [guid1]
+  previous_run_id: 
+    type: string
+    default: guid1
 strategy:
   max-parallel: 4
   matrix:
@@ -76,7 +78,7 @@ strategy:
     styles: [ printed, mixed ]
 jobs:
   prep:
-   command: python prep.py --language {inputs.language_data} --language --styles {matrix.styles}
+   command: python prep.py --language {inputs.language_data} --language --styles {matrix.styles} --resume_from {inputs.previous_run_id}
    code: ./src
    target: cpu
    inputs:
