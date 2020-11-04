@@ -9,7 +9,8 @@ Welcome to the AML User Guide!
 We have pre-built the Azure ML CLI as part of this Git repository. Simply run the following commands to set up your CLI environment
 
 ```bash
-wget uri/where/cli/bits/are
+wget https://github.com/Azure/azureml-v2-preview/suites/1447370079/artifacts/24618504
+tar xvf {cli.zip} -C ./azureml2/cli
 set AZURE_EXTENSION_DIR=path/you/downloaded/to
 az ml -h
 ```
