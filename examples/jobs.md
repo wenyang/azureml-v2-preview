@@ -60,13 +60,16 @@ type: Workflow
    prep:
      command: python prep.py --output-dir {outputs.prepped_data.from}
      code: ./src
+     target: cpu
      outputs: 
       prepped_data: 
         from: /outputs/prepped_data
    train:
      needs: prep
+     target: gpu
      command: python train.py --data {needs.prep.outputs.prepped_data}
      code: ./src
+     
      
  // workflow job with a component
  type: Workflow
