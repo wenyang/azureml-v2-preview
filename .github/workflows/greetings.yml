@@ -30,3 +30,8 @@ jobs:
     - run: az extension list
     - run: az ml -h
     - run: az ml job -h
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.0
+      with:
+        name: cli
+        path: src/cli/src/machinelearningservices
