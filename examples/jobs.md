@@ -66,24 +66,26 @@ limits:
 
  // workflow job
 ```
-type: Pipeline
-matrix:
-  language: [ english, spanish, french, mandarin]
+type: TBD
+inputs: 
+  previous_run_id: [guid1]
+strategy:
+  max-parallel: 4
+  matrix:
+    language: [ english, spanish, french, mandarin, latinv2 ]
+    styles: [ printed, mixed ]
 jobs:
   prep:
-   command: python prep.py --data {inputs.language_data}
+   command: python prep.py --language {inputs.language_data} --language --styles {matrix.styles}
    code: ./src
    target: cpu
    inputs:
      language_data: 
        path: azureml:Datasets/ocr_data/[matrix.language]
-   outputs: 
-    prepped_data: 
-      from: /outputs/prepped_data
- train:
-   needs: prep
-   target: gpu
-   command: python train.py --data {needs.prep.outputs.prepped_data}
-   code: ./src
+   train:
+     needs: prep
+     target: gpu
+     command: python train.py --data {jobs.prep.outputs.prepped_data}
+     code: ./src
      
 ```
