@@ -24,7 +24,8 @@ command: >-
     --test-batch-size 1000
     --lr 1.0
     --gamma 0.7
-container: docker:pytorch/pytorch
+container: 
+  image: pytorch/pytorch
 code: ./src
 compute: 
   target: cpu-cluster
