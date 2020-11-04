@@ -1,21 +1,14 @@
 ```
-az ml dataset create dataset.yml
-```
-
-```
-az ml compute create gpu-cluster.yml
-```
-
-```
 az ml job create traintorch.yml
 
 traintorch.yml
 inputs:
   mnist: 
-   - https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz
-   - https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz
-   - https://azureopendatastorage.blob.core.windows.net/mnist/t10k-images-idx3-ubyte.gz
-   - https://azureopendatastorage.blob.core.windows.net/mnist/t10k-labels-idx1-ubyte.gz
+    path:
+     - https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz
+     - https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz
+     - https://azureopendatastorage.blob.core.windows.net/mnist/t10k-images-idx3-ubyte.gz
+     - https://azureopendatastorage.blob.core.windows.net/mnist/t10k-labels-idx1-ubyte.gz
 command: >-
     python train.py
     --data { inputs.mnist }
@@ -36,54 +29,61 @@ compute:
 ```
 az ml job create sweepjob.yml
 
-type: Sweep
-inputs:
-  epochs: 14
+name: sweep-job-example
+algorithm: random
 search_space:
   lr:
-    uniform:
-      min: 0.001
-      max: 0.1
+    type: uniform
+    min_value: 0.001
+    max_value: 0.1
+  conv_size:
+    type: choice
+    values: [2, 5, 7]
+  dropout_rate:
+    type: uniform
+    min_value: 0.1
+    max_Value: 0.5     
 objective:
-    primary_metric: accuracy
-    goal: maximize     
-algorithm: random
-trial:
-  uses: component_guid
-  with:  
+  primary_metric: accuracy
+  goal: maximize
+trial: 
+  name: a_trial 
+  command: python train.py --epochs 500 --lr { search_space.lr } --dropout-rate { search_space.dropout_rate } --conv-size { search_space.conv_size }
+  environment: azureml:Environments/AzureML-Minimal
+  compute:
+    target: azureml:Compute/test-cluster
+early_termination:
+  type: bandit
+  evaluation_interval: 100
+  slack_factor: 0.2
+  delay_evaluation: 200
+limits:
+  max_total_trials: 100
+  max_concurrent_trials: 10
+  timeout_minutes: 10000
     
 ```
 
  // workflow job
 ```
-type: Workflow
- jobs:
-   prep:
-     command: python prep.py --output-dir {outputs.prepped_data.from}
-     code: ./src
-     target: cpu
-     outputs: 
-      prepped_data: 
-        from: /outputs/prepped_data
-   train:
-     needs: prep
-     target: gpu
-     command: python train.py --data {needs.prep.outputs.prepped_data}
-     code: ./src
+type: Pipeline
+matrix:
+  language: [ english, spanish, french, mandarin]
+jobs:
+  prep:
+   command: python prep.py --data {inputs.language_data}
+   code: ./src
+   target: cpu
+   inputs:
+     language_data: 
+       path: azureml:Datasets/ocr_data/[matrix.language]
+   outputs: 
+    prepped_data: 
+      from: /outputs/prepped_data
+ train:
+   needs: prep
+   target: gpu
+   command: python train.py --data {needs.prep.outputs.prepped_data}
+   code: ./src
      
-     
- // workflow job with a component
- type: Workflow
- jobs:
-   prep:
-     command: python prep.py --output-dir {outputs.prepped_data.from}
-     code: ./src
-     outputs: 
-      prepped_data: 
-        from: /outputs/prepped_data
-   train:
-     needs: prep
-     uses: train_component@main
-     with:
-      prepped_data: {needs.prep.prepped_data}
 ```
