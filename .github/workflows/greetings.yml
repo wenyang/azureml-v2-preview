@@ -22,8 +22,8 @@ jobs:
       with:
         python-version: 3.7
     - run: sudo npm install -g autorest
-    - run: python scripts/dev_setup.py -sdk
-    - run: python scripts/dev_setup.py -cli
+    - run: python scripts/dev_setup.py -s
+    - run: python scripts/dev_setup.py -c
     - run: echo $GITHUB_WORKSPACE
     - run: pip install -e ./src/cli/src/machinelearningservices
     - run: echo $AZURE_EXTENSION_DIR
