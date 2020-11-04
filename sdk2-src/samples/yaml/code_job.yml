@@ -1,0 +1,13 @@
+code: file:code_asset.yml
+command: python ./read_dataset.py {inputs.value}
+environment: azureml:/subscriptions/5f08d643-1910-4a38-a7c7-84a39d4f42e0/resourceGroups/sdk_vnext_cli/providers/Microsoft.MachineLearningServices/workspaces/sdk_vnext_cli/Environments/AzureML-Minimal
+name: "test1"
+compute:
+  target: "testCompute" 
+experiment_name: mfe-test1
+properties:
+  _azureml.ComputeTargetType: amlcompute
+inputs:
+  value:
+    name: azureml:/subscriptions/5f08d643-1910-4a38-a7c7-84a39d4f42e0/resourceGroups/sdk_vnext_cli/providers/Microsoft.MachineLearningServices/workspaces/sdk_vnext_cli/data/vnext_test/versions/2
+    mode: "Mount"
