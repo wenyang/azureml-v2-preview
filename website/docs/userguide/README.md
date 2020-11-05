@@ -19,7 +19,7 @@ We have pre-built the Azure ML CLI in a public blob. Simply run the following co
 ```console
 wget https://mldevplatv2.blob.core.windows.net/cli/cli.zip
 mkdir ~/azmlcli; tar xvf cli.zip -C ~/azmlcli
-export AZURE_EXTENSION_DIR=~/azmlcli/azext_ml
+export AZURE_EXTENSION_DIR=~/azmlcli
 az ml -h
 ```
 

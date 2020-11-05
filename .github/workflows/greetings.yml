@@ -34,7 +34,7 @@ jobs:
       uses: actions/upload-artifact@v2.2.0
       with:
         name: cli
-        path: sdk2-src/src/cli/src/machinelearningservices
+        path: sdk2-src/src/cli/src
     - name: azure login
       uses: azure/login@v1
       with:
