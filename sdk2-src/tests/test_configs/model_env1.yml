@@ -1,0 +1,4 @@
+name: my-model
+version: 3
+asset_path: ./model.pkl
+environment: azureml:Environments/AzureML-Minimal

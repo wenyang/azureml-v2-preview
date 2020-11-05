@@ -1,0 +1,21 @@
+# outdated please use the example in tests
+name: AzureML-Minimal
+version: '1'
+conda:
+   inline:
+      name: "test_env"
+      channels:
+         - conda-forge
+      dependencies:
+         - python=3.6.2
+         - pip:
+            - azureml-core
+            - azureml-defaults
+            - torch
+            - torchvision
+            - fastai
+      prefix: "aml"
+   interpreter_path: "python" # defaults to python
+#docker:
+#   image: mcr.microsoft.com/azureml/base:0.2.2
+
