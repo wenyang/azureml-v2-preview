@@ -1,7 +1,0 @@
-name: TestEnv
-version: '1'
-path: environment_files
-runtime: runtime.txt
-python:
-   requirements_specification_file: requirements.txt
-
