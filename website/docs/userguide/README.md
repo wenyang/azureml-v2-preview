@@ -36,7 +36,7 @@ Prepare the code you'd like to run. For this example, we'll simply clone LightGB
 git clone https://github.com/Microsoft/lightgbm
 ```
 
-CLI example: ```az ml job create jobspec.yaml```
+CLI example: ```az ml job create --file jobspec.yaml```
 
 **Command Job:**
 
