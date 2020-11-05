@@ -12,7 +12,7 @@ Welcome to the AML User Guide!
 
 ## Install the CLI
 
-We have pre-built the Azure ML CLI as part of this Git repository. Simply run the following commands to set up your CLI environment:
+We have pre-built the Azure ML CLI in a public blob. Simply run the following commands to set up your CLI environment:
 
 > MacOS? Install [homebrew](https://brew.sh), then `brew install wget`
 
