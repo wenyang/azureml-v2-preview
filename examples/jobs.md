@@ -4,11 +4,7 @@ az ml job create traintorch.yml
 traintorch.yml
 inputs:
   mnist: 
-    path:
-     - https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz
-     - https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz
-     - https://azureopendatastorage.blob.core.windows.net/mnist/t10k-images-idx3-ubyte.gz
-     - https://azureopendatastorage.blob.core.windows.net/mnist/t10k-labels-idx1-ubyte.gz
+    path: https://azureopendatastorage.blob.core.windows.net/mnist/
 command: >-
     python train.py
     --data { inputs.mnist }
