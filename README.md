@@ -12,7 +12,7 @@ Private preview launches at the end of November, this repo is in progress.
 - consistent endpoint story
 - all ML resources, assets and artifacts can be serialized and exported in a human readable format (git-compatible)
 - all jobs are now composable
-- reduce concepts to fundamentals of: Job, Dataset, Environment, Model, Endpoint, LinkedService (Compute & Storage)
+- reduce concepts to fundamentals of: Job, Data, Environment, Model, Endpoint, LinkedService (Compute & Storage)
 
 ## ARM support
 - Improved API surface area and clean APIs for ISVs and language SDKs to build on top of
@@ -26,7 +26,7 @@ Note that all schemas are still in the process of being finalized, but the overa
 
 **Key Nouns**
 - Job
-- Dataset
+- Data
 - Environment
 - Compute
 - Model
@@ -76,9 +76,9 @@ early_termination:
 compute: goazurego
 ```
 
-## Datasets
+## Data
 ```bash
-az ml dataset create sample.yaml
+az ml data create sample.yaml
 ```
 
 ```
