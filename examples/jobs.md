@@ -81,7 +81,6 @@ jobs:
      language_data: 
        path: azureml:Datasets/ocr_data/[matrix.language]
    train:
-     needs: prep
      target: gpu
      command: python train.py --data {jobs.prep.outputs.prepped_data}
      code: ./src
