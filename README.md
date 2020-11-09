@@ -43,14 +43,13 @@ CLI example: ```az ml job create jobspec.yaml```
 **Command Job:**
 ```yaml
 name: lightgbm
-run:
-  code: ./samples/LightGBM/examples
-  command: python ./examples/python-guide/advanced_example.py --lr 0.01 --feature_fraction 0.7 --bagging_fraction 0.6
-  environment:
+code: 
+  directory: ./samples/LightGBM/examples
+command: python ./examples/python-guide/advanced_example.py --lr 0.01 --feature_fraction 0.7 --bagging_fraction 0.6
+environment:
     name: lightgbm
-compute: goazurego
-properties:
-  source: repo
+compute: 
+  target: goazurego
 ```
 
 **Sweep Job:**
@@ -67,8 +66,10 @@ objective:
   goal: minimize
 trial: 
   command: python ./examples/python-guide/advanced_example.py  --lr {search_space.lr} --feature_fraction 0.7 --bagging_fraction 0.6
-  code: ./samples/LightGBM/examples
-  environment: lightgbm
+  code: 
+    directory: ./samples/LightGBM/examples
+  environment: 
+    name: lightgbm
 early_termination:
   spec: median
   evaluation_interval: 1
