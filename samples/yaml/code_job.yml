@@ -1,0 +1,13 @@
+code: 
+  directory: ../python
+command: python ./read_dataset.py --dataset {inputs.value} --lr 0.1
+environment: azureml:/subscriptions/5f08d643-1910-4a38-a7c7-84a39d4f42e0/resourceGroups/sdk_vnext_cli/providers/Microsoft.MachineLearningServices/workspaces/sdk_vnext_cli/Environments/AzureML-PyTorch-1.5-CPU/versions/1
+name: test1
+compute:
+  target: testCompute
+properties:
+  my_property: foo
+inputs:
+  value:
+    name: azureml:/subscriptions/5f08d643-1910-4a38-a7c7-84a39d4f42e0/resourceGroups/sdk_vnext_cli/providers/Microsoft.MachineLearningServices/workspaces/sdk_vnext_cli/data/vnext_test/versions/2
+    mode: Mount
