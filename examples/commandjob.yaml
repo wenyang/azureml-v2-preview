@@ -5,7 +5,7 @@ environment: "azureml:/subscriptions/92c76a2f-0e1c-4216-b65e-abf7a3f34c1e/resour
               Microsoft.MachineLearningServices/workspaces/devplatv2/\
               Environments/\
               AzureML-PyTorch-1.5-CPU/versions/1"
-name: test1
+name: test_1
 compute:
   target: testCompute
 inputs:
