@@ -39,6 +39,6 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{secrets.AZURE_TOKEN}}
-    - run: az ml job create --workspace-name devplatv2 --resource-group demorg --subscription 92c76a2f-0e1c-4216-b65e-abf7a3f34c1e --file examples/commandjob.yml
+    - run: az ml job create --workspace-name devplatv2 --resource-group demorg --subscription 92c76a2f-0e1c-4216-b65e-abf7a3f34c1e --file examples/commandjob.yaml
       working-directory: .
       continue-on-error: true
