@@ -30,46 +30,11 @@ This should show off the new set of AZ CLI commands and you'll be all set to get
 
 ## Creating a job
 
-Prepare the code you'd like to run. For this example, we'll simply clone LightGBM from GitHub and run an example:
+Prepare the code you'd like to run. For this example, we'll simply clone the v2 preview repo and run the first example!
 
 ```console
-git clone https://github.com/Microsoft/lightgbm
+git clone https://github.com/Azure/azureml-v2-preview
 ```
 
-CLI example: ```az ml job create --file jobspec.yaml```
+CLI example: ```az ml job create --file examples/commandjob.yaml```
 
-**Command Job:**
-
-```yaml
-name: lightgbm
-run:
-  code: ./lightgbm/examples
-  command: python ./python-guide/advanced_example.py --lr 0.01 --feature_fraction 0.7 --bagging_fraction 0.6
-  environment:
-    name: lightgbm
-compute: goazurego
-```
-
-**Sweep Job:**
-
-```yaml
-name: lightgbm-sweep
-algorithm: random
-search_space:
-  lr:
-    spec: uniform
-    min_value: 0.01
-    max_value: 0.1
-objective:
-  primary_metric: rmse
-  goal: minimize
-trial:
-  code: ./lightgbm/examples
-  command: python ./python-guide/advanced_example.py  --lr {search_space.lr} --feature_fraction 0.7 --bagging_fraction 0.6
-  environment: lightgbm
-early_termination:
-  spec: median
-  evaluation_interval: 1
-  delay_evaluation: 5
-compute: goazurego
-```
