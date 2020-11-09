@@ -1,11 +1,16 @@
-run:
-  code: ./samples/LightGBM/examples
-  command: python ./examples/python-guide/advanced_example.py
-  environment:
-    name: /subscriptions/5f08d643-1910-4a38-a7c7-84a39d4f42e0/resourceGroups/paulshmaster2/providers/Microsoft.MachineLearningServices/Environments/AzureML-AutoML-DNN-GPU
-name: single_job
-on_compute:
-  target: goazurego
-experiment_name: lightgbm
-properties:
-  source: repo
+code: 
+  directory: ../../sdk2-src/samples/python
+command: python ./read_dataset.py --dataset {inputs.value} --lr 0.1
+environment: "azureml:/subscriptions/92c76a2f-0e1c-4216-b65e-abf7a3f34c1e/resourceGroups/demorg/providers/\
+              Microsoft.MachineLearningServices/workspaces/devplatv2/\
+              Environments/\
+              AzureML-PyTorch-1.5-CPU/versions/1"
+name: test1
+compute:
+  target: testCompute
+inputs:
+  value:
+    name: "azureml:/subscriptions/5f08d643-1910-4a38-a7c7-84a39d4f42e0/resourceGroups/sdk_vnext_cli/providers/\
+          Microsoft.MachineLearningServices/workspaces/sdk_vnext_cli/\
+          data/testDirectoryData/versions/1"
+    mode: Mount
