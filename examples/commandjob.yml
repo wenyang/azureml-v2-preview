@@ -10,7 +10,7 @@ compute:
   target: testCompute
 inputs:
   value:
-    name: "azureml:/subscriptions/5f08d643-1910-4a38-a7c7-84a39d4f42e0/resourceGroups/sdk_vnext_cli/providers/\
-          Microsoft.MachineLearningServices/workspaces/sdk_vnext_cli/\
+    name: "azureml:/subscriptions/92c76a2f-0e1c-4216-b65e-abf7a3f34c1e/resourceGroups/demorg/providers/\
+          Microsoft.MachineLearningServices/workspaces/devplatv2/\
           data/testDirectoryData/versions/1"
     mode: Mount
