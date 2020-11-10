@@ -1,0 +1,2 @@
+name: fastai-env
+conda: ../environments/fastai-conda.yml
