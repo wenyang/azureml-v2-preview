@@ -32,11 +32,11 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-pip-
     - run: python scripts/dev_setup.py -s
-      if: steps.cache.outputs.cache-hit != 'true'
+    #  if: steps.cache.outputs.cache-hit != 'true'
     - run: python scripts/dev_setup.py -c
-      if: steps.cache.outputs.cache-hit != 'true'
-    - run: pip install -e ./src/azure-ml
-    - run: pip install -e ./src/cli/src/machinelearningservices
+    #  if: steps.cache.outputs.cache-hit != 'true'
+    #- run: pip install -e ./src/azure-ml
+    #- run: pip install -e ./src/cli/src/machinelearningservices
     - run: echo $GITHUB_WORKSPACE
     - run: az extension list
     - run: az ml -h
