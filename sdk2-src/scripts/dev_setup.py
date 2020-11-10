@@ -16,19 +16,7 @@ def path_exists(dir: Path) -> bool:
 
 
 def remove_dir(dir: Path) -> None:
-    def onerror(func: Callable[..., Any], path: Path, exe_info: Any) -> None:
-        import stat
-        if not os.access(path, os.W_OK):
-            # Is the error an access error ?
-            os.chmod(path, stat.S_IWUSR)
-            func(path)
-        else:
-            raise Exception(f"other errors happened when removing path: {dir}")
-
-    if path_exists(dir):
-        shutil.rmtree(dir, onerror=onerror)
-    else:
-        print_red(f"{dir} does not exists. Skip removing it")
+    print('skipping to see if it breaks anything')
 
 
 def create_dir(dir: Path) -> None:
