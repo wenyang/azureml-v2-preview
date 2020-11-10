@@ -1,0 +1,16 @@
+trigger:
+- master
+
+variables:
+  - template: config/vars.yml
+
+pool:
+  name: $(poolName)
+  demands: DotNetFramework
+
+steps:
+- template: templates/sdk_setup/template-python.yml
+
+- script: |
+    python $(scriptPath)/copyright_validation.py --testpath "$(srcPath)"
+  displayName: "run copyright validation"
