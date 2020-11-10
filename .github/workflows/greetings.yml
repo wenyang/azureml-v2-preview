@@ -48,6 +48,11 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{secrets.AZURE_TOKEN}}
+    - run: az config set defaults.workspace=devplatv2
+      continue-on-error: true
+    - run: az ml data create --workspace-name devplatv2 --resource-group demorg --subscription 92c76a2f-0e1c-4216-b65e-abf7a3f34c1e --file examples/blob_dataset.yml
+      working-directory: .
+      continue-on-error: true
     - run: az ml environment create --workspace-name devplatv2 --resource-group demorg --subscription 92c76a2f-0e1c-4216-b65e-abf7a3f34c1e --file examples/fastai-env.yml
       working-directory: .
       continue-on-error: true
