@@ -31,6 +31,8 @@ jobs:
         key: ${{ runner.os }}-sdkcli-${{ hashFiles('**/requirements.txt') }}
         restore-keys: |
           ${{ runner.os }}-pip-
+    - run: conda create -n cli2
+    - run: conda activate cliv2
     - run: python scripts/dev_setup.py -s
     #  if: steps.cache.outputs.cache-hit != 'true'
     - run: python scripts/dev_setup.py -c
@@ -51,8 +53,7 @@ jobs:
       with:
         creds: ${{secrets.AZURE_TOKEN}}
     - run: az config set defaults.workspace=devplatv2
-      continue-on-error: true
-    - run: az config set defaults.grouo=demorg
+    - run: az config set defaults.group=demorg
     - run: az ml data create --subscription 92c76a2f-0e1c-4216-b65e-abf7a3f34c1e --file examples/blob_dataset.yml
       working-directory: .
       continue-on-error: true
