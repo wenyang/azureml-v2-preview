@@ -27,8 +27,8 @@ jobs:
       with:
         path: |
           ~/.cache/pip
-          ${{ github.workspace }}/sdk2-src/src/cli/src
-        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          ${{ github.workspace }}/sdk2-src/src
+        key: ${{ runner.os }}-sdk-${{ hashFiles('**/requirements.txt') }}
         restore-keys: |
           ${{ runner.os }}-pip-
     - run: python scripts/dev_setup.py -s
