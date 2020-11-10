@@ -1,6 +1,6 @@
 code: 
   directory: ../sdk2-src/samples/python
-command: python ./read_dataset.py --dataset {inputs.value} --lr 0.1
+command: python ./hello_world.py --dataset {inputs.value} --lr 0.1
 environment: "azureml:/subscriptions/92c76a2f-0e1c-4216-b65e-abf7a3f34c1e/resourceGroups/demorg/providers/\
               Microsoft.MachineLearningServices/workspaces/devplatv2/\
               Environments/\
