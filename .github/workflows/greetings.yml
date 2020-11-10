@@ -35,6 +35,7 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
     - run: python scripts/dev_setup.py -c
       if: steps.cache.outputs.cache-hit != 'true'
+    - run: pip install -e ./src/azure-ml
     - run: echo $GITHUB_WORKSPACE
     - run: az extension list
     - run: az ml -h
