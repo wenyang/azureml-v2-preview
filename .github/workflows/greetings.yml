@@ -31,8 +31,6 @@ jobs:
         key: ${{ runner.os }}-sdkcli-${{ hashFiles('**/requirements.txt') }}
         restore-keys: |
           ${{ runner.os }}-pip-
-    - run: conda create -n cli2
-    - run: conda activate cliv2
     - run: python scripts/dev_setup.py -s
     #  if: steps.cache.outputs.cache-hit != 'true'
     - run: python scripts/dev_setup.py -c
