@@ -1,0 +1,29 @@
+location: centraluseuap
+name: aksendpointtest
+type: online
+infrastructure: azureml:endpointakstest
+auth_mode: Key
+traffic:
+    blue: 0
+deployments:
+        #blue deployment
+    blue:   
+        model: azureml:/subscriptions/5f08d643-1910-4a38-a7c7-84a39d4f42e0/resourceGroups/sdk_vnext_cli/providers/Microsoft.MachineLearningServices/workspaces/sdk_vnext_cli/models/sklearn_regression_model:1
+        code_configuration:
+            code:
+                directory: ./endpoint
+            scoring_script: test.py
+        environment: azureml:/subscriptions/5f08d643-1910-4a38-a7c7-84a39d4f42e0/resourceGroups/sdk_vnext_cli/providers/Microsoft.MachineLearningServices/workspaces/sdk_vnext_cli/environments/AzureML-Minimal/versions/2
+        sku: Standard_FS4_v2
+        scale_settings:
+            scale_type: manual
+            instance_count: 1
+            min_instances: 1
+            max_instances: 1
+        request_settings:
+            request_timeout_ms: 3000
+            max_concurrent_requests_per_instance: 1
+            max_queue_wait_ms: 3000
+        resource_requirements:
+            cpu: 1.5
+            memory: 1.0
