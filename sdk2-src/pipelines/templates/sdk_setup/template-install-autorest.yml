@@ -1,3 +1,0 @@
-steps:
-  - script: npm install -g autorest
-    displayName: 'Install autorest'
