@@ -4,21 +4,26 @@ title: Job
 
 ## Overview
 
-A Job...
+A Job defines an operation to execute command(s) against a target in a specific virtual environment.
+Jobs can be defined in declarative YML and submitted via CLI/SDK/API against durable Azure Resource Manager endpoints.
+
+The key job types in the system are Command Job and Sweep Job (documented below).
 
 CLI example: ```az ml job create jobspec.yaml```
 
 **Command Job:**
 ```yaml
 name: lightgbm
-run:
-  code: ./samples/LightGBM/examples
-  command: python ./examples/python-guide/advanced_example.py --lr 0.01 --feature_fraction 0.7 --bagging_fraction 0.6
-  environment:
-    name: lightgbm
-compute: goazurego
-properties:
-  source: repo
+code: ./samples/LightGBM/examples
+run: python ./examples/python-guide/advanced_example.py --lr 0.01 --feature_fraction 0.7 --bagging_fraction 0.6 --data {inputs.the_data}
+container: { image: microsoft/lightgbm }
+runs-on: 
+  target: azureml:goazurego
+  node_count: 4
+inputs:
+  the_data: 
+    from: blob/uri
+    mode: mount
 ```
 
 **Sweep Job:**
@@ -34,12 +39,55 @@ objective:
   primary_metric: rmse
   goal: minimize
 trial: 
-  command: python ./examples/python-guide/advanced_example.py  --lr {search_space.lr} --feature_fraction 0.7 --bagging_fraction 0.6
+  run: python ./examples/python-guide/advanced_example.py  --lr {search_space.lr} --feature_fraction 0.7 --bagging_fraction 0.6
   code: ./samples/LightGBM/examples
-  environment: lightgbm
+  container: { image: microsoft/lightgbm }
 early_termination:
   spec: median
   evaluation_interval: 1
   delay_evaluation: 5
-compute: goazurego
+runs-on: goazurego
+```
+
+**Workflow / Pipeline Job** (WIP)
+```
+name: Test Pipeline
+inputs: 
+  training_set:
+    data: linkedservice:foobar:/data/mnist
+    mode: mount 
+    upload_from: ~/datasets/mnist
+outputs:
+  trained_model: 
+    mode: mount 
+
+runs-on: 
+  node_count: 4
+  process_count_per_node: 2
+  target: azureml:gpu_cluster
+
+env:
+  TEMP: /tmp
+  debug: True
+  data_path: {trained_model}
+
+container:
+  docker:
+    image: mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
+
+# paths are always relative to the location of the yaml file they contain
+code: ./src
+
+jobs:
+  high_lr:
+    steps:
+    - run: python main.py --lr 0.5
+  med_lr:
+    steps:
+    - run: python main.py --lr 0.3 --train {mnist_tensorflow} --model {foo}
+  low_lr:
+    steps:
+    - run: python main.py --lr 0.1 --train {mnist_tensorflow}   
+
+entry_points: [high_lr, low_lr]
 ```
