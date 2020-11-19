@@ -1,7 +1,6 @@
-name: test_v2data
+name: test_v2data_folder
 version: 1
-description: "this is a test dataset"
-linkedServiceId: "azureml:/subscriptions/92c76a2f-0e1c-4216-b65e-abf7a3f34c1e/resourceGroups/demorg/providers/\
-              Microsoft.MachineLearningServices/workspaces/devplatv2/Datastores/\
-              workspaceblobstore"
-directory: "v2test"
+description: this is a test dataset
+linkedServiceId: azureml:workspaceblobstore
+directory: /v2test
+
