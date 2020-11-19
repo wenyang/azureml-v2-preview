@@ -31,14 +31,9 @@ jobs:
         key: ${{ runner.os }}-sdkcli-${{ hashFiles('**/requirements.txt') }}
         restore-keys: |
           ${{ runner.os }}-pip-
-    - run: python scripts/dev_setup.py -s
-    #  if: steps.cache.outputs.cache-hit != 'true'
-    - run: python scripts/dev_setup.py -c
-    #  if: steps.cache.outputs.cache-hit != 'true'
-    #- run: pip install -e ./src/azure-ml
-    #- run: pip install -e ./src/cli/src/machinelearningservices
     - run: echo $GITHUB_WORKSPACE
     - run: az extension list
+    - run: az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/26164105/ml-0.0.1-py3-none-any.whl --pip-extra-index-urls https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2/26164105
     - run: az ml -h
     - run: az ml job -h
     - name: Upload a Build Artifact
