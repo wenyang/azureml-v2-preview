@@ -7,4 +7,7 @@ environment: "azureml:/subscriptions/92c76a2f-0e1c-4216-b65e-abf7a3f34c1e/resour
               Environments/\
               fastai-env/versions/1"
 compute:
-  target: testCompute
+  target: "azureml:/subscriptions/92c76a2f-0e1c-4216-b65e-abf7a3f34c1e/resourceGroups/demorg/providers/\
+              Microsoft.MachineLearningServices/workspaces/devplatv2/\
+              computes/\
+              testCompute"
