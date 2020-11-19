@@ -3,7 +3,7 @@ name: Run CLI from whl
 on: 
   push:
     branches:
-      - release
+      - main
     paths-ignore:
     - 'website/**'
 jobs:
