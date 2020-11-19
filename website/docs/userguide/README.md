@@ -18,11 +18,7 @@ We have pre-built the Azure ML CLI in a public blob. Simply run the following co
 
 ```console
 pip install azure-cli
-pip install --extra-index-url https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2 azure-ml==0.0.1
-wget https://mldevplatv2.blob.core.windows.net/cli/cli.zip
-mkdir ~/azmlcli; tar xvf cli.zip -C ~/azmlcli
-export AZURE_EXTENSION_DIR=~/azmlcli
-
+az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/26164105/ml-0.0.1-py3-none-any.whl --pip-extra-index-urls https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2/26164105 -y
 az ml -h
 ```
 
@@ -36,5 +32,5 @@ Prepare the code you'd like to run. For this example, we'll simply clone the v2 
 git clone https://github.com/Azure/azureml-v2-preview
 ```
 
-CLI example: ```az ml job create --file examples/commandjob.yaml```
+CLI example: ```az ml job create --file examples/commandjob.yml```
 
