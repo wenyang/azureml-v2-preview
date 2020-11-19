@@ -1,5 +1,5 @@
 name: fastai-vision
-version: '1'
+version: 1
 docker:
-   dockerfile_path: ../environments/fastai.dockerfile
+   dockerfile: ../environments/fastai.dockerfile
 
