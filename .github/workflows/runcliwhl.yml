@@ -1,0 +1,48 @@
+name: Run CLI from whl
+
+on: 
+  push:
+    branches:
+      - release
+    paths-ignore:
+    - 'website/**'
+jobs:
+  dev-setup:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2.3.3
+    - name: Setup Python
+      uses: actions/setup-python@v2.1.4
+      with:
+        python-version: 3.7
+    - run: sudo npm install -g autorest
+    - uses: actions/cache@v2
+      id: cache
+      with:
+        path: |
+          ~/.cache/pip
+          sdk2-src
+        key: ${{ runner.os }}-sdkcli-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    - run: az extension list
+    - run: az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/26164105/ml-0.0.1-py3-none-any.whl --pip-extra-index-urls https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2/26164105
+    - run: az ml -h
+    - run: az ml job -h
+    - name: azure login
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_TOKEN}}
+    - run: az config set defaults.workspace=devplatv2
+    - run: az config set defaults.group=demorg
+    - run: az ml data create --subscription 92c76a2f-0e1c-4216-b65e-abf7a3f34c1e --file examples/blob_dataset.yml
+      continue-on-error: true
+    - run: az ml environment create --subscription 92c76a2f-0e1c-4216-b65e-abf7a3f34c1e --file examples/fastai-env.yml
+      continue-on-error: true
+    - run: az ml job create --subscription 92c76a2f-0e1c-4216-b65e-abf7a3f34c1e --file examples/commandjob.yml --name helloworld_$GITHUB_RUN_ID
+      continue-on-error: true
+    - run: az ml job create --subscription 92c76a2f-0e1c-4216-b65e-abf7a3f34c1e --file examples/fastai_mnist_job.yml --name fastai_mnist_$GITHUB_RUN_ID
+      continue-on-error: true
+    - run: az ml job create --subscription 92c76a2f-0e1c-4216-b65e-abf7a3f34c1e --file examples/fastai_pets_job.yml --name fastai_pets_$GITHUB_RUN_ID
+      continue-on-error: true
