@@ -9,7 +9,7 @@ Jobs can be defined in declarative YML and submitted via CLI/SDK/API against dur
 
 The key job types in the system are Command Job and Sweep Job (documented below).
 
-CLI example: ```az ml job create jobspec.yaml```
+CLI example: ```az ml job create --file jobspec.yaml```
 
 **Command Job:**
 ```yaml
