@@ -7,3 +7,4 @@ issues before filing new issues to avoid duplicates.  For new issues, file your 
 feature request as a new Issue.
 
 ## Microsoft Support Policy  
+Support for this project is limited to the resources listed above.
