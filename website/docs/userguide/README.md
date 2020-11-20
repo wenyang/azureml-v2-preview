@@ -1,5 +1,5 @@
 ---
-title: README
+title: Start Here!
 slug: /userguide/
 ---
 
@@ -28,10 +28,12 @@ git clone https://github.com/Azure/azureml-v2-preview
 az ml job create --file azureml-v2-preview/examples/commandjob.yml
 ```
 
+[Learn more about jobs.](job.md)
+
 ## Extending the CLI
 There are several ways you can make gh your own.
 
-- az config set allows you to configure default values used when submitting CLI commands. Examples include workspace and group.
+- [az config](https://docs.microsoft.com/en-us/cli/azure/param-persist-howto) set allows you to configure default values used when submitting CLI commands. Examples include workspace and group.
 - (more coming soon)
 
 ## Feedback
