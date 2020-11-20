@@ -1,20 +1,7 @@
 # Azure ML 2.0 Developer Experience
 This is the private preview for the Azure ML 2.0 developer experience.
-
 The 2.0 developer platform provides first class API / CLI / SDK support for model training and scoring scenarios.
-
 Private preview launches at the end of November, this repo is in progress.
-
-# Concepts
-Note that all schemas are still in the process of being finalized, but the overall structure shouldn't change too much.
-
-**Key Nouns**
-- Job
-- Data
-- Environment
-- Compute
-- Model
-- Endpoint
 
 # User Guide (WIP)
 https://azure.github.io/azureml-v2-preview/docs/userguide/
@@ -24,7 +11,7 @@ https://azure.github.io/azureml-v2-preview/docs/userguide/
 ## New CLI experience
 - consistent job story
 - consistent endpoint story
-- all ML resources, assets and artifacts can be serialized and exported in a human readable format (git-compatible)
+- all ML resources, assets and artifacts can be serialized and exported in a human readable format
 - all jobs are now composable
 - reduce concepts to fundamentals of: Job, Data, Environment, Model, Endpoint, LinkedService (Compute & Storage)
 
@@ -34,7 +21,6 @@ https://azure.github.io/azureml-v2-preview/docs/userguide/
 - Consistent asset management experience (all assets can be registered via ARM now, enforces consistent behavior, etc.)
 - Per-resource / per-asset / per-action RBAC and policy support
 - X-workspace discovery, consumption and sharing (CI/CD) of assets and resources, proper git-flow support
-
 
 ## Current Timeline
 
