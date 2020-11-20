@@ -1,6 +1,4 @@
 name: test_1
-code: 
-  directory: ../sdk2-src/samples/python
 command: echo 'hello world'
 environment: azureml:AzureML-Minimal/versions/1
 compute:
