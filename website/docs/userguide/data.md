@@ -1,5 +1,5 @@
 ---
-title: Data
+title: Manage Data
 ---
 
 ## Overview
