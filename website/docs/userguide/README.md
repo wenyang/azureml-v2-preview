@@ -12,8 +12,11 @@ It brings training and scoring capabilities to the terminal next to where you ar
 2. A terminal.
 
 ## Installation
+
+If you do not have the Azure CLI installed, https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
+
 ```
-pip install azure-cli
+az extension remove -n azure-cli-ml
 az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/26401099/ml-0.0.2-py3-none-any.whl --pip-extra-index-urls https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2/26401099 -y
 ```
 
