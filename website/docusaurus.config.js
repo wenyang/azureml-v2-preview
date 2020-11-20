@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'AMLv2',
-  tagline: 'this website is under development',
+  title: 'Azure ML 2.0',
+  tagline: 'CLI for the ML lifecycle',
   url: 'https://github.com/Azure/',
   baseUrl: '/azureml-v2-preview/',
   onBrokenLinks: 'ignore',
@@ -9,7 +9,7 @@ module.exports = {
   projectName: 'azureml-v2-preview', // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: 'AMLv2',
+      title: 'Azure ML Manual',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
@@ -17,8 +17,8 @@ module.exports = {
       items: [
         {
           to: 'docs/userguide/',
-          label: 'User Guide',
-          position: 'left',
+          label: 'Manual',
+          position: 'right',
         },
         {
           href: 'https://github.com/Azure/azureml-v2-preview',
