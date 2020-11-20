@@ -11,7 +11,7 @@ Data in Azure ML is used in the context of a Job.
 ### Example - Create Data asset from Directory
 
 ```bash
-az ml data create datadir.yaml
+az ml data create --file examples/datasets/datadir.yaml
 ```
 
 ```yaml
