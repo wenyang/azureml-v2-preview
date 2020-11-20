@@ -9,10 +9,10 @@ It brings training and scoring capabilities to the terminal next to where you ar
 
 ## Prerequisites
 1. An Azure subscription. If you don't have an Azure subscription, [create a free account](https://aka.ms/amlfree) before you begin.
-2. A terminal.
+2. A workspace! Don't have one? Use this ARM template!
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fmldevplatv2.blob.core.windows.net%2Fcli%2Fazuredeploy.json)
 
-## Installation
-
+## Install the CLI
 If you do not have the Azure CLI installed, https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
 
 ```
@@ -20,8 +20,14 @@ az extension remove -n azure-cli-ml
 az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/26401099/ml-0.0.2-py3-none-any.whl --pip-extra-index-urls https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2/26401099 -y
 ```
 
-## Authentication
-Run ```az login``` to authenticate with your Azure account. Run ```az account set -s SUBSCRIPTION_NAME``` to set the Azure subscription you want to work against.
+
+## Authentication & CLI setup
+```console
+az login
+az account set -s SUBSCRIPTION_ID
+az config set defaults.group=RESOURCE_GROUP
+az config set defaults.workspace=WORKSPACE_NAME
+```
 
 ## Create your first job
 Prepare the code you'd like to run. For this example, we'll simply clone the v2 preview repo and run the first example!
