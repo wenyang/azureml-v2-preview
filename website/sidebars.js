@@ -5,11 +5,10 @@ module.exports = {
         type: 'doc',
         id: 'userguide/README'
       },
+      'Architecture': [
       {
-        type: 'category',
-        label: 'Overview',
-        collapsed: false,
-        items: ['userguide/overview', 'userguide/studio', 'userguide/architecture']
+        type: 'doc',
+        id: 'userguide/architecture'
       },
       {
         type: 'category',
