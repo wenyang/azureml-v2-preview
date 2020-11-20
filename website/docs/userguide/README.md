@@ -31,7 +31,7 @@ git clone https://github.com/Azure/azureml-v2-preview
 az ml job create --file azureml-v2-preview/examples/commandjob.yml
 ```
 
-[Learn more about jobs.](job.md)
+[Learn more about jobs.](./job)
 
 ## Extending the CLI
 There are several ways you can make gh your own.
