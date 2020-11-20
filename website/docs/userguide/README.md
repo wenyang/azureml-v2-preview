@@ -37,4 +37,6 @@ There are several ways you can make gh your own.
 ## Feedback
 Thank you for checking out Azure ML CLI! Please open an issue to send us feedback. We're looking forward to hearing it.
 
+## Q&A
+For Q&A support please visit our [internal StackOverflow](http://aka.ms/stackoverflow)
 
