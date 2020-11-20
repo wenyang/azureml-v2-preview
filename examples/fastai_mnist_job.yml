@@ -2,6 +2,6 @@ name: fastai_mnist_example
 code: 
   directory: ../code/train/fastai/mnist-resnet18
 command: python train.py
-environment: "azureml:fastai-env/versions/1"
+environment: azureml:fastai-env/versions/1
 compute:
-  target: "azureml:testCompute"
+  target: azureml:testCompute
