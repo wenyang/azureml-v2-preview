@@ -1,0 +1,48 @@
+{
+	"name": "azml-yaml",
+	"displayName": "AZML-YAML",
+	"description": "config validation for azml yaml",
+	"author": "Microsoft",
+	"contributors": [
+		{
+			"name": "Brandon Horn",
+			"email": "rihorn@microsoft.com"
+		}
+	],
+	"license": "MIT",
+	"version": "0.0.1",
+	"publisher": "Microsoft",
+    "preview": true,
+    "engines": {
+		"vscode": "^1.31.0"
+	},
+    "contributes": {
+        "yamlValidation": [
+            {
+                "url": "./schema/commandJob.schema.json",
+                "fileMatch": "*-CommandJob.yaml"
+            }, {
+                "url": "./schema/sweepJob.schema.json",
+                "fileMatch": "*-SweepJob.yaml"
+            }, {
+                "url": "./schema/asset.schema.json",
+                "fileMatch": "*-Asset.yaml"
+            }, {
+                "url": "./schema/codeAsset.schema.json",
+                "fileMatch": "*-Code.yaml"
+            }, {
+                "url": "./schema/onlineEndpoint.schema.json",
+                "fileMatch": "*-OnlineEndpoint.yaml"
+            }, {
+                "url": "./schema/endpointDeployment.schema.json",
+                "fileMatch": "*-Deployment.yaml"
+            }, {
+                "url": "./schema/environment.schema.json",
+                "fileMatch": "*-Environment.yaml"
+            }, {
+                "url": "./schema/model.schema.json",
+                "fileMatch": "*-Model.yaml"
+            }
+        ]
+    }
+}
