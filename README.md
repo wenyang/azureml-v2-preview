@@ -7,7 +7,7 @@ Private preview launches at the end of November, this repo is in progress.
 https://azure.github.io/azureml-v2-preview/docs/userguide/
 
 # Key goals
-
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fmldevplatv2.blob.core.windows.net%2Fcli%2Fazuredeploy.json)
 ## New CLI experience
 - consistent job story
 - consistent endpoint story
