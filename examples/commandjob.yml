@@ -1,5 +1,5 @@
-name: test_1
-command: echo 'hello world'
-environment: azureml:AzureML-Minimal/versions/1
+command: pip freeze
+environment: azureml:AzureML-Minimal:1
+name: "test1"
 compute:
-  target: azureml:testCompute
+  target: "azureml:testCompute" 
