@@ -20,7 +20,8 @@ Image environment:
 ```yaml
 name: fastai
 version: 1
-image: fastai/fastai
+docker:
+  image: fastai/fastai
 ```
 
 Dockerfile environment:
@@ -28,12 +29,23 @@ Dockerfile environment:
 name: fastai-vision
 version: 1
 docker:
-   dockerfile: ../environments/fastai.dockerfile
+   build:
+     dockerfile: ../environments/fastai.dockerfile
 ```
 
 Conda -> Docker environment:
 ```yaml
 name: conda_env
 version: 1
+conda_file: environment.yml
+```
+
+
+Docker + Conda environment:
+```yaml
+name: conda_env
+version: 1
+docker:
+  image: ubuntu/ubuntu
 conda_file: environment.yml
 ```
