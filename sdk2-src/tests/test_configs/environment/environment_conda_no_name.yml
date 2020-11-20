@@ -1,0 +1,6 @@
+version: 1
+path: environment_files
+python:
+  conda_file: environment.yml
+
+
