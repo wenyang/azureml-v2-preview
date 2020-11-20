@@ -1,7 +1,0 @@
-# template-swagger-setup.yml
-# Dynamically generate the _restclient folders
-steps:
-- template: template-install-autorest.yml
-- template: template-python.yml
-- script: python $(scriptPath)/dev_setup.py -sv
-  displayName: 'Setup'
