@@ -5,7 +5,6 @@ module.exports = {
         type: 'doc',
         id: 'userguide/README'
       },
-      'Architecture': [
       {
         type: 'doc',
         id: 'userguide/architecture'
