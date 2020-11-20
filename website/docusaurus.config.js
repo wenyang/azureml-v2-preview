@@ -9,7 +9,7 @@ module.exports = {
   projectName: 'azureml-v2-preview', // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: 'Azure ML Manual',
+      title: 'Azure ML User Guide',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
