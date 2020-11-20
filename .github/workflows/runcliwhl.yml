@@ -20,9 +20,12 @@ jobs:
     - run: az ml -h
     - run: az ml job -h
     - run: az ml data -h
+    - run: az ml datastore -h
     - run: az ml model -h
     - run: az ml environment -h
     - run: az ml endpoint -h
+    - run: az ml compute -h
+    - run: az ml workspace -h
     - name: azure login
       uses: azure/login@v1
       with:
