@@ -24,6 +24,10 @@ module.exports = {
       {
         type: 'doc',
         id: 'userguide/model'
+      },
+      {
+        type: 'doc',
+        id: 'userguide/environment'
       }
     ],
   }
