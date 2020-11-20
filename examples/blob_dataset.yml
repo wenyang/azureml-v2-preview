@@ -1,6 +1,6 @@
 name: test_v2data_folder
 version: 1
 description: this is a test dataset
-linkedServiceId: azureml:workspaceblobstore
+datastore: azureml:workspaceblobstore
 directory: /v2test
 
