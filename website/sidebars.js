@@ -3,17 +3,33 @@ module.exports = {
     'User Guide': [
       {
         type: 'doc',
-        id: 'userguide/README'
+        id: 'userguide/README',
+        label: 'Start Here!'
       },
       {
         type: 'doc',
-        id: 'userguide/architecture'
+        id: 'userguide/job',
+        label: 'Model Training'
       },
       {
-        type: 'category',
-        label: 'Concepts',
-        collapsed: false,
-        items: ['userguide/workspace', 'userguide/job', 'userguide/endpoint', 'userguide/data', 'userguide/compute', 'userguide/model']
+        type: 'doc',
+        id: 'userguide/endpoint',
+        label: 'Model Deployment'
+      },
+      {
+        type: 'doc',
+        id: 'userguide/compute',
+        label: 'Compute Management'
+      },
+      {
+        type: 'doc',
+        id: 'userguide/data',
+        label: 'Data Management'
+      },
+      {
+        type: 'doc',
+        id: 'userguide/model',
+        label: 'Model Management'
       }
     ],
   }
