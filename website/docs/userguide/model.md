@@ -1,5 +1,5 @@
 ---
-title: Model
+title: Manage Models
 ---
 
 ## Overview
