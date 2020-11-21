@@ -12,14 +12,18 @@ The key job types in the system are Command Job and Sweep Job (documented below)
 CLI example: ```az ml job create --file jobspec.yaml```
 
 **Command Job:**
+Our default Job experience executes a command on a compute target with a set of given inputs.
+
+The below YML file describes the fundamental components of the job specification:
 ```yaml
 name: lightgbm
 code: 
   directory: ./samples/LightGBM/examples
 command: python ./examples/python-guide/advanced_example.py --lr 0.01 --feature_fraction 0.7 --bagging_fraction 0.6 --data {inputs.data}
-environment: environments
+environment: environments/AzureML-Minimal/1
 compute: 
   target: azureml:goazurego
+  instance_count: 4
 inputs:
   data:
     name: azureml:testDirectoryData/versions/1
@@ -27,6 +31,8 @@ inputs:
 ```
 
 **Sweep Job:**
+A Sweep job executes a hyperparameter sweep of a specific search space for a job.
+
 ```yaml
 algorithm: random
 job_type: Sweep
