@@ -18,10 +18,11 @@ Creating a workspace requires:
 
 These resources are used to manage asset files and secrets associated with the workspace in a secure and cost-effective fashion.a
 
-## Compute & Data Infrastructure
+### Compute & Data Infrastructure
 - Compute infrastructure is used to run jobs and serve deployed endpoints.
 - Datastore infrastructure is used to manage credentials to storage assets such as Azure Blob and Azure Data Lake.
 
+# Jobs, Endpoints and Assets
 ![img](jobs_endpoints_assets.png)
 
 ## Jobs
