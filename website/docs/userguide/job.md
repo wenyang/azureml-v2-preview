@@ -11,7 +11,7 @@ The key job types in the system are Command Job and Sweep Job (documented below)
 
 CLI example: ```az ml job create --file jobspec.yaml```
 
-**Command Job:**
+## Command Job
 Our default Job experience executes a command on a compute target with a set of given inputs.
 
 The below YML file describes the fundamental components of the job specification:
@@ -30,7 +30,7 @@ inputs:
     mode: Mount
 ```
 
-**Sweep Job:**
+## Sweep Job
 A Sweep job executes a hyperparameter sweep of a specific search space for a job.
 
 ```yaml
