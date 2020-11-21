@@ -1,8 +1,6 @@
 ---
 title: What is Azure ML? (Architecture)
 ---
-
-# What is Azure ML?
 Azure ML is a set of services used for enabling ML practitioners to train and deploy models at scale - and manage the end to end ML lifecycle.
 
 # Components of Azure ML
