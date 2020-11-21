@@ -4,7 +4,7 @@ title: Deploy Models
 
 ## What are Endpoints?
 
-Models can be deployed as online or batch mode Endpoints.
+[Models](model.md) can be deployed as online or batch mode Endpoints.
 
 An Endpoint is an instantiation of your model into either a web service that can be hosted in the cloud or an IoT module for integrated device deployments.
 Below are two examples creating an endpoint.
