@@ -1,5 +1,5 @@
 ---
-title: Architecture
+title: What is Azure ML? (Architecture)
 ---
 
 # What is Azure ML?
