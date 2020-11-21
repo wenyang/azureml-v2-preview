@@ -5,8 +5,7 @@ title: Manage Compute
 ## Overview
 
 ## Managed compute
-Azure ML hosts managed compute for running interactive and remote jobs. Jobs run in a fresh instance of a virtual machine that includes commonly-used, preinstalled software. Azure performs all upgrades and maintenance of hosted compute. For more information, see our [compute page](concept-compute-target.md) 
-
+Azure ML hosts managed compute for running interactive and remote jobs. Jobs run in a fresh instance of a virtual machine that includes commonly-used, preinstalled software. Azure performs all upgrades and maintenance of hosted compute.
 
 You can enable Application Insights telemetry or model telemetry to monitor your web service. The telemetry data is accessible only to you.  It's stored in your Application Insights and storage account instances.	
 
