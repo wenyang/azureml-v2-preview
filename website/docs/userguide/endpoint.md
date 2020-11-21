@@ -92,19 +92,10 @@ deployments:
 
 ## Online endpoint
 ```
-az ml endpoint create 
---name onlinetaxipredict
---mode online 
---model azureml:jobs/myrun/model 
---compute-target aks_cpu
+az ml endpoint create --file onlineendpoint.yml
 ```
 
 ## Batch endpoint
 ```
-az ml endpoint create 
---name batchtaxipredict
---mode batch 
---model azureml:jobs/myrun/model 
---batch-settings {minibatch_size: 5}
---compute-target cpu
+az ml endpoint create --file batchendpoint.yml
 ```
