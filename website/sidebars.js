@@ -28,6 +28,10 @@ module.exports = {
       {
         type: 'doc',
         id: 'userguide/environment'
+      },
+      {
+        type: 'doc',
+        id: 'userguide/architecture'
       }
     ],
   }
