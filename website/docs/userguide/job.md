@@ -14,37 +14,51 @@ CLI example: ```az ml job create --file jobspec.yaml```
 **Command Job:**
 ```yaml
 name: lightgbm
-code: ./samples/LightGBM/examples
-run: python ./examples/python-guide/advanced_example.py --lr 0.01 --feature_fraction 0.7 --bagging_fraction 0.6 --data {inputs.the_data}
-container: { image: microsoft/lightgbm }
-runs-on: 
+code: 
+  directory: ./samples/LightGBM/examples
+command: python ./examples/python-guide/advanced_example.py --lr 0.01 --feature_fraction 0.7 --bagging_fraction 0.6 --data {inputs.data}
+environment: environments
+compute: 
   target: azureml:goazurego
-  node_count: 4
 inputs:
-  the_data: 
-    from: blob/uri
-    mode: mount
+  data:
+    name: azureml:testDirectoryData/versions/1
+    mode: Mount
 ```
 
 **Sweep Job:**
 ```yaml
-name: sweep_lightgbm
 algorithm: random
+job_type: Sweep
+name: test10999
+experiment_name: ddddddddd
 search_space:
   lr:
     spec: uniform
-    min_value: 0.01
-    max_value: 0.1
+    min_value: 0.001
+    max_value: 0.1     
 objective:
-  primary_metric: rmse
-  goal: minimize
-trial: 
-  run: python ./examples/python-guide/advanced_example.py  --lr {search_space.lr} --feature_fraction 0.7 --bagging_fraction 0.6
-  code: ./samples/LightGBM/examples
-  container: { image: microsoft/lightgbm }
+  primary_metric: accuracy
+  goal: maximize
+trial:
+  command: python ./read_dataset.py --dataset {inputs.value} --lr 0.1
+  code: 
+    directory: ../python
+  environment: azureml:AzureML-PyTorch-1.5-CPU/versions/1
+  compute:
+    target: azureml:testCompute
+  inputs:
+    value:
+      name: azureml:vnext_test/versions/1
+      mode: Mount
+limits:
+  max_total_runs: 100
+  max_concurrent_runs: 10
+  max_duration_minutes: 10000
 early_termination:
-  spec: median
-  evaluation_interval: 1
-  delay_evaluation: 5
-runs-on: goazurego
+  spec: truncation
+  evaluation_interval: 100
+  delay_evaluation: 200
+  truncation_percentage: 40
+  exclude_finished_jobs: True
 ```
