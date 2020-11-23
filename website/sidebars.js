@@ -13,9 +13,16 @@ module.exports = {
         type: 'doc',
         id: 'userguide/endpoint'
       },
+      
       {
         type: 'doc',
         id: 'userguide/data'
+      },
+      {
+        type: 'category',
+        label: 'Endpoint',
+        collapsed: false,
+        items: ['userguide/endpoint', 'userguide/onlinescoring']
       },
       {
         type: 'doc',
