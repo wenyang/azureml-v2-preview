@@ -40,7 +40,7 @@ module.exports = {
                 'userguide/endpoint/online/managed-online/intro',
                 'userguide/endpoint/online/managed-online/safe-rollout',
                 'userguide/endpoint/online/managed-online/security',
-                'userguide/endpoint/online/managed-online/reliablity',
+                'userguide/endpoint/online/managed-online/reliability',
                 'userguide/endpoint/online/managed-online/autoscale',
                 'userguide/endpoint/online/managed-online/endpoint-monitoring',
                 'userguide/endpoint/online/managed-online/logging',
