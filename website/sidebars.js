@@ -10,20 +10,23 @@ module.exports = {
         id: 'userguide/job'
       },
       {
-        type: 'doc',
-        id: 'userguide/endpoint'
+        type: 'category',
+        label: 'Deploy Models',
+        collapsed: true,
+        items: ['userguide/endpoint',
+        {
+          type: 'category',
+          label: 'Online',
+          collapsed: true,
+          items: ['userguide/online-scoring']
+        }
+        ]
       },
       
       {
         type: 'doc',
         id: 'userguide/data'
-      },
-      {
-        type: 'category',
-        label: 'Endpoint',
-        collapsed: false,
-        items: ['userguide/endpoint', 'userguide/online-scoring']
-      },
+      },      
       {
         type: 'doc',
         id: 'userguide/compute'

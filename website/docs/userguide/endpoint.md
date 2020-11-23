@@ -1,5 +1,5 @@
 ---
-title: Deploy Models
+title: Getting Started with Endpoints
 ---
 
 ## What are Endpoints?
