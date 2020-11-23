@@ -13,12 +13,42 @@ module.exports = {
         type: 'category',
         label: 'Deploy Models',
         collapsed: true,
-        items: ['userguide/endpoint',
+        items: ['userguide/endpoint/endpoint',
         {
           type: 'category',
-          label: 'Online',
+          label: 'Online Scoring',
           collapsed: true,
-          items: ['userguide/online-scoring']
+          items: 
+          [
+            {
+              type: 'category',
+              label: 'Scenarios',
+              collapsed: true,
+              items: 
+              [
+                'userguide/endpoint/scenarios/simple-deploy-flow',
+                'userguide/endpoint/scenarios/canary-flow-non-gitops',
+                'userguide/endpoint/scenarios/canary-flow-gitops'
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Managed Online Scoring',
+              collapsed: true,
+              items: 
+              [
+                'userguide/managed-online/intro',
+                'userguide/managed-online/safe-rollout',
+                'userguide/managed-online/security',
+                'userguide/managed-online/reliablity',
+                'userguide/managed-online/autoscale',
+                'userguide/managed-online/endpoint-monitoring',
+                'userguide/managed-online/logging',
+                'userguide/managed-online/billing',
+                'userguide/managed-online/quota'
+              ]
+            }
+          ]
         }
         ]
       },

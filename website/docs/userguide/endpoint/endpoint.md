@@ -1,5 +1,5 @@
 ---
-title: Getting Started with Endpoints
+title: Getting Started
 ---
 
 ## What are Endpoints?
