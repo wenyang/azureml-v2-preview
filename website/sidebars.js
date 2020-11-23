@@ -26,9 +26,9 @@ module.exports = {
               collapsed: true,
               items: 
               [
-                'userguide/endpoint/scenarios/simple-deploy-flow',
-                'userguide/endpoint/scenarios/canary-flow-non-gitops',
-                'userguide/endpoint/scenarios/canary-flow-gitops'
+                'userguide/endpoint/online/scenarios/simple-deploy-flow',
+                'userguide/endpoint/online/scenarios/canary-flow-non-gitops',
+                'userguide/endpoint/online/scenarios/canary-flow-gitops'
               ]
             },
             {
@@ -37,15 +37,15 @@ module.exports = {
               collapsed: true,
               items: 
               [
-                'userguide/managed-online/intro',
-                'userguide/managed-online/safe-rollout',
-                'userguide/managed-online/security',
-                'userguide/managed-online/reliablity',
-                'userguide/managed-online/autoscale',
-                'userguide/managed-online/endpoint-monitoring',
-                'userguide/managed-online/logging',
-                'userguide/managed-online/billing',
-                'userguide/managed-online/quota'
+                'userguide/endpoint/online/managed-online/intro',
+                'userguide/endpoint/online/managed-online/safe-rollout',
+                'userguide/endpoint/online/managed-online/security',
+                'userguide/endpoint/online/managed-online/reliablity',
+                'userguide/endpoint/online/managed-online/autoscale',
+                'userguide/endpoint/online/managed-online/endpoint-monitoring',
+                'userguide/endpoint/online/managed-online/logging',
+                'userguide/endpoint/online/managed-online/billing',
+                'userguide/endpoint/online/managed-online/quota'
               ]
             }
           ]
