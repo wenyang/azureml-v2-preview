@@ -58,7 +58,7 @@ deployments:
 ```
 
 ## Full endpoint specification
-![img](endpoint/endpoints.jpg)
+![img](endpoints.jpg)
 ```
 name: myendpoint2
 type: online
