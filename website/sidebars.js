@@ -22,7 +22,7 @@ module.exports = {
         type: 'category',
         label: 'Endpoint',
         collapsed: false,
-        items: ['userguide/endpoint', 'userguide/onlinescoring']
+        items: ['userguide/endpoint', 'userguide/online-scoring']
       },
       {
         type: 'doc',
