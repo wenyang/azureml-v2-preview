@@ -16,7 +16,7 @@ Run the following command to create a model.
 az ml model create --file azureml-v2-preview/examples/models/model.yml
 ```
 
-## What constitues a model?
+## What constitutes a model?
 Minimum required definition for a model:
 ```yml
 name: my-model
