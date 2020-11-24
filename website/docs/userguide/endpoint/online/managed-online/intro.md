@@ -14,4 +14,4 @@ Welcome to the private preview of Azure ML Scoring, our managed offering for sco
 6. **Endpoint monitoring**: out of box resource utilization, error and latency metrics integrated with Azure Monitor. Out of box appinsights integration.
 7. **Logs**: Live tailing of console logs and integration with Azure Monitor logs service
 8. **Billing***: In the Azure Cost Analysis tool you can filter on tags on a specific endpoint/deployment
-* means public preview / GA, check the roadmap for details
+\* means public preview / GA, check the roadmap for details
