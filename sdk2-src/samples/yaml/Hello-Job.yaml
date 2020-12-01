@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=https://azuremlsdk2.blob.core.windows.net/latest/commandJob.schema.json
+command: echo HelloWorld
+environment: azureml:AzureML-PyTorch-1.5-CPU:1
+name: test1
+compute:
+  target: azureml:testCompute
+properties:
+  my_property: foo

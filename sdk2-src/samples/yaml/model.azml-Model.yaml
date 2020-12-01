@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://azuremlsdk2.blob.core.windows.net/latest/model.schema.json
+name: my-model
+asset_path: ./model
+version: '3'
+environment: azureml:AzureML-Minimal:1
+description: "this is my test model"
+tags:
+  foo: bar
+  abc: 123
+utc_time_created: '2020-10-19 17:44:02.096572'
+flavors:
+  sklearn:
+    sklearn_version: 0.23.2
+  python_function:
+    loader_module: office.plrmodel
+    python_version: 3.8.5

@@ -1,0 +1,20 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+variables:
+  - template: config/vars.yml
+pool:
+  name: $(poolName)
+steps:
+- checkout: self
+- template: ./templates/sdk_setup/template-sdk-setup.yml
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Project Vienna Build Tests (4faaaf21-663f-4391-96fd-47197c630979)'
+    scriptType: 'batch'
+    scriptLocation: 'inlineScript'
+    inlineScript:
+      az account set -s 4faaaf21-663f-4391-96fd-47197c630979 &
+      pytest tests/azure-ml/e2etests -n 10
