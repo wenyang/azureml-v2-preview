@@ -1,5 +1,0 @@
-name: testDirectoryData
-version: 1
-description: "this is a test dataset"
-datastore: "azureml:/subscriptions/4faaaf21-663f-4391-96fd-47197c630979/resourceGroups/static_sdk_cli_v2_test_e2e/providers/Microsoft.MachineLearningServices/workspaces/sdk_vnext_cli/datastores/workspaceblobstore"
-directory: "/python"
