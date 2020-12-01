@@ -20,7 +20,7 @@ name: lightgbm
 code: 
   directory: ./samples/LightGBM/examples
 command: python ./examples/python-guide/advanced_example.py --lr 0.01 --feature_fraction 0.7 --bagging_fraction 0.6 --data {inputs.data}
-environment: environments/AzureML-Minimal/1
+environment: azureml:AzureML-Minimal/versions/1
 compute: 
   target: azureml:goazurego
   instance_count: 4
@@ -68,3 +68,8 @@ early_termination:
   truncation_percentage: 40
   exclude_finished_jobs: True
 ```
+
+## Other Job Types
+Coming soon:
+- PipelineJob
+- AutoMLJob (s)
