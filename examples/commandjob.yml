@@ -1,7 +1,7 @@
-command: pip freeze
+command: pip freeze && ls
 environment: azureml:AzureML-Minimal:1
-name: "test1"
+name: test1
 compute:
-  target: "azureml:testCompute" 
+  target: azureml:testCompute
 code:
   directory: .
