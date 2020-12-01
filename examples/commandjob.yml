@@ -1,4 +1,4 @@
-command: pip freeze && echo 'hello world'
+command: /bin/sh pip freeze && echo 'hello world'
 environment: azureml:AzureML-Minimal:1
 name: test1
 compute:
