@@ -19,6 +19,9 @@ code: ./src
 compute: 
   target: cpu-cluster
   node_count: 4
+  distributed: 
+    type: mpi
+    process_count_per_node: 4
 ```
 
 // sweep this job //
