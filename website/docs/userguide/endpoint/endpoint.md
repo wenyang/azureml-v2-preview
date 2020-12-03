@@ -24,11 +24,11 @@ deployments:
         environment: azureml:AzureML-Minimal:1
         resource_requirements:
             cpu: 1.0
-            memory: 1.0
+            memory_in_gb: 1.0
 ```
 You can create the endpoint by simply passing the yaml
 ```
-az ml endpoint create --file onlineendpoint.yml --wait
+az ml endpoint create --file onlineendpoint.yml
 ```
 
 ## Minimal endpoint specification - batch

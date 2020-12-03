@@ -34,7 +34,7 @@ description: this is my test model
 tags:
   foo: bar
   abc: 123
-utc_time_created: 2020-10-19 17:44:02.096572
+utc_time_created: '2020-10-19 17:44:02.096572'
 flavors:
   sklearn:
     sklearn_version: 0.23.2

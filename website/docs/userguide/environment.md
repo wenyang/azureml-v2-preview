@@ -40,12 +40,26 @@ version: 1
 conda_file: environment.yml
 ```
 
+environment.yml:
+```yaml
+name: example-environment
+channels:
+  - conda-forge
+dependencies:
+  - python=3.6.1
+  - numpy
+  - pip
+  - pip:
+    - pandas
+    - matplotlib
+```
+
 
 Docker + Conda environment:
 ```yaml
 name: conda_env
 version: 1
 docker:
-  image: ubuntu/ubuntu
+  image: docker.io/ubuntu/ubuntu
 conda_file: environment.yml
 ```
