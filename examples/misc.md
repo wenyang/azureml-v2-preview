@@ -1,3 +1,4 @@
+```yml
 command: ^^^
 python aml/train.py
                         --input_dir bert.mt/
@@ -42,3 +43,4 @@ inputs:
     mode: mount (only)
   output:
     path: ...
+```
