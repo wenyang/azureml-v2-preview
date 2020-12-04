@@ -4,23 +4,13 @@ title: Train Models
 
 ## Overview
 
-A Job defines an operation to execute command(s) against a target in a specific virtual environment.
-Jobs can be defined in declarative YML and submitted via CLI/SDK/API against durable Azure Resource Manager endpoints.
-
-The key job types in the system are Command Job and Sweep Job (documented below).
-
-CLI example: ```az ml job create --file jobspec.yaml```
-
-## Command Job
-# Job definitions
-
 A Job is a Resource that specifies all aspects of a computation job. It aggregates 3 things:
 
 1. What to run
 2. How to run it
 3. Where to run it
 
-A user can execute a job via the cli by executing an `az ml job create` command. Here are some examples of yamls that would encapsulate how a user might expand their job definition as they progress with their work.
+A user can execute a job via the cli by executing an `az ml job create` command. The examples below encapsulate how a user might expand their job definition as they progress with their work.
 
 ## A minimal Job run locally
 
@@ -58,7 +48,7 @@ code:
 Here's an example that runs on R script:
 ```yml
 command: Rscript test.R
-environment: aazureml:r-minimal:1
+environment: azureml:r-minimal:1
 code: 
   directory: train/r
 ```
