@@ -26,7 +26,7 @@ A user can execute a job via the cli by executing an `az ml job create` command.
 
 First, the user would just execute a simple command to see if python is working and what packages are available in the environment -- here just `pip freeze`:
 
-```yaml
+```yml
 command: pip freeze
 code:
   directory: .
@@ -48,7 +48,7 @@ Going forward, the VSCode AzureML Extension will add more support, providing cod
 
 Next, let's assume that the data scientist wants to use a pytorch docker image from dockerhub and start by running a python script on it.
 
-```yaml
+```yml
 command: python mnist.py
 environment: azureml:AzureML-PyTorch-1.6-GPU:44
 code: 
@@ -56,7 +56,7 @@ code:
 ```
 
 Here's an example that runs on R script:
-```yaml
+```yml
 command: Rscript test.R
 environment: aazureml:r-minimal:1
 code: 
@@ -75,7 +75,7 @@ The above command uploads the data from the local folder `./data` to the `worksp
 
 ## Use data in your job
 
-```yaml
+```yml
 command: >-
   python train.py 
   --data {inputs.training_data} 
@@ -97,7 +97,7 @@ inputs:
 ## Sweep Job
 A Sweep job executes a hyperparameter sweep of a specific search space for a job.
 
-```yaml
+```yml
 algorithm: random
 job_type: Sweep
 name: test10999
