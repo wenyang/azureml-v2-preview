@@ -1,7 +1,8 @@
-command: Rscript test.R
+name: r-test-job
+code:
+  directory: ./r
+command: Rscript accidents.R
 environment: azureml:r-minimal:1
-name: test1
+experiment_name: r-accidents
 compute:
   target: azureml:testCompute
-code:
-  directory: r
