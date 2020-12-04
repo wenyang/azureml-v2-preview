@@ -19,13 +19,13 @@ The below YML file describes the fundamental components of the job specification
 name: lightgbm
 code: 
   directory: ./samples/LightGBM/examples
-command: python ./examples/python-guide/advanced_example.py --lr 0.01 --feature_fraction 0.7 --bagging_fraction 0.6 --data {inputs.data}
+command: python ./examples/python-guide/advanced_example.py --lr 0.01 --feature_fraction 0.7 --bagging_fraction 0.6 --data {inputs.data1}
 environment: azureml:AzureML-Minimal/versions/1
 compute: 
   target: azureml:goazurego
   node_count: 4
 inputs:
-  value:
+  data1:
     data: azureml:testDirectoryData/versions/1
     mode: Mount
 ```
