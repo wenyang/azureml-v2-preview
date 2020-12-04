@@ -55,7 +55,7 @@ trial:
     target: azureml:testCompute
   inputs:
     value:
-      name: azureml:vnext_test/versions/1
+      data: azureml:vnext_test/versions/1
       mode: Mount
 limits:
   max_total_runs: 100
