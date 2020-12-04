@@ -23,10 +23,10 @@ command: python ./examples/python-guide/advanced_example.py --lr 0.01 --feature_
 environment: azureml:AzureML-Minimal/versions/1
 compute: 
   target: azureml:goazurego
-  instance_count: 4
+  node_count: 4
 inputs:
-  data:
-    name: azureml:testDirectoryData/versions/1
+  value:
+    data: azureml:testDirectoryData/versions/1
     mode: Mount
 ```
 
