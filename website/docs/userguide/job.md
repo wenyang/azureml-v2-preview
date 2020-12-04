@@ -68,31 +68,17 @@ code:
 Next the input data needs to be moved to the cloud -- therefore the user can create a data artifact in the workspace like so:
 
 ```cli
-> az ml data upload --name testdata --local_path datafolder
+az ml data upload -n irisdata -v 1 --path iris_data
 ```
-
 
 The above command uploads the data from the local folder `./data` to the `workspaceblobstore` in the folder `/mnistdata`, creates a data entity and registers it under the name `testdata`.
-
-
-## Create a dataset
-
-Next the data scientist moves on to a real training script and needs to pass their data into the job by using some data:
-```
-name: test_v2data_folder
-version: 1
-description: this is a test dataset
-datastore: azureml:workspaceblobstore
-directory: /v2test
-```
-
 
 ## Use data in your job
 
 ```yaml
 command: >-
   python train.py 
-  --data {inputs.value} 
+  --data {inputs.training_data} 
   --epochs 14
   --batch-size 64
   --test-batch-size 1000
@@ -101,24 +87,11 @@ command: >-
   --save_model outputs/model
 environment: azureml:azureml-minimal:1
 code: 
-  directory: src
+  directory: train/iris
 inputs:
-  value:
-    data: azureml:test_v2data_folder:1
+  training_data:
+    data: azureml:irisdata:1
     mode: Mount
-
-```
-
-
-
-## Download output from the job
-
-Download the output from the job:
-
-```cli
-# > az ml data download --source run:/044d19d3-916d-491a-9e4f-7176e60956f5/outputs/model --target ./downloaded_models/
-... downloading 
-./mnist_cnn.pt 
 ```
 
 ## Sweep Job
