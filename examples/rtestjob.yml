@@ -1,4 +1,4 @@
-command: RScript test.R
+command: Rscript test.R
 environment: azureml:r-minimal:1
 name: test1
 compute:
