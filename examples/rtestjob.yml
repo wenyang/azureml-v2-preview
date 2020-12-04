@@ -1,0 +1,7 @@
+command: RScript test.R
+environment: azureml:AzureML-Minimal:1
+name: test1
+compute:
+  target: azureml:testCompute
+code:
+  directory: r
