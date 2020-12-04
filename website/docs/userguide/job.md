@@ -12,22 +12,113 @@ The key job types in the system are Command Job and Sweep Job (documented below)
 CLI example: ```az ml job create --file jobspec.yaml```
 
 ## Command Job
-Our default Job experience executes a command on a compute target with a set of given inputs.
+# Job definitions
 
-The below YML file describes the fundamental components of the job specification:
+A Job is a Resource that specifies all aspects of a computation job. It aggregates 3 things:
+
+1. What to run
+2. How to run it
+3. Where to run it
+
+A user can execute a job via the cli by executing an `az ml job create` command. Here are some examples of yamls that would encapsulate how a user might expand their job definition as they progress with their work.
+
+## A minimal Job run locally
+
+First, the user would just execute a simple command to see if python is working and what packages are available in the environment -- here just `pip freeze`:
+
 ```yaml
-name: lightgbm
+command: pip freeze
+code:
+  directory: .
+environment: azureml:azureml-minimal:1
+```
+
+This will be run by executing:
+``` cli
+> az ml job create --file simplejob.yml
+```
+
+## A side-note on tooling
+
+The user is editing the Job yaml file to alter the way the job is run. Job definitions can get very complex, so, to make this easier, we have created JSONSchemas for the Job which can be used in VSCode with the YAML extension. 
+
+Going forward, the VSCode AzureML Extension will add more support, providing code-lenses to lookup compute targets, datasets, components, etc.. 
+
+## Run some real code
+
+Next, let's assume that the data scientist wants to use a pytorch docker image from dockerhub and start by running a python script on it.
+
+```yaml
+command: python mnist.py
+environment: azureml:AzureML-PyTorch-1.6-GPU:44
 code: 
-  directory: ./samples/LightGBM/examples
-command: python ./examples/python-guide/advanced_example.py --lr 0.01 --feature_fraction 0.7 --bagging_fraction 0.6 --data {inputs.data1}
-environment: azureml:AzureML-Minimal/versions/1
-compute: 
-  target: azureml:goazurego
-  node_count: 4
+  directory: train/pytorch
+```
+
+Here's an example that runs on R script:
+```yaml
+command: Rscript test.R
+environment: aazureml:r-minimal:1
+code: 
+  directory: train/r
+```
+
+## Upload some data to the cloud
+
+Next the input data needs to be moved to the cloud -- therefore the user can create a data artifact in the workspace like so:
+
+```cli
+> az ml data upload --name testdata --local_path datafolder
+```
+
+
+The above command uploads the data from the local folder `./data` to the `workspaceblobstore` in the folder `/mnistdata`, creates a data entity and registers it under the name `testdata`.
+
+
+## Create a dataset
+
+Next the data scientist moves on to a real training script and needs to pass their data into the job by using some data:
+```
+name: test_v2data_folder
+version: 1
+description: this is a test dataset
+datastore: azureml:workspaceblobstore
+directory: /v2test
+```
+
+
+## Use data in your job
+
+```yaml
+command: >-
+  python train.py 
+  --data {inputs.value} 
+  --epochs 14
+  --batch-size 64
+  --test-batch-size 1000
+  --lr 1.0
+  --gamma 0.7
+  --save_model outputs/model
+environment: azureml:azureml-minimal:1
+code: 
+  directory: src
 inputs:
-  data1:
-    data: azureml:testDirectoryData/versions/1
+  value:
+    data: azureml:test_v2data_folder:1
     mode: Mount
+
+```
+
+
+
+## Download output from the job
+
+Download the output from the job:
+
+```cli
+# > az ml data download --source run:/044d19d3-916d-491a-9e4f-7176e60956f5/outputs/model --target ./downloaded_models/
+... downloading 
+./mnist_cnn.pt 
 ```
 
 ## Sweep Job
