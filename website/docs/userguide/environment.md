@@ -17,7 +17,7 @@ az ml environment create --file examples/fastai-vision-env.yml
 ```
 
 Image environment:
-```yaml
+```yml
 name: fastai
 version: 1
 docker:
@@ -25,7 +25,7 @@ docker:
 ```
 
 Dockerfile environment:
-```yaml
+```yml
 name: fastai-vision
 version: 1
 docker:
@@ -34,14 +34,14 @@ docker:
 ```
 
 Conda -> Docker environment:
-```yaml
+```yml
 name: conda_env
 version: 1
 conda_file: environment.yml
 ```
 
 environment.yml:
-```yaml
+```yml
 name: example-environment
 channels:
   - conda-forge
@@ -56,7 +56,7 @@ dependencies:
 
 
 Docker + Conda environment:
-```yaml
+```yml
 name: conda_env
 version: 1
 docker:
