@@ -1,4 +1,4 @@
-name: mlnet
+name: mldotnet
 version: 1
 docker:
   build:
