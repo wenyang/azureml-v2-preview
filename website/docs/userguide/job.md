@@ -58,31 +58,33 @@ code:
 Next the input data needs to be moved to the cloud -- therefore the user can create a data artifact in the workspace like so:
 
 ```cli
-az ml data upload -n irisdata -v 1 --path iris_data
+cd ./iris/
+az ml data create --file iris-data.yml
 ```
 
-The above command uploads the data from the local folder `./data` to the `workspaceblobstore` in the folder `/mnistdata`, creates a data entity and registers it under the name `testdata`.
+The above command uploads the data from the local file `.iris/iris.csv` to the `workspaceblobstore` in the folder `/mnistdata`, creates a data entity and registers it under the name `testdata`.
 
 ## Use data in your job
 
+In examples/iris, create a job using the base template for iris-job.yml
+
 ```yml
+# yaml-language-server: $schema=https://azuremlsdk2.blob.core.windows.net/latest/commandJob.schema.json
 command: >-
   python train.py 
   --data {inputs.training_data} 
-  --epochs 14
-  --batch-size 64
-  --test-batch-size 1000
-  --lr 1.0
-  --gamma 0.7
-  --save_model outputs/model
-environment: azureml:azureml-minimal:1
+environment: file:xgboost-env.yml
+compute:
+  target: azureml:<compute-name>
 code: 
-  directory: train/iris
+  directory: train
 inputs:
   training_data:
     data: azureml:irisdata:1
     mode: Mount
 ```
+
+The above job can be run without reference to the dataset, by removing the inputs and the arg in the command, since teh script sets the default value if no data is input. This is to allow further debugging if data store does not work.
 
 ## Sweep Job
 A Sweep job executes a hyperparameter sweep of a specific search space for a job.
