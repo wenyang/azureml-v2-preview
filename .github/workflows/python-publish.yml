@@ -19,4 +19,5 @@ jobs:
         python-version: '3.x'
     - name: Process docs
       run: |
-        python processing/process_markdown.py
+        python processing/process_markdown.py --md_glob **/*.md
+ 
