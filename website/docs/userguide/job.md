@@ -140,5 +140,6 @@ Coming soon:
 - PipelineJob
 - AutoMLJob (s)
 
-
+```yml
 #source ../../../examples/pipfreezejob.yml
+```
