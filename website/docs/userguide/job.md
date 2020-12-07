@@ -68,12 +68,22 @@ The above command uploads the data from the local file `.iris/iris.csv` to the `
 
 In examples/iris, create a job using the base template for iris-job.yml
 
+Envirenment creation via job should work, but seems to not be. So first create environment:
+
+```cli
+az ml environment create --file xgboost-env.yml
+```
+Then submit the job:
+```cli
+az ml job create --file iris-job.yml --name <unique name>
+```
+
 ```yml
 # yaml-language-server: $schema=https://azuremlsdk2.blob.core.windows.net/latest/commandJob.schema.json
 command: >-
   python train.py 
   --data {inputs.training_data} 
-environment: file:xgboost-env.yml
+environment: azureml:xgboost-env:1
 compute:
   target: azureml:<compute-name>
 code: 
