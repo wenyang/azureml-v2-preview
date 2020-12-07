@@ -141,5 +141,5 @@ Coming soon:
 - AutoMLJob (s)
 
 ```yml
-#source ../../../examples/pipfreezejob.yml
+#source ../../../examples/train/basic-command-job/pip_freeze_job.yml
 ```
