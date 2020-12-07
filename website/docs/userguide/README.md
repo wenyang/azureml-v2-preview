@@ -35,7 +35,7 @@ Prepare the code you'd like to run. For this example, we'll simply clone the v2 
 ```console
 git clone https://github.com/Azure/azureml-v2-preview
 ```
-Check that a compute cluster exists in your workspace and the name matches the one specified in the azureml-v2-preview/exampes/commandjob.yml file. Submit your first job using the job create command. You should see a new run from the Studio UI (https://ml.azure.com) Home page or Experiments page. 
+Check that a compute cluster exists in your workspace and the name (goazurego) matches the one specified in the https://github.com/Azure/azureml-v2-preview/examples/commandjob.yml file. If you used the ARM template, this will be set up for you. Submit your first job using the job create command. You should see a new run from the Studio UI (https://ml.azure.com) Home page or Experiments page. 
 
 ```console
 az ml job create --file azureml-v2-preview/examples/commandjob.yml
@@ -49,14 +49,14 @@ A few interesting things to note about the yaml file:
 ```console
 name: test1
 compute:
-  target: azureml:testCompute
+  target: azureml:goazurego
 command: /bin/sh -c 'pip freeze && echo hello world'
 environment: azureml:AzureML-Minimal:1
 code:
   directory: .
 ```
 
-- 'name' is the user defined run name which needs to be unique. By default, runs are created in an Experiment called "Default". If you want to use a different experiment name, you can use the parameter experiment_name.
+- 'name' is the user defined run name which needs to be **unique**. By default, runs are created in an Experiment called "Default". If you want to use a different experiment name, you can use the parameter experiment_name.
 - 'name' and other parameters can be overwritten from the command line. For example: az ml job create --file azureml-v2-preview/examples/commandjob.yml --name test2
 - 'directory' path is relative to where the yaml file exists, not where the command is being run from.
 - All the files from 'directory' are uploaded as snapshot before the job is created and can be viewed in the Snapshot page of the run from Studio UI.
