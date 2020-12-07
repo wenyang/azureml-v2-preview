@@ -1,0 +1,7 @@
+command: mlnet classification --dataset "yelp_labelled.txt" --label-col 1 --has-header false --train-time 10
+name: mlnetjob
+compute:
+  target: azureml:goazurego
+code:
+  directory: .
+environment: azurmel:mlnet:1
