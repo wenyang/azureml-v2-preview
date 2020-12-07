@@ -1,0 +1,30 @@
+# This workflows will upload a Python Package using Twine when a release is created
+# For more information see: https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions#publishing-to-package-registries
+
+name: Process docs
+
+on:
+  push:
+    branches: main
+
+jobs:
+  process_docs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    - name: Process docs
+      run: |
+        python processing/process_markdown.py --md_glob "**/*.md"
+    - run: |
+        git config --global user.email "docs@microsoft.com"
+        git config --global user.name "Snippet Injector"
+        git commit -am 'injected code snippets'
+    - name: GitHub Push
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        github_token: \{{ secrets.GITHUB_TOKEN }}
+        branch: injected

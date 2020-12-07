@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://azuremlsdk2.blob.core.windows.net/latest/commandJob.schema.json
+command: >-
+  python train.py 
+  --data {inputs.training_data} 
+environment: azureml:xgboost-env:1
+compute:
+  target: azureml:rihorn-comp
+code: 
+  directory: train
+inputs:
+  training_data:
+    data: azureml:irisdata:1
+    mode: Mount
