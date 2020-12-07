@@ -8,7 +8,7 @@ cd examples/r
 az ml environment create --file environment.yaml
 ```
 
-Upload the iris dataset to Azure ML using:
+Upload and register the iris dataset to Azure ML using:
 
 ```bash
 cd examples/r/train-model
@@ -23,3 +23,7 @@ To run the job use:
 cd examples/r/train-model
 az ml job create --file job.yaml --name $(uuidgen) --stream
 ```
+
+## Notes
+
+This job uses the optparse package to pass parameters via RScript. 
