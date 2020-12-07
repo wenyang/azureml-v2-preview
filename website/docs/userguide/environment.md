@@ -6,25 +6,28 @@ title: Manage Environments
 
 Environments are used to define the execution environment of a job or an endpoint.
 All environments are built as docker images.
-We provide convenience functions to generate a Docker image from a conda specification.
+We provide convenience functions to generate a environment.
 
 ## Creating an environment
+Environment can be created in number of ways. For example using docker file, conda file or even a combination of two. This section shows to represent and create environments using YAML files.
 
-### Example - Create Data asset from Directory
+### Example - Create Environment from YAML file representing the environment.
 
 ```console
 az ml environment create --file examples/fastai-vision-env.yml
 ```
 
-Image environment:
+#### Environment can be created in number of ways. These examples shows YAML files representing environments for supported scenarios.
+
+##### Creating Environment using existing Docker Image:
 ```yml
 name: fastai
 version: 1
 docker:
-  image: fastai/fastai
+  image: docker.io/fastai/fastai
 ```
 
-Dockerfile environment:
+##### Creating Environment using DockerFile:
 ```yml
 name: fastai-vision
 version: 1
@@ -33,14 +36,14 @@ docker:
      dockerfile: ../environments/fastai.dockerfile
 ```
 
-Conda -> Docker environment:
+##### Creating Environment using Conda File:
 ```yml
 name: conda_env
 version: 1
-conda_file: environment.yml
+conda_file: ../environments/environment.yml
 ```
 
-environment.yml:
+Where `environmemt.yml` contains: 
 ```yml
 name: example-environment
 channels:
@@ -54,12 +57,11 @@ dependencies:
     - matplotlib
 ```
 
-
-Docker + Conda environment:
+##### Creating Environment using DockerFile + Conda File:
 ```yml
 name: conda_env
 version: 1
 docker:
   image: docker.io/ubuntu/ubuntu
-conda_file: environment.yml
+conda_file: ../environments/environment.yml
 ```

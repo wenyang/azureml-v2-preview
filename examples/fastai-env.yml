@@ -1,4 +1,4 @@
 # yaml-language-server: $schema=https://azuremlsdk2.blob.core.windows.net/latest/environment.schema.json
 version: 1
 name: fastai-env
-conda: ../environments/fastai-conda.yml
+conda_file: ../environments/fastai-conda.yml
