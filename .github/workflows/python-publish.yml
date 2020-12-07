@@ -19,7 +19,10 @@ jobs:
     - name: Process docs
       run: |
         python processing/process_markdown.py --md_glob "**/*.md"
-    - run: git commit -am 'injected code snippets'
+    - run: |
+        git config --global user.email "docs@microsoft.com"
+        git config --global user.name "Snippet Injector"
+        git commit -am 'injected code snippets'
     - name: GitHub Push
       uses: ad-m/github-push-action@v0.6.0
       with:
