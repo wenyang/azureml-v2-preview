@@ -1,6 +1,6 @@
-name: r-test-job
+name: r-job-example
 code:
-  directory: ./r
+  directory: ./src
 command: Rscript accidents.R
 environment: azureml:r-with-optparse:1
 experiment_name: r-accidents

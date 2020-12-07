@@ -1,4 +1,4 @@
-name: test1
+name: basic-command-job-example
 command: pip freeze
 compute:
   target: azureml:testCompute

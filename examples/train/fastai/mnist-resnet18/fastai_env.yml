@@ -1,0 +1,3 @@
+name: fastai-env
+version: 1
+conda_file: ./fastai_conda.yml

@@ -1,7 +1,7 @@
-command: /bin/sh -c 'pip freeze && echo hello world'
-environment: azureml:AzureML-Minimal:1
-name: test1
-compute:
-  target: azureml:testCompute
+name: command-job-example
 code:
   directory: .
+command: /bin/sh -c 'pip freeze && echo hello world'
+environment: azureml:AzureML-Minimal:1
+compute:
+  target: azureml:testCompute

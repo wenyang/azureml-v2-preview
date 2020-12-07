@@ -1,0 +1,8 @@
+name: tf-mnist-example
+code: 
+  directory: ./src
+command: python train.py
+environment: azureml:tensorflow-env:1
+experiment_name: tf-mnist
+compute:
+  target: azureml:testCompute

@@ -1,7 +1,0 @@
-name: fastai_pets_example
-code: 
-  directory: ../code/train/fastai/pets-resnet34
-command: python train.py
-environment: "azureml:fastai-vision/versions/1"
-compute:
-  target: "azureml:testCompute"
