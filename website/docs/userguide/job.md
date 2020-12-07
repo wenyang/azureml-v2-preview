@@ -142,4 +142,14 @@ Coming soon:
 
 ```yml
 #source ../../../examples/train/basic-command-job/pip_freeze_job.yml
+<<<<<<< HEAD:examples/train/basic-command-job/pip_freeze_job.yml
+name: pip-freeze-job-example
+=======
+# yaml-language-server: $schema=https://azuremlsdk2.blob.core.windows.net/latest/commandJob.schema.json
+name: test1
+>>>>>>> origin:examples/pipfreezejob.yml
+command: pip freeze
+compute:
+  target: azureml:testCompute
+#source ../../../examples/train/basic-command-job/pip_freeze_job.yml
 ```
