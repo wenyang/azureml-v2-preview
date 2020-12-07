@@ -1,0 +1,47 @@
+id: /subscriptions/92c76a2f-0e1c-4216-b65e-abf7a3f34c1e/resourceGroups/demorg/providers/Microsoft.MachineLearningServices/workspaces/devplatv2/jobs/test1
+name: test1
+properties:
+  codeConfiguration:
+    codeArtifactId: /subscriptions/92c76a2f-0e1c-4216-b65e-abf7a3f34c1e/resourceGroups/demorg/providers/Microsoft.MachineLearningServices/workspaces/devplatv2/codes/75530aff-f87b-4fcf-a620-4ba26722b3d8/versions/1
+    command:
+    - python ./read_dataset.py --dataset AZURE_ML_INPUT0 --lr 0.1
+  computeBinding:
+    computeId: testCompute
+    nodeCount: 1
+  dataBindings:
+    value:
+      localReference: AZURE_ML_INPUT0
+      mode: Mount
+      sourceDataReference: 587b683d-8075-42e2-a377-8eb3f02a7fa5
+  description: null
+  distributionConfiguration: null
+  environmentId: /subscriptions/92c76a2f-0e1c-4216-b65e-abf7a3f34c1e/resourceGroups/demorg/providers/Microsoft.MachineLearningServices/workspaces/devplatv2/environments/AzureML-PyTorch-1.5-CPU
+  experimentName: Default
+  interactionEndpoints:
+    grafana: null
+    studio: https://ml.azure.com/experiments/Default/runs/test1?wsid=/subscriptions/92c76a2f-0e1c-4216-b65e-abf7a3f34c1e/resourcegroups/demorg/workspaces/devplatv2
+    tensorboard: null
+    tracking: azureml://centraluseuap/mlflow/v1.0/subscriptions/92c76a2f-0e1c-4216-b65e-abf7a3f34c1e/resourceGroups/demorg/providers/Microsoft.MachineLearningServices/workspaces/devplatv2?
+  jobType: Command
+  maxRunDurationSeconds: null
+  output:
+    datastoreId: null
+    path: ExperimentRun/dcid.test1
+  properties:
+    ContentSnapshotId: de33eaef-49e9-4b3e-93f9-a266387cc938
+    ProcessInfoFile: azureml-logs/process_info.json
+    ProcessStatusFile: azureml-logs/process_status.json
+    _azureml.ComputeTargetType: amlcompute
+    my_property: foo
+  status: Failed
+  tags:
+    _aml_system_ComputeTargetStatus: '{"AllocationState":"resizing","PreparingNodeCount":0,"RunningNodeCount":0,"CurrentNodeCount":0}'
+resourceGroup: demorg
+systemData:
+  createdAt: '2020-11-05T21:16:43.944068+00:00'
+  createdBy: Jordan Edwards
+  createdByType: User
+  lastModifiedAt: null
+  lastModifiedBy: null
+  lastModifiedByType: null
+type: Microsoft.MachineLearningServices/workspaces/jobs
