@@ -1,0 +1,5 @@
+name: mlnet
+version: 1
+docker:
+  build:
+    dockerfile: ../environments/mlnet.dockerfile

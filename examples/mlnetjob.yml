@@ -4,5 +4,5 @@ name: mlnetjob
 compute:
   target: azureml:goazurego
 code:
-  directory: .
+  directory: mlnet
 environment: azurmel:mlnet:1
