@@ -1,4 +1,4 @@
-command: /bin/sh -c '"git clone https://github.com/scikit-learn/scikit-learn.git" && "python examples/classification/plot_classifier_comparison.py"'
+command: /bin/sh -c '"git clone https://github.com/scikit-learn/scikit-learn.git --depth 1" && "python examples/classification/plot_classifier_comparison.py"'
 environment: azureml:AzureML-Minimal:1
 name: test1
 compute:
