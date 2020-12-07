@@ -25,7 +25,7 @@ environment: azureml:azureml-minimal:1
 
 This will be run by executing:
 ``` cli
-> az ml job create --file simplejob.yml
+> az ml job create --file pipfreezejob.yml
 ```
 
 ## A side-note on tooling
@@ -127,3 +127,6 @@ early_termination:
 Coming soon:
 - PipelineJob
 - AutoMLJob (s)
+
+
+#source ../../../examples/pipfreezejob.yml
