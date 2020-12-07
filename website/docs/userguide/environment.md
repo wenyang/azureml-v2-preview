@@ -17,7 +17,7 @@ Environment can be created in number of ways. For example using docker file, con
 az ml environment create --file examples/fastai-vision-env.yml
 ```
 
-#### Environment can be created in number of ways. Here are the supported ones. 
+#### Environment can be created in number of ways. These examples shows YAML files representing environments for supported scenarios.
 
 ##### Creating Environment using existing Docker Image:
 ```yml
