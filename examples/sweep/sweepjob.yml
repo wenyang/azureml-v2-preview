@@ -19,7 +19,7 @@ objective:
   primary_metric: accuracy
   goal: maximize
 trial: 
-  command: echo '{search_space.lr} --conv_size {search_space.conv_size} --dropout_rate {search_space.dropout_rate}'
+  command: python train.py --lr {search_space.lr} --conv_size {search_space.conv_size} --dropout_rate {search_space.dropout_rate}
   code: 
     directory: src
   environment: azureml:AzureML-Minimal:1
