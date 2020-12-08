@@ -18,7 +18,7 @@ It brings training and scoring capabilities to the terminal next to where you ar
 2. Install AzureML CLI extension as follows
 ```
 az extension remove -n azure-cli-ml
-az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/27106334/ml-0.0.3-py3-none-any.whl --pip-extra-index-urls https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2/27106334 -y
+az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/27359718/ml-0.0.3-py3-none-any.whl --pip-extra-index-urls https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2/27359718 -y
 ```
 
 ## Authentication & CLI setup
