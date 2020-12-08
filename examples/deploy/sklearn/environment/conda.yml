@@ -1,0 +1,13 @@
+name: sklearn-diabetes
+channels:
+  - defaults
+dependencies:
+  - numpy
+  - pandas
+  - scikit-learn
+  - pip
+  - pip:
+    - mlflow
+    - azureml-mlflow
+    - azureml-defaults
+    - matplotlib
