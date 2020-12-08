@@ -59,23 +59,29 @@ Next the input data needs to be moved to the cloud -- therefore the user can cre
 
 ```cli
 cd ./iris/
-az ml data create --file iris-data.yml
+az ml data upload -n irisdata -v 1 --path ./data
 ```
 
-The above command uploads the data from the local file `.iris/iris.csv` to the `workspaceblobstore` in the folder `/mnistdata`, creates a data entity and registers it under the name `testdata`.
+The above command uploads the data from the local folder `.data/` to the `workspaceblobstore` (default). It creates a data entity and registers it under the name `irisdata`.
 
 ## Use data in your job
 
 In examples/iris, create a job using the base template for iris-job.yml
 
-Envirenment creation via job should work, but seems to not be. So first create environment:
+Envirenment creation via job should work, but if it fails, first create environment:
 
 ```cli
 az ml environment create --file xgboost-env.yml
 ```
 Then submit the job:
 ```cli
-az ml job create --file iris-job.yml --name <unique name>
+az ml job create --file iris-job.yml --name <unique name> --query metadata.interaction_endpoints.studio
+```
+
+The query parameter will return just the studio url for the run, rather than the entire job object. To view the entire job object,
+we can use the CLI to show this job:
+```cli
+az ml job show <name of previous job>
 ```
 
 ```yml
@@ -95,6 +101,17 @@ inputs:
 ```
 
 The above job can be run without reference to the dataset, by removing the inputs and the arg in the command, since teh script sets the default value if no data is input. This is to allow further debugging if data store does not work.
+
+```yml
+# yaml-language-server: $schema=https://azuremlsdk2.blob.core.windows.net/latest/commandJob.schema.json
+command: >-
+  python train.py
+environment: azureml:xgboost-env:1
+compute:
+  target: azureml:<compute-name>
+code: 
+  directory: train
+```
 
 ## Sweep Job
 A Sweep job executes a hyperparameter sweep of a specific search space for a job.

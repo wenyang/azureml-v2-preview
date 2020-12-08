@@ -10,4 +10,4 @@ code:
 inputs:
   training_data:
     data: azureml:irisdata:1
-    mode: Mount
+    mode: Download

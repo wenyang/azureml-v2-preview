@@ -1,5 +1,5 @@
 import argparse
-import panda as pd
+import pandas as pd
 
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
@@ -46,7 +46,8 @@ def main():
     iris = datasets.load_iris()
 
     if args.data is not None:
-        X = pd.read_csv(args.data)
+        # Workaround for datastore not fetching data files as expected, only nested dirs
+        X = pd.read_csv(args.data + '/iris.csv')
     else:
         X = iris.data
     y = iris.target

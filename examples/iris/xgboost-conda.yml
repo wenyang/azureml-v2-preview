@@ -11,4 +11,5 @@ dependencies:
     - pandas
     - matplotlib
     - xgboost
+    - scikit-learn
     - azureml-mlflow

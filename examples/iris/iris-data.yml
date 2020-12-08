@@ -3,4 +3,4 @@ name: irisdata
 version: 1
 description: "iris data"
 datastore: "azureml:workspaceblobstore"
-file: iris.csv
+directory: data
