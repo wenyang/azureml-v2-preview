@@ -76,3 +76,12 @@ Thank you for checking out Azure ML CLI! Please open an issue at https://github.
 ## Q&A
 For Q&A support please visit our [internal StackOverflow](http://aka.ms/stackoverflow) with tag azure-machine-learning.
 
+## Whitelist your subscription (if not whitelisted)
+Run the following commands in the cloudshell to whitelist your subscription.
+
+```console
+SUBSCRIPTION=`az account show -o tsv --query id`
+TOKEN=$(`echo "az account get-access-token -s $SUBSCRIPTION -o tsv --query accessToken"`)
+curl --location --request POST "https://management.azure.com/subscriptions/$SUBSCRIPTION/providers/Microsoft.Features/providers/Microsoft.MachineLearningServices/features/MFE/register?api-version=2015-12-01" --header "Authorization: Bearer $TOKEN" --header 'Content-Length: 0'
+```
+
