@@ -1,9 +1,4 @@
-<<<<<<< HEAD:examples/train/r/r_job.yml
 name: r-job-example
-=======
-# yaml-language-server: $schema=https://azuremlsdk2.blob.core.windows.net/latest/commandJob.schema.json
-name: r-test-job
->>>>>>> origin:examples/rtestjob.yml
 code:
   directory: ./src
 command: Rscript accidents.R
