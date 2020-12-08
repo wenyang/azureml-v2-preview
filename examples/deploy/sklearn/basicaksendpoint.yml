@@ -3,8 +3,8 @@ type: online
 infrastructure: azureml:devplatv2aks
 auth_mode: Key
 traffic:
-    etblue: 50
-    etgreen: 50
+    etblue: 80
+    etgreen: 20
 deployments:
     etblue:   
         model: azureml:my-model-1:1
