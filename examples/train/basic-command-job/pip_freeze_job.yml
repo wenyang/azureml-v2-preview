@@ -1,6 +1,6 @@
 name: pip-freeze-job-example
 command: pip freeze
 compute:
-  target: azureml:testCompute
+  target: azureml:goazurego
 environment: azureml:AzureML-Minimal:1
 
