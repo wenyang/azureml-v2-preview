@@ -24,9 +24,9 @@ az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheel
 ## Authentication & CLI setup
 ```console
 az login
-az account set -s SUBSCRIPTION_ID
-az config set defaults.group=RESOURCE_GROUP
-az config set defaults.workspace=WORKSPACE_NAME
+az account set -s <SUBSCRIPTION_ID> (GUID)
+az config set defaults.group=<RESOURCE_GROUP> (name)
+az config set defaults.workspace=<WORKSPACE_NAME> (name)
 ```
 
 ## Create your first job
