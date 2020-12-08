@@ -3,4 +3,5 @@ command: pip freeze
 compute:
   target: azureml:goazurego
 environment: azureml:AzureML-Minimal:1
-
+code:
+    directory: .
