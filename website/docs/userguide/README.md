@@ -91,7 +91,7 @@ There are several ways you can make gh your own.
 Thank you for checking out Azure ML CLI! Please open an issue at https://github.com/Azure/azureml-v2-preview/issues to send us feedback. We're looking forward to hearing it.
 
 ## Q&A
-For Q&A support please visit our [internal StackOverflow](http://aka.ms/stackoverflow) with tag azure-machine-learning.
+For Q&A support please visit our [internal StackOverflow](http://aka.ms/stackoverflow) with tag `azure-machine-learning`. GitHub and LinkedIn employees can obtain access by following the guidelines [here](https://www.1eswiki.com/wiki/Stack_Overflow_At_Microsoft_Access) under "Edge Cases".
 
 ## Whitelist your subscription (if not whitelisted)
 Run the following commands in the cloudshell to whitelist your subscription.
