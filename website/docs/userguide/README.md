@@ -38,7 +38,7 @@ git clone https://github.com/Azure/azureml-v2-preview
 Check that a compute cluster exists in your workspace and the name (goazurego) matches the one specified in the https://github.com/Azure/azureml-v2-preview/examples/commandjob.yml file. If you used the ARM template, this will be set up for you. Submit your first job using the job create command. You should see a new run from the Studio UI (https://ml.azure.com) Home page or Experiments page. 
 
 ```console
-az ml job create --file azureml-v2-previewexamples/train/basic-command-job/pip_freeze_job.yml
+az ml job create --file azureml-v2-preview/examples/train/basic-command-job/pip_freeze_job.yml
 ```
 
 [Learn more about jobs.](./job)
