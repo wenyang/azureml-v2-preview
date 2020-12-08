@@ -38,7 +38,7 @@ git clone https://github.com/Azure/azureml-v2-preview
 Check that a compute cluster exists in your workspace and the name (goazurego) matches the one specified in the https://github.com/Azure/azureml-v2-preview/examples/commandjob.yml file. If you used the ARM template, this will be set up for you. Submit your first job using the job create command. You should see a new run from the Studio UI (https://ml.azure.com) Home page or Experiments page. 
 
 ```console
-az ml job create --file azureml-v2-preview/examples/commandjob.yml
+az ml job create --file azureml-v2-previewexamples/train/basic-command-job/pip_freeze_job.yml
 ```
 
 [Learn more about jobs.](./job)
@@ -63,6 +63,9 @@ code:
 - 'azureml' is a special moniker used to refer to an existing entity within the workspace. In this case 'azureml:AzureML-Minimal:1' is expecting that version 1 of an environment called AzureML-Minimal exists in the current workspace. Similarly, 'azureml:testCompute' refers to a compute cluster called 'testCompute' in the current workspace. 
 - 'command' parameter refers to the command that gets run on the remote compute. This usually gets replaced by the relevant training command, example: "python train.py" or "Rscript train.R".
 
+## Useful CLI commands
+- ```--name pipfreeze_$GITHUB_RUN_ID ```
+- ```--query metadata.interaction_endpoints.studio```
 
 ## Extending the CLI
 There are several ways you can make gh your own.
