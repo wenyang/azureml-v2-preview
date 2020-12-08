@@ -13,15 +13,26 @@ It brings training and scoring capabilities to the terminal next to where you ar
 [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fmldevplatv2.blob.core.windows.net%2Fcli%2Fazuredeploy.json)
 3. Onboard your subscription to preview using the onboarding form: http://aka.ms/v2-preview-form 
 
-## Install the CLI
-1. If you do not have the Azure CLI installed, follow the instructions from https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
-2. Install AzureML CLI extension as follows
+## Launch a terminal
+
+### Option A - Use the Azure Cloud Shell
+You can access the cloud shell at https://shell.azure.com
+
+### Option B - Use your local terminal
+You may use any terminal. 
+For language server support you can use VSCode :)
+
+If you do not have the Azure CLI installed, follow the installation instructions from https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
+
+## Install the Azure ML CLI
+Install AzureML CLI extension as follows
 ```
 az extension remove -n azure-cli-ml
 az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/27359718/ml-0.0.3-py3-none-any.whl --pip-extra-index-urls https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2/27359718 -y
 ```
 
 ## Authentication & CLI setup
+NOTE: az login is not required on the cloud shell
 ```console
 az login
 az account set -s <SUBSCRIPTION_ID> (GUID)
@@ -35,6 +46,9 @@ Prepare the code you'd like to run. For this example, we'll simply clone the v2 
 ```console
 git clone https://github.com/Azure/azureml-v2-preview
 ```
+
+**NOTE: To authenticate the git clone, you may need a PAT. You can generate one here: https://github.com/settings/tokens (use anything as username, the PAT as your password)**
+
 Check that a compute cluster exists in your workspace and the name (goazurego) matches the one specified in the https://github.com/Azure/azureml-v2-preview/examples/commandjob.yml file. If you used the ARM template, this will be set up for you. Submit your first job using the job create command. You should see a new run from the Studio UI (https://ml.azure.com) Home page or Experiments page. 
 
 ```console
