@@ -7,10 +7,7 @@ traffic:
     etgreen: 50
 deployments:
     etblue:   
-        model:
-            name: my-model-1
-            version: 1
-            asset_path: model/model.pkl
+        model: azureml:my-model-1:1
         code_configuration:
             code:
                 directory: code
@@ -31,10 +28,7 @@ deployments:
             cpu: 1.5
             # memory_in_gb: 1.0
     etgreen:   
-        model:
-            name: my-model-2
-            version: 1
-            asset_path: model/model.pkl
+        model: azureml:my-model-2:1
         code_configuration:
             code:
                 directory: code
