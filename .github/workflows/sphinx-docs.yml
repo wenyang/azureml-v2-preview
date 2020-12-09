@@ -1,0 +1,27 @@
+name: sphinx-docs
+on:
+  push:
+    branches:
+      - main
+    paths: 
+      - docs/**
+      - .github/workflows/sphinx-docs.yml
+  pull_request:
+    branches: 
+      - main
+    paths:
+      - docs/**
+      - .github/workflows/sphinx-docs.yml
+jobs:
+  build:
+    name: Push Sphinx Pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: ammaraskar/sphinx-action@master
+        with:
+          docs-folder: docs
+      - uses: actions/upload-artifact@v1
+        with:
+          name: DocumentationHTML
+          path: docs/_build/html/
