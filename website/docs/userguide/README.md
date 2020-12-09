@@ -49,7 +49,9 @@ git clone https://github.com/Azure/azureml-v2-preview
 
 **NOTE: To authenticate the git clone, you may need a PAT. You can generate one here: https://github.com/settings/tokens (use anything as username, the PAT as your password)**
 
-Check that a compute cluster exists in your workspace and the name (goazurego) matches the one specified in the https://github.com/Azure/azureml-v2-preview/examples/commandjob.yml file. If you used the ARM template, this will be set up for you. Submit your first job using the job create command. You should see a new run from the Studio UI (https://ml.azure.com) Home page or Experiments page. 
+Check that a compute cluster exists in your workspace.
+If you used the ARM template, this will be set up for you. Submit your first job using the job create command. 
+You should see a new run from the Studio UI (https://ml.azure.com) Home page or Experiments page. 
 
 ```console
 az ml job create --file azureml-v2-preview/examples/train/basic-command-job/pip_freeze_job.yml
@@ -64,7 +66,7 @@ A few interesting things to note about the yaml file:
 name: test1
 compute:
   target: azureml:goazurego
-command: /bin/sh -c 'pip freeze && echo hello world'
+command: pip freeze
 environment: azureml:AzureML-Minimal:1
 code:
   directory: .
