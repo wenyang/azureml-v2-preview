@@ -28,7 +28,7 @@ If you do not have the Azure CLI installed, follow the installation instructions
 Install AzureML CLI extension as follows
 ```
 az extension remove -n azure-cli-ml
-az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/27359718/ml-0.0.3-py3-none-any.whl --pip-extra-index-urls https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2/27359718 -y
+az extension add --source az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/27490411/ml-0.0.3-py3-none-any.whl --pip-extra-index-urls https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2/27490411 -y
 ```
 
 ## Authentication & CLI setup
