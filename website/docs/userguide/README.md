@@ -63,13 +63,13 @@ az ml job create --file azureml-v2-preview/examples/train/basic-command-job/pip_
 A few interesting things to note about the yaml file:
 
 ```console
-name: test1
+name: pip-freeze-job-example
+command: pip freeze
 compute:
   target: azureml:goazurego
-command: pip freeze
 environment: azureml:AzureML-Minimal:1
 code:
-  directory: .
+    directory: .
 ```
 
 - 'name' is the user defined run name which needs to be **unique**. By default, runs are created in an Experiment called "Default". If you want to use a different experiment name, you can use the parameter experiment_name.
