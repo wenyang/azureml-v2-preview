@@ -5,6 +5,7 @@ from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, log_loss
 import xgboost as xgb
+from azureml.core import Workspace, Run
 
 import mlflow
 import mlflow.xgboost
@@ -17,12 +18,6 @@ def parse_args():
         type=float,
         default=0.3,
         help="learning rate to update step size at each boosting step (default: 0.3)",
-    )
-    parser.add_argument(
-        "--colsample-bytree",
-        type=float,
-        default=1.0,
-        help="subsample ratio of columns when constructing each tree (default: 1.0)",
     )
     parser.add_argument(
         "--subsample",
@@ -57,8 +52,9 @@ def main():
     dtrain = xgb.DMatrix(X_train, label=y_train)
     dtest = xgb.DMatrix(X_test, label=y_test)
 
+    run = Run.get_context()
     # enable auto logging
-    mlflow.xgboost.autolog()
+    # mlflow.xgboost.autolog()
 
     # train model
     params = {
@@ -66,7 +62,7 @@ def main():
         "num_class": 3,
         "learning_rate": args.learning_rate,
         "eval_metric": "mlogloss",
-        "colsample_bytree": args.colsample_bytree,
+        "colsample_bytree": 1,
         "subsample": args.subsample,
         "seed": 42,
     }
@@ -79,8 +75,8 @@ def main():
     acc = accuracy_score(y_test, y_pred)
 
     # log metrics
-    mlflow.log_metrics({"log_loss": loss, "accuracy": acc})
-
+    run.log("accuracy", acc)
+    run.log("log_loss", loss)
 
 if __name__ == "__main__":
     main()
