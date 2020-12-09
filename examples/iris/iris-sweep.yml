@@ -20,13 +20,13 @@ trial:
     python train.py --data {inputs.training_data}
   environment: azureml:xgboost-env:1
   compute:
-    target: azureml:rihorn-comp
+    target: azureml:<compute-name>
   code: 
     directory: train
   inputs:
     training_data:
       data: azureml:irisdata:1
-      mode: Download
+      mode: Mount
 limits:
   max_total_runs: 10
   max_concurrent_runs: 10

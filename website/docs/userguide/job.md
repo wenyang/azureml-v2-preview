@@ -114,42 +114,46 @@ code:
 ```
 
 ## Sweep Job
-A Sweep job executes a hyperparameter sweep of a specific search space for a job.
+A Sweep job executes a hyperparameter sweep of a specific search space for a job. The below yaml uses the command job from the previous section as the 'trial' job in the sweep. It sweeps over different learning rates and subsample rates for each child run. The search space parameters will be passed as arguments to the command in the trial job.
 
 ```yml
+experiment_name: "iris-sweep-trial"
 algorithm: random
 job_type: Sweep
-name: test10999
-experiment_name: ddddddddd
+name: test
 search_space:
-  lr:
+  learning-rate:
     spec: uniform
     min_value: 0.001
-    max_value: 0.1     
+    max_value: 0.1
+  subsample:
+    spec: uniform
+    min_value: 0.1
+    max_value: 1.0    
 objective:
   primary_metric: accuracy
   goal: maximize
 trial:
-  command: python ./read_dataset.py --dataset {inputs.value} --lr 0.1
-  code: 
-    directory: ../python
-  environment: azureml:AzureML-PyTorch-1.5-CPU/versions/1
+  command: >-
+    python train.py --data {inputs.training_data}
+  environment: azureml:xgboost-env:1
   compute:
-    target: azureml:testCompute
+    target: azureml:<compute-name>
+  code: 
+    directory: train
   inputs:
-    value:
-      data: azureml:vnext_test/versions/1
+    training_data:
+      data: azureml:irisdata:1
       mode: Mount
 limits:
-  max_total_runs: 100
+  max_total_runs: 10
   max_concurrent_runs: 10
-  max_duration_minutes: 10000
-early_termination:
-  spec: truncation
-  evaluation_interval: 100
-  delay_evaluation: 200
-  truncation_percentage: 40
-  exclude_finished_jobs: True
+  max_duration_minutes: 20
+```
+
+This can be executed by running (after setting compute name in yaml):
+```cli
+az ml job submit --file iris-sweep.yml --name <unique name>
 ```
 
 ## Other Job Types
