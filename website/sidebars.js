@@ -8,10 +8,31 @@ module.exports = {
       {
         type: 'doc',
         id: 'userguide/job'
+      },      
+      
+      {
+        type: 'doc',
+        id: 'userguide/data'
+      },      
+      {
+        type: 'doc',
+        id: 'userguide/compute'
       },
       {
+        type: 'doc',
+        id: 'userguide/model'
+      },
+      {
+        type: 'doc',
+        id: 'userguide/environment'
+      },
+      {
+        type: 'doc',
+        id: 'userguide/architecture'
+      },
+	  {
         type: 'category',
-        label: 'Deploy Models',
+        label: 'Deploy Models (Not ready)',
         collapsed: true,
         items: ['userguide/endpoint/endpoint',
         {
@@ -52,27 +73,6 @@ module.exports = {
         }
         ]
       },
-      
-      {
-        type: 'doc',
-        id: 'userguide/data'
-      },      
-      {
-        type: 'doc',
-        id: 'userguide/compute'
-      },
-      {
-        type: 'doc',
-        id: 'userguide/model'
-      },
-      {
-        type: 'doc',
-        id: 'userguide/environment'
-      },
-      {
-        type: 'doc',
-        id: 'userguide/architecture'
-      }
     ],
   }
 };
