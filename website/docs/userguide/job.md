@@ -165,7 +165,11 @@ Coming soon:
 #source ../../../examples/train/basic-command-job/pip_freeze_job.yml
 name: pip-freeze-job-example
 command: pip freeze
+environment: azureml:AzureML-Minimal:1
 compute:
-  target: azureml:testCompute
+  target: azureml:goazurego
+environment: azureml:AzureML-Minimal:1
+code:
+    directory: .
 #source ../../../examples/train/basic-command-job/pip_freeze_job.yml
 ```
