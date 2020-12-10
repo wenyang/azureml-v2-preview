@@ -21,6 +21,11 @@ datastore: azureml:workspaceblobstore
 directory: v2test
 ```
 
+### Example - Upload local data
+Move some input data to the cloud by creating and naming a data artifact, following the below convention:
+
+cd ./iris/
+az ml data upload -n irisdata -v 1 --path ./data
 
 ## Datastores
 Datastore connections are used to securely connect to your storage services. Datastores store connection information without putting your authentication credentials and the integrity of your original data source at risk. 
