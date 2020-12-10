@@ -21,6 +21,8 @@ command: pip freeze
 code:
   directory: .
 environment: azureml:azureml-minimal:1
+compute:
+  target: azureml:goazurego
 ```
 
 This will be run by executing:
@@ -43,6 +45,8 @@ command: python mnist.py
 environment: azureml:AzureML-PyTorch-1.6-GPU:44
 code: 
   directory: train/pytorch
+compute:
+  target: azureml:goazurego
 ```
 
 Here's an example that runs on R script:
@@ -51,6 +55,8 @@ command: Rscript test.R
 environment: azureml:r-minimal:1
 code: 
   directory: train/r
+compute:
+  target: azureml:goazurego
 ```
 
 ## Upload some data to the cloud
