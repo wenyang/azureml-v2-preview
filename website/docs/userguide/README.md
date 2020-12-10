@@ -104,3 +104,6 @@ TOKEN=$(`echo "az account get-access-token -s $SUBSCRIPTION -o tsv --query acces
 curl --location --request POST "https://management.azure.com/subscriptions/$SUBSCRIPTION/providers/Microsoft.Features/providers/Microsoft.MachineLearningServices/features/MFE/register?api-version=2015-12-01" --header "Authorization: Bearer $TOKEN" --header 'Content-Length: 0'
 ```
 
+## Private preview ARM enabled azure regions
+Master (centraluseuap), Canary (eastus2euap), Eastus2, Eastus, WestEurope, West US 2, North central
+
