@@ -27,6 +27,10 @@ az ml environment create --file examples/environments/fastai-env.yml
 where `fastai-env.yml` contains:
 ```yml
 #source ../../../examples/environments/fastai-env.yml
+name: fastai
+version: 1
+docker:
+  image: docker.io/fastai/fastai
 ```
 
 ##### Creating Environment using DockerFile:
@@ -37,6 +41,13 @@ az ml environment create --file examples/environments/fastai-vision-env.yml
 where `fastai-vision-env.yml` contains:
 ```yml
 #source ../../../examples/environments/fastai-vision-env.yml
+# yaml-language-server: $schema=https://azuremlsdk2.blob.core.windows.net/latest/environment.schema.json
+name: fastai-vision
+version: 1
+docker:
+   build:
+     dockerfile: fastai.dockerfile
+
 ```
 
 ##### Creating Environment using Conda File:
@@ -47,11 +58,24 @@ az ml environment create --file examples/environments/conda-env.yml
 Where `conda-env.yml` contains: 
 ```yml
 #source ../../../examples/environments/conda-env.yml
+name: conda_env
+version: 1
+conda_file: environment.yml
 ```
 
 where `environmemt.yml` contains: 
 ```yml
 #source ../../../examples/environments/environment.yml
+name: example-environment
+channels:
+  - conda-forge
+dependencies:
+  - python=3.6.1
+  - numpy
+  - pip
+  - pip:
+    - pandas
+    - matplotlib
 ```
 
 ##### Creating Environment using DockerFile + Conda File:
@@ -60,5 +84,11 @@ az ml environment create --file examples/environments/docker-conda-env.yml
 ```
 where `docker-conda-env.yml` contains: 
 ```yml
+#source ../../../examples/environments/docker-conda-env.yml
+name: conda_env
+version: 1
+docker:
+  image: docker.io/ubuntu/ubuntu
+conda_file: environment.yml
 #source ../../../examples/environments/docker-conda-env.yml
 ```
