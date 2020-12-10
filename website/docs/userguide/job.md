@@ -159,7 +159,7 @@ limits:
 
 This can be executed by running (after setting compute name in yaml):
 ```cli
-az ml job submit --file iris-sweep.yml --name <unique name>
+az ml job create --file iris-sweep.yml --name <unique name>
 ```
 
 ## Other Job Types
