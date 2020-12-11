@@ -1,4 +1,4 @@
-name: mldotnet
+name: mldotnetenv
 version: 1
 docker:
   build:
