@@ -119,6 +119,49 @@ code:
   directory: train
 ```
 
+## Distributed Training
+Distributed command jobs have a 'distribution' section where you define the distribution type and properties that are unique to distributed training.
+
+### MPI based
+```yml
+name: test1
+command: pip freeze
+environment: azureml:AzureML-Minimal:1
+compute:
+  target: azureml:testCompute
+  instance_count: 4
+distribution:
+  type: mpi
+  process_count_per_node: 4
+experiment_name: mfe_distributed
+```
+
+### PyTorch based
+```yml
+command: pip freeze
+environment: azureml:AzureML-Minimal:1
+name: test1
+compute:
+  target: azureml:testCompute
+distribution:
+  type: PyTorch
+experiment_name: mfe-test1
+ ```
+  
+### Tensorflow based
+```yml
+command: pip freeze
+environment: azureml:AzureML-Minimal:1
+name: "test1"
+compute:
+  target: azureml:testCompute
+distribution:
+  type: TensorFlow
+  parameter_server_count: 3
+  worker_count: 3
+experiment_name: mfe-test1
+```
+  
 ## Sweep Job
 A Sweep job executes a hyperparameter sweep of a specific search space for a job. The below yaml uses the command job from the previous section as the 'trial' job in the sweep. It sweeps over different learning rates and subsample rates for each child run. The search space parameters will be passed as arguments to the command in the trial job.
 
