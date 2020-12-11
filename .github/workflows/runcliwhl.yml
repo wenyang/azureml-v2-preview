@@ -6,6 +6,8 @@ on:
       - main
     paths-ignore:
     - 'website/**'
+  pull_request:
+    branches: [main]
 jobs:
   dev-setup:
     runs-on: ubuntu-latest
