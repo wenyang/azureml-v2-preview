@@ -1,0 +1,60 @@
+name: mirendpoint
+type: online
+infrastructure: managed
+auth_mode: Key
+traffic:
+    etblue: 75
+    etgreen: 25
+deployments:
+    etblue:
+        model: azureml:/subscriptions/4faaaf21-663f-4391-96fd-47197c630979/resourceGroups/static_sdk_cli_v2_test_e2e/providers/Microsoft.MachineLearningServices/workspaces/sdk_vnext_cli/models/sklearn_regression_model/versions/4
+        code_configuration:
+            code: azureml:/subscriptions/4faaaf21-663f-4391-96fd-47197c630979/resourceGroups/static_sdk_cli_v2_test_e2e/providers/Microsoft.MachineLearningServices/workspaces/sdk_vnext_cli/codes/851fd513-ab82-482c-aa33-86bd2c4a57bb/versions/2
+            scoring_script: main.py
+        environment:
+            name: sklearn-mir-env
+            version: 1
+            path: .
+            conda_file: ./environmentendpoint_conda.yml
+        sku: Standard_DS3_v2
+        scale_settings:
+            scale_type: manual
+            instance_count: 1
+            min_instances: 1
+            max_instances: 1
+        request_settings:
+            request_timeout_ms: 3000
+            max_concurrent_requests_per_instance: 1
+            max_queue_wait_ms: 3000
+        liveness_probe:
+            period_seconds: 10
+            initial_delay_seconds: 310
+            timeout_seconds: 2
+            success_threshold: 1
+            failure_threshold: 3
+    etgreen:
+        model: azureml:/subscriptions/4faaaf21-663f-4391-96fd-47197c630979/resourceGroups/static_sdk_cli_v2_test_e2e/providers/Microsoft.MachineLearningServices/workspaces/sdk_vnext_cli/models/sklearn_regression_model/versions/4
+        code_configuration:
+            code: azureml:/subscriptions/4faaaf21-663f-4391-96fd-47197c630979/resourceGroups/static_sdk_cli_v2_test_e2e/providers/Microsoft.MachineLearningServices/workspaces/sdk_vnext_cli/codes/851fd513-ab82-482c-aa33-86bd2c4a57bb/versions/2
+            scoring_script: main.py
+        environment:
+            name: sklearn-mir-env
+            version: 1
+            path: .
+            conda_file: ./environment/endpoint_conda.yml
+        sku: Standard_DS4_v2
+        scale_settings:
+            scale_type: manual
+            instance_count: 1
+            min_instances: 1
+            max_instances: 1
+        request_settings:
+            request_timeout_ms: 3000
+            max_concurrent_requests_per_instance: 1
+            max_queue_wait_ms: 3000
+        liveness_probe:
+            period_seconds: 10
+            initial_delay_seconds: 310
+            timeout_seconds: 2
+            success_threshold: 1
+            failure_threshold: 3

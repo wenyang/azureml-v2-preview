@@ -1,0 +1,1 @@
+include azure/ml/_arm_deployments/arm_templates/*.json

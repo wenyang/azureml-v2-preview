@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://azuremlsdk2.blob.core.windows.net/latest/onlineEndpoint.schema.json
+name: mirendpoint
+type: online
+infrastructure: managed
+auth_mode: Key
+traffic:
+    etblue: 75
+    etgreen: 25
+deployments:
+    etblue:
+        model: azureml:/subscriptions/4faaaf21-663f-4391-96fd-47197c630979/resourceGroups/static_sdk_cli_v2_test_e2e/providers/Microsoft.MachineLearningServices/workspaces/sdk_vnext_cli/models/sklearn_regression_model/versions/4
+        code_configuration:
+            code: azureml:/subscriptions/4faaaf21-663f-4391-96fd-47197c630979/resourceGroups/static_sdk_cli_v2_test_e2e/providers/Microsoft.MachineLearningServices/workspaces/sdk_vnext_cli/codes/851fd513-ab82-482c-aa33-86bd2c4a57bb/versions/2
+            scoring_script: main.py
+        environment:
+            name: sklearn-mir-env
+            version: 1
+            path: .
+            conda_file: ./environment_files/endpoint_conda.yml
+        sku: Standard_DS3_v2
+    etgreen:
+        model: azureml:/subscriptions/4faaaf21-663f-4391-96fd-47197c630979/resourceGroups/static_sdk_cli_v2_test_e2e/providers/Microsoft.MachineLearningServices/workspaces/sdk_vnext_cli/models/sklearn_regression_model/versions/4
+        code_configuration:
+            code: azureml:/subscriptions/4faaaf21-663f-4391-96fd-47197c630979/resourceGroups/static_sdk_cli_v2_test_e2e/providers/Microsoft.MachineLearningServices/workspaces/sdk_vnext_cli/codes/851fd513-ab82-482c-aa33-86bd2c4a57bb/versions/2
+            scoring_script: main.py
+        environment:
+            name: sklearn-mir-env
+            version: 1
+            path: .
+            conda_file: ./environment_files/endpoint_conda.yml
+        sku: Standard_DS4_v2
