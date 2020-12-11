@@ -32,7 +32,7 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{secrets.AZURE_TOKEN}}
-    - run: az config set defaults.workspace=devplatv2
+    - run: az config set defaults.workspace=e2edemosa
     - run: az config set defaults.group=demorg
     - run: az account set -s 92c76a2f-0e1c-4216-b65e-abf7a3f34c1e
     - run: az ml environment create --file examples/train/fastai/pets-resnet34/fastai_vision_env.yml
