@@ -4,15 +4,24 @@ title: Manage Data
 
 ## Overview
 
-Data in Azure ML is used in the context of a Job.
+Data in Azure ML is used in the context of a Job. 
+Data assets can be created from files on your local machine or as references to files in cloud storage.
+When you create a data asset from your local machine, you upload this data into the workspace's default blob storage account (called 'workspaceblobstore').
 
 ## Data
 
-### Example - Create Data asset from Directory
 
-```bash
-az ml data create --file examples/datasets/datadir.yaml
+### Example - Upload local data
+Move some input data to the cloud by creating and naming a data artifact, following the below convention:
+
+```yml
+cd ./iris/
+az ml data upload -n irisdata -v 1 --path ./data
 ```
+
+### Example - Create Data asset from workspace cloud storage
+This example assumes you already have some data in cloud storage.
+
 
 ```yaml
 name: test_directory_dataset
@@ -21,11 +30,26 @@ datastore: azureml:workspaceblobstore
 directory: v2test
 ```
 
-### Example - Upload local data
-Move some input data to the cloud by creating and naming a data artifact, following the below convention:
+```bash
+az ml data create --file examples/datasets/datadir.yml
+```
 
-cd ./iris/
-az ml data upload -n irisdata -v 1 --path ./data
+### Example - Reference data in another storage account
+
+```console
+az ml datastore attach-blob -n anotherstorageaccount SAS_TOKEN
+```
+
+```yml
+name: datafromsomewherelse
+version: 1
+datastore: azure:anotherstorageaccount
+directory: examples/cocodata
+```
+
+```bash
+az ml data create --file examples/datasets/datafromsomewhere.yml
+```
 
 ## Datastores
 Datastore connections are used to securely connect to your storage services. Datastores store connection information without putting your authentication credentials and the integrity of your original data source at risk. 
