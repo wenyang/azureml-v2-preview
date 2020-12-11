@@ -1,0 +1,5 @@
+# yaml-language-server: $schema=https://azuremlsdk2.blob.core.windows.net/latest/commandJob.schema.json
+command: "pip freeze"
+compute:
+  target: azureml:test-rihorn
+environment: azureml:AzureML-PyTorch-1.5-CPU:1
