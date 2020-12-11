@@ -1,8 +1,0 @@
-mock
-pytest-cov
-pytest-forked
-pytest-xdist
-pytest-timeout
-pytest-mock
-pytest
-pydash

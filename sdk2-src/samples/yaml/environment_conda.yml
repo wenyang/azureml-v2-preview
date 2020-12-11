@@ -1,5 +1,0 @@
-# yaml-language-server: $schema=https://azuremlsdk2.blob.core.windows.net/latest/environment.schema.json
-name: TestEnv
-version: 1
-path: environment_files
-conda_file: environment.yml

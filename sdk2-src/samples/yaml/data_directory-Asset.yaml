@@ -1,6 +1,0 @@
-# yaml-language-server: $schema=https://azuremlsdk2.blob.core.windows.net/latest/asset.schema.json
-name: testDirectoryData
-version: 1
-description: "this is a test dataset"
-datastore: "azureml:/subscriptions/5f08d643-1910-4a38-a7c7-84a39d4f42e0/resourceGroups/sdk_vnext_cli/providers/Microsoft.MachineLearningServices/workspaces/sdk_vnext_cli/datastores/workspaceblobstore"
-directory: "v2test"
