@@ -20,7 +20,7 @@ trial:
     python train.py --data {inputs.training_data}
   environment: azureml:xgboost-env:1
   compute:
-    target: azureml:<compute-name>
+    target: azureml:goazurego
   code: 
     directory: train
   inputs:
