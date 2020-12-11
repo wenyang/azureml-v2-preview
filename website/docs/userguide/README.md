@@ -81,11 +81,9 @@ code:
 
 ## Useful CLI commands
 - ```--name pipfreeze_$GITHUB_RUN_ID ```
+  - Jobs in Azure ML need to have unique names. You can override the name at job submission time by using the ```--name mynameforthething```. From an automation point of view, you can inject your commit / run ID / whatever is useful to help you identify this job in the system.
 - ```--query metadata.interaction_endpoints.studio```
-
-## Extending the CLI
-There are several ways you can make gh your own.
-
+  - By default, creating a job will emit the full ARM reponse to the job creation request. By specifying this parameter you get a scoped response back which contains a link to the Azure ML Studio.
 - [az config](https://docs.microsoft.com/en-us/cli/azure/param-persist-howto) set allows you to configure default values used when submitting CLI commands. Examples include workspace and group.
 - (more coming soon)
 
