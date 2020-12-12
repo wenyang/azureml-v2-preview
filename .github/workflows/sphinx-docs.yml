@@ -30,4 +30,4 @@ jobs:
       - run: git config --global user.name "Azure ML"
       - run: git add -f docs
       - run: git commit -m "adding built sphinx docs"
-      - run: git push
+      - run: git push -u origin sphinx-docs
