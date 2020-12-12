@@ -231,7 +231,8 @@ For language server support you can use VSCode :)</p>
 <div class="section" id="install-the-azure-ml-cli">
 <h3>Install the Azure ML CLI<a class="headerlink" href="#install-the-azure-ml-cli" title="Permalink to this headline">¶</a></h3>
 <p>Install AzureML CLI extension as follows</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az extension remove -n azure-cli-ml</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az extension remove -n ml</span>
+<span class="go">az extension remove -n azure-cli-ml</span>
 <span class="go">az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/27359718/ml-0.0.3-py3-none-any.whl --pip-extra-index-urls https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2/27359718 -y</span>
 </pre></div>
 </div>
@@ -240,7 +241,7 @@ For language server support you can use VSCode :)</p>
 <h3>Authentication &amp; CLI setup<a class="headerlink" href="#authentication-cli-setup" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>az login is not required on the cloud shell</p>
+<p><code class="docutils literal notranslate"><span class="pre">az</span> <span class="pre">login</span></code> is not required on the cloud shell</p>
 </div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az login</span>
 <span class="go">az account set -s &lt;SUBSCRIPTION_ID&gt; (GUID)</span>
@@ -299,7 +300,7 @@ For language server support you can use VSCode :)</p>
 <h3>Extending the CLI<a class="headerlink" href="#extending-the-cli" title="Permalink to this headline">¶</a></h3>
 <p>There are several ways you can make gh your own.</p>
 <ul class="simple">
-<li><p>[az config](<a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/param-persist-howto">https://docs.microsoft.com/en-us/cli/azure/param-persist-howto</a>) set allows you to configure default values used when submitting CLI commands. Examples include workspace and group.</p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/param-persist-howto">az config</a> set allows you to configure default values used when submitting CLI commands. Examples include workspace and group.</p></li>
 <li><p>(more coming soon)</p></li>
 </ul>
 </div>

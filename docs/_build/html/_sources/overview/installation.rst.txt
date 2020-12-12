@@ -46,13 +46,14 @@ Install AzureML CLI extension as follows
 
 .. code-block:: console
 
+    az extension remove -n ml
     az extension remove -n azure-cli-ml
     az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/27359718/ml-0.0.3-py3-none-any.whl --pip-extra-index-urls https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2/27359718 -y
 
 Authentication & CLI setup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. note:: az login is not required on the cloud shell
+.. note:: ``az login`` is not required on the cloud shell
 
 .. code-block:: console
 
@@ -114,5 +115,5 @@ Extending the CLI
 
 There are several ways you can make gh your own.
 
-- [az config](https://docs.microsoft.com/en-us/cli/azure/param-persist-howto) set allows you to configure default values used when submitting CLI commands. Examples include workspace and group.
+- `az config <https://docs.microsoft.com/en-us/cli/azure/param-persist-howto>`_ set allows you to configure default values used when submitting CLI commands. Examples include workspace and group.
 - (more coming soon)
