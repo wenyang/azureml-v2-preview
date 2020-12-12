@@ -1,5 +1,5 @@
-Setup
-=====
+Cloud Setup
+===========
 
 Azure
 -----
