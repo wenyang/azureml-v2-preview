@@ -13,9 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ammaraskar/sphinx-action@master
+      - uses: actions/setup-python@v2
         with:
-          docs-folder: docs
+          python-version: "3.8"
+      - run: pip install -r requirements.txt
+        with:
+          working-directory: docs
+      - run: make html
+        with: 
+          working-directory: docs
       - uses: actions/upload-artifact@v1
         with:
           name: DocumentationHTML
@@ -25,4 +31,4 @@ jobs:
       - run: git checkout -b docs
       - run: git add -f docs
       - run: git commit -m "adding built sphinx docs"
-      - run: git push -u origin docs --force
+      - run: git push -uf origin docs
