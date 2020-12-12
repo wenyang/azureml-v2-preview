@@ -1,7 +1,6 @@
 # Azure ML 2.0 Developer Experience
 This is the private preview for the Azure ML 2.0 developer experience.
 The 2.0 developer platform provides first class API / CLI / SDK support for model training and scoring scenarios.
-Private preview launches at the end of November, this repo is in progress.
 
 # User Guide (WIP)
 https://azure.github.io/azureml-v2-preview/docs/userguide/
