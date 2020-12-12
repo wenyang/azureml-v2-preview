@@ -29,10 +29,28 @@ Azure Machine Learning, or `azure.ml`, is a cloud tool for training, deploying, 
 
 .. toctree::
    :hidden:
-   :caption: [WIP] Guides
+   :caption: Guides
 
    guides/local-development.rst
    guides/cloud-development.rst
    guides/distributed.rst
    guides/gha.rst
    guides/ado.rst
+
+.. toctree::
+  :hidden:
+  :caption: Distributed Frameworks
+
+  distributed/horovod.rst
+  distributed/pytorch.rst
+  distributed/tensorflow.rst
+  distributed/spark.rst
+  distributed/dask.rst
+  distributed/ray.rst
+
+.. toctree::
+  :hidden:
+  :caption: Reference
+
+  reference/feedback.rst
+  reference/qna.rst
