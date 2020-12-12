@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installation &mdash; azure.ml 0.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Concepts" href="concepts.html" />
+    <link rel="prev" title="Azure Machine Learning" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> azure.ml
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cli">CLI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#launch-a-terminal">Launch a terminal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-the-azure-ml-cli">Install the Azure ML CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#authentication-cli-setup">Authentication &amp; CLI setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hello-world">Hello world</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-your-first-job">Create your first job</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#understanding-commandjob-yml-and-az-ml-job-create">Understanding commandjob.yml and az ml job create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#useful-cli-commands">Useful CLI commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extending-the-cli">Extending the CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feedback">Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#q-a">Q&amp;A</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Quickstart</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/jobs.html">Running Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/endpoints.html">Deploying Endpoints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Interfaces</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/cli.html">Command Line Interface (CLI)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">[WIP] Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guides/local-development.html">Local Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/cloud-development.html">Cloud Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/distributed.html">Distributed Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/gha.html">GitHub Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/ado.html">Azure DevOps</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">azure.ml</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/overview/installation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>You can install <em>azureml</em> on Linux, MacOS, and Windows for several interfaces. The CLI is recommended for getting started.</p>
+<div class="section" id="cli">
+<h2>CLI<a class="headerlink" href="#cli" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">`az</span> <span class="pre">ml`</span></code> is Azure ML on the command line.
+It brings training and scoring capabilities to the terminal next to where you are already working with git and your code.</p>
+<div class="section" id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>An Azure subscription. If you don’t have an Azure subscription, <a class="reference external" href="https://aka.ms/amlfree">create a free account</a> before you begin.</p></li>
+<li><p>A workspace! Don’t have one? Create a Machine Learning workspace from <a class="reference external" href="https://portal.azure.com">https://portal.azure.com</a> or the ARM template below.</p></li>
+<li><p>Onboard your subscription to preview using the onboarding form: <a class="reference external" href="http://aka.ms/v2-preview-form">http://aka.ms/v2-preview-form</a></p></li>
+</ol>
+<a class="reference external image-reference" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fmldevplatv2.blob.core.windows.net%2Fcli%2Fazuredeploy.json"><img alt="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true" src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true" /></a>
+</div>
+<div class="section" id="launch-a-terminal">
+<h3>Launch a terminal<a class="headerlink" href="#launch-a-terminal" title="Permalink to this headline">¶</a></h3>
+<p><strong>Option A - Use the Azure Cloud Shell</strong></p>
+<p>You can access the cloud shell at <a class="reference external" href="https://shell.azure.com">https://shell.azure.com</a></p>
+<p><strong>Option B - Use your local terminal</strong></p>
+<p>You may use any terminal.
+For language server support you can use VSCode :)</p>
+<p>If you do not have the Azure CLI installed, follow the installation instructions from <a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli">https://docs.microsoft.com/en-us/cli/azure/install-azure-cli</a></p>
+</div>
+<div class="section" id="install-the-azure-ml-cli">
+<h3>Install the Azure ML CLI<a class="headerlink" href="#install-the-azure-ml-cli" title="Permalink to this headline">¶</a></h3>
+<p>Install AzureML CLI extension as follows</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az extension remove -n azure-cli-ml</span>
+<span class="go">az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/27359718/ml-0.0.3-py3-none-any.whl --pip-extra-index-urls https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2/27359718 -y</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="authentication-cli-setup">
+<h3>Authentication &amp; CLI setup<a class="headerlink" href="#authentication-cli-setup" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>az login is not required on the cloud shell</p>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az login</span>
+<span class="go">az account set -s &lt;SUBSCRIPTION_ID&gt; (GUID)</span>
+<span class="go">az config set defaults.group=&lt;RESOURCE_GROUP&gt; (name)</span>
+<span class="go">az config set defaults.workspace=&lt;WORKSPACE_NAME&gt; (name)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hello-world">
+<h3>Hello world<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="create-your-first-job">
+<h3>Create your first job<a class="headerlink" href="#create-your-first-job" title="Permalink to this headline">¶</a></h3>
+<p>Prepare the code you’d like to run. For this example, we’ll simply clone the v2 preview repo and run the first example!</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/Azure/azureml-v2-preview</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To authenticate the git clone, you may need a PAT. You can generate one here: <a class="reference external" href="https://github.com/settings/tokens">https://github.com/settings/tokens</a> (use anything as username, the PAT as your password)**</p>
+</div>
+<p>Check that a compute cluster exists in your workspace and the name (goazurego) matches the one specified in the <a class="reference external" href="https://github.com/Azure/azureml-v2-preview/examples/commandjob.yml">https://github.com/Azure/azureml-v2-preview/examples/commandjob.yml</a> file. If you used the ARM template, this will be set up for you. Submit your first job using the job create command. You should see a new run from the Studio UI (<a class="reference external" href="https://ml.azure.com">https://ml.azure.com</a>) Home page or Experiments page.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az ml job create --file azureml-v2-preview/examples/train/basic-command-job/pip_freeze_job.yml</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="understanding-commandjob-yml-and-az-ml-job-create">
+<h3>Understanding commandjob.yml and az ml job create<a class="headerlink" href="#understanding-commandjob-yml-and-az-ml-job-create" title="Permalink to this headline">¶</a></h3>
+<p>A few interesting things to note about the yaml file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test1</span>
+<span class="nt">compute</span><span class="p">:</span>
+    <span class="nt">target</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azureml:goazurego</span>
+<span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/bin/sh -c &#39;pip freeze &amp;&amp; echo hello world&#39;</span>
+<span class="nt">environment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azureml:AzureML-Minimal:1</span>
+<span class="nt">code</span><span class="p">:</span>
+    <span class="nt">directory</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>‘name’ is the user defined run name which needs to be <strong>unique</strong>. By default, runs are created in an Experiment called “Default”. If you want to use a different experiment name, you can use the parameter experiment_name.</p></li>
+<li><p>‘name’ and other parameters can be overwritten from the command line. For example: az ml job create –file azureml-v2-preview/examples/commandjob.yml –name test2</p></li>
+<li><p>‘directory’ path is relative to where the yaml file exists, not where the command is being run from.</p></li>
+<li><p>All the files from ‘directory’ are uploaded as snapshot before the job is created and can be viewed in the Snapshot page of the run from Studio UI.</p></li>
+<li><p>‘azureml’ is a special moniker used to refer to an existing entity within the workspace. In this case ‘azureml:AzureML-Minimal:1’ is expecting that version 1 of an environment called AzureML-Minimal exists in the current workspace. Similarly, ‘azureml:testCompute’ refers to a compute cluster called ‘testCompute’ in the current workspace.</p></li>
+<li><p>‘command’ parameter refers to the command that gets run on the remote compute. This usually gets replaced by the relevant training command, example: “python train.py” or “Rscript train.R”.</p></li>
+</ul>
+</div>
+<div class="section" id="useful-cli-commands">
+<h3>Useful CLI commands<a class="headerlink" href="#useful-cli-commands" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--name</span> <span class="pre">pipfreeze_$GITHUB_RUN_ID</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--query</span> <span class="pre">metadata.interaction_endpoints.studio</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="extending-the-cli">
+<h3>Extending the CLI<a class="headerlink" href="#extending-the-cli" title="Permalink to this headline">¶</a></h3>
+<p>There are several ways you can make gh your own.</p>
+<ul class="simple">
+<li><p>[az config](<a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/param-persist-howto">https://docs.microsoft.com/en-us/cli/azure/param-persist-howto</a>) set allows you to configure default values used when submitting CLI commands. Examples include workspace and group.</p></li>
+<li><p>(more coming soon)</p></li>
+</ul>
+</div>
+<div class="section" id="feedback">
+<h3>Feedback<a class="headerlink" href="#feedback" title="Permalink to this headline">¶</a></h3>
+<p>Thank you for checking out Azure ML CLI! Please open an issue at <a class="reference external" href="https://github.com/Azure/azureml-v2-preview/issues">https://github.com/Azure/azureml-v2-preview/issues</a> to send us feedback. We’re looking forward to hearing it.</p>
+</div>
+<div class="section" id="q-a">
+<h3>Q&amp;A<a class="headerlink" href="#q-a" title="Permalink to this headline">¶</a></h3>
+<p>For Q&amp;A support please visit our [internal StackOverflow](<a class="reference external" href="http://aka.ms/stackoverflow">http://aka.ms/stackoverflow</a>) with tag <cite>azure-machine-learning</cite>. GitHub and LinkedIn employees can obtain access by following the guidelines [here](<a class="reference external" href="https://www.1eswiki.com/wiki/Stack_Overflow_At_Microsoft_Access">https://www.1eswiki.com/wiki/Stack_Overflow_At_Microsoft_Access</a>) under “Edge Cases”.</p>
+<p><strong>Whitelist your subscription (if not whitelisted)</strong></p>
+<p>Run the following commands in the cloudshell to whitelist your subscription.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SUBSCRIPTION=`az account show -o tsv --query id`</span>
+<span class="go">TOKEN=$(`echo &quot;az account get-access-token -s $SUBSCRIPTION -o tsv --query accessToken&quot;`)</span>
+<span class="go">curl --location --request POST &quot;https://management.azure.com/subscriptions/$SUBSCRIPTION/providers/Microsoft.Features/providers/Microsoft.MachineLearningServices/features/MFE/register?api-version=2015-12-01&quot; --header &quot;Authorization: Bearer $TOKEN&quot; --header &#39;Content-Length: 0&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="concepts.html" class="btn btn-neutral float-right" title="Concepts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Azure Machine Learning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Microsoft
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
