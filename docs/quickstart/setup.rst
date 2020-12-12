@@ -4,10 +4,12 @@ Cloud Setup
 Azure
 -----
 
-If you don't have an Azure subscription, `create a free account <https://aka.ms/amlfree>`_.
+If you need an Azure subscription, `create a free account <https://aka.ms/amlfree>`_.
 
 Authentication
 ~~~~~~~~~~~~~~
+
+Authenticate:
 
 .. code-block:: console
 
@@ -26,12 +28,12 @@ Configure other defaults:
 
 .. code-block:: console
 
-    az config set defaults.group="azureml-rg"
     az config set defaults.workspace="main"
     az config set defaults.location="eastus"
+    az config set defaults.group="azureml-rg"
 
 .. warning::
-    The below not be required for Public Preview.
+    Only needed for Private Preview.
 
 Add your subscription to the allow list:
 
@@ -49,7 +51,7 @@ Create a Workspace
 Create a workspace:
 
 .. warning::
-    Workspace creation from CLI does not work yet, please use the ARM template for now.
+    Workspace creation from CLI does not work yet, please use the ARM template.
 
 .. image:: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true
     :target: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fmldevplatv2.blob.core.windows.net%2Fcli%2Fazuredeploy.json

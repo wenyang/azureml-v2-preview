@@ -24,7 +24,7 @@ Examples
 
 .. code-block:: console
 
-    % az ml job create --interactive
+    az ml job create --interactive
 
 This will start an interactive bash session locally with the current working directory as an input and ``"azureml/default"`` as the environment. This includes:
 
@@ -35,7 +35,7 @@ This will start an interactive bash session locally with the current working dir
 
 .. code-block:: console
 
-    % az ml job create --interactive --target my-cluster --environment azureml/dask --inputs mydata,otherdata --outputs writedata
+    az ml job create --interactive --target my-cluster --environment azureml/dask --inputs mydata,otherdata --outputs writedata
 
 This will start an interactive bash session locally connected to the remote target ``my-cluster`` with the ``azureml/dask`` environment installed. The ``/mnts/azureml/inputs`` directory will contain the ``mydata`` and ``otherdata`` directories. The ``/mnts/azureml/outputs`` directory will contain the ``writedata`` directory. 
 
@@ -63,4 +63,4 @@ Now, start the interactive job, which will now run on 10 nodes:
 
 .. code-block:: console
 
-    % az ml job create --interactive -f job.yml
+    az ml job create --interactive -f job.yml
