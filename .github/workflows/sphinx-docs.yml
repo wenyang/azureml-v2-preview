@@ -26,7 +26,7 @@ jobs:
         with:
           name: DocumentationHTML
           path: docs/_build/html/
-      - run: mv docs/_build/html/** docs
+      - run: mv -f docs/_build/html/** .
       - run: git config --global user.email "azureml@microsoft.com"
       - run: git config --global user.name "Azure ML"
       - run: git add -f docs
