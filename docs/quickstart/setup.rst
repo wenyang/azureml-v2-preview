@@ -35,16 +35,8 @@ Add your subscription to the allow list by running from cloudshell:
 Azure Machine Learning
 ----------------------
 
-ARM Template
-~~~~~~~~~~~~
-
-Create a Workspace and required resources with this ARM template:
-
-.. image:: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true
-    :target: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fmldevplatv2.blob.core.windows.net%2Fcli%2Fazuredeploy.json
-
-CLI
-~~~
+Create a Workspace
+~~~~~~~~~~~~~~~~~~
 
 Setup defaults:
 
@@ -58,8 +50,11 @@ Create a workspace:
 .. warning::
     Workspace creation from CLI does not work yet, please use the ARM template for now.
 
+.. image:: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true
+    :target: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fmldevplatv2.blob.core.windows.net%2Fcli%2Fazuredeploy.json
+
 .. code-block:: console
 
     az ml workspace create
 
-You're all set! 
+You're all set!
