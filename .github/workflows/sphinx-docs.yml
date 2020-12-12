@@ -26,9 +26,9 @@ jobs:
         with:
           name: DocumentationHTML
           path: docs/_build/html/
-      - run: mv -f docs/_build/html/** .
+      #- run: mv -f docs/_build/html/** .
       - run: git config --global user.email "azureml@microsoft.com"
       - run: git config --global user.name "Azure ML"
       - run: git add -f docs
       - run: git commit -m "adding built sphinx docs"
-      - run: git push -u origin sphinxpages
+      - run: git push -u origin docs --force
