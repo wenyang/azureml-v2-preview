@@ -6,9 +6,6 @@ Azure
 
 If you don't have an Azure subscription, `create a free account <https://aka.ms/amlfree>`_.
 
-.. note::
-    Install the Azure CLI: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
-
 Authentication
 ~~~~~~~~~~~~~~
 

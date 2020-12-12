@@ -22,7 +22,10 @@ You can access the cloud shell at https://shell.azure.com
 
 You may use any terminal. 
 
-If you do not have the Azure CLI installed, follow the installation instructions from https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
+Install the Azure CLI
+~~~~~~~~~~~~~~~~~~~~~
+
+If you do not have the Azure CLI installed, follow the installation instructions from https://docs.microsoft.com/en-us/cli/azure/install-azure-cli.
 
 Install the ML Extension
 ~~~~~~~~~~~~~~~~~~~~~~~~
