@@ -51,6 +51,7 @@ Next, let's assume that the data scientist wants to use a pytorch docker image f
       target: azureml:goazurego
 
 Here's an example that runs on R script:
+
 .. code-block:: yaml
 
     command: Rscript test.R
@@ -231,3 +232,5 @@ Other Job Types
 Coming soon:
 - PipelineJob
 - AutoMLJob (s)
+
+.. literalinclude:: ../../examples/commandjob.yml
