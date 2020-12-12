@@ -6,6 +6,11 @@ Get direct support from the Azure ML Data Science & Engineering teams!
 External
 --------
 
+.. warning::
+    While Azure ML v2 is in private preview, please do not post
+    questions specific to it in the public forums. General Azure
+    ML questions may still be posted publicly.
+
 - https://github.com/Azure/azureml-examples/discussions
 
 Internal
