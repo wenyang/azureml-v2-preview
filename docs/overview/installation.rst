@@ -1,23 +1,28 @@
 Installation
 ============
 
-You can install *azureml* on Linux, MacOS, and Windows for several interfaces. The CLI is recommended for getting started.
+You can install *azure.ml* on Linux, MacOS, and Windows for several interfaces. The CLI is recommended for getting started.
+
+Prerequisites
+-------------
+
+#. An Azure subscription. If you don't have an Azure subscription, `create a free account <https://aka.ms/amlfree>`_ before you begin.
+#. A workspace! Don't have one? Create a Machine Learning workspace from https://portal.azure.com or the ARM template below.
+#. Add your subscription to the allow list by running from cloudshell:
+
+.. code-block:: console
+
+    SUBSCRIPTION=`az account show -o tsv --query id`
+    TOKEN=$(`echo "az account get-access-token -s $SUBSCRIPTION -o tsv --query accessToken"`)
+    curl --location --request POST "https://management.azure.com/subscriptions/$SUBSCRIPTION/providers/Microsoft.Features/providers/Microsoft.MachineLearningServices/features/MFE/register?api-version=2015-12-01" --header "Authorization: Bearer $TOKEN" --header 'Content-Length: 0'
+
+.. image:: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true
+    :target: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fmldevplatv2.blob.core.windows.net%2Fcli%2Fazuredeploy.json
 
 CLI
 ---
 
-```az ml``` is Azure ML on the command line. 
-It brings training and scoring capabilities to the terminal next to where you are already working with git and your code.
-
-Prerequisites
-~~~~~~~~~~~~~
-
-#. An Azure subscription. If you don't have an Azure subscription, `create a free account <https://aka.ms/amlfree>`_ before you begin.
-#. A workspace! Don't have one? Create a Machine Learning workspace from https://portal.azure.com or the ARM template below.
-#. Onboard your subscription to preview using the onboarding form: http://aka.ms/v2-preview-form 
-
-.. image:: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true
-    :target: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fmldevplatv2.blob.core.windows.net%2Fcli%2Fazuredeploy.json
+```az ml``` is Azure ML on the command line. It brings training and scoring capabilities to the terminal next to where you are already working with git and your code.
 
 
 Launch a terminal
@@ -120,7 +125,7 @@ Thank you for checking out Azure ML CLI! Please open an issue at https://github.
 Q&A
 ~~~
 
-For Q&A support please visit our [internal StackOverflow](http://aka.ms/stackoverflow) with tag `azure-machine-learning`. GitHub and LinkedIn employees can obtain access by following the guidelines [here](https://www.1eswiki.com/wiki/Stack_Overflow_At_Microsoft_Access) under "Edge Cases".
+For Q&A support please visit our `internal StackOverflow <http://aka.ms/stackoverflow>`_ with tag `azure-machine-learning`. GitHub and LinkedIn employees can obtain access by following the guidelines `here <https://www.1eswiki.com/wiki/Stack_Overflow_At_Microsoft_Access>`_ under "Edge Cases".
 
 **Whitelist your subscription (if not whitelisted)**
 
