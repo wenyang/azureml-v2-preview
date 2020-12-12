@@ -13,8 +13,8 @@ Authentication
 
     az login
 
-Subscription Setup
-~~~~~~~~~~~~~~~~~~
+Set Subscription
+~~~~~~~~~~~~~~~~
 
 If you have access to multiple subscriptions, set a default:
 
@@ -35,8 +35,8 @@ Add your subscription to the allow list by running from cloudshell:
 Azure Machine Learning
 ----------------------
 
-Create a Workspace
-~~~~~~~~~~~~~~~~~~
+Configuration
+~~~~~~~~~~~~~
 
 Setup defaults:
 
@@ -44,6 +44,9 @@ Setup defaults:
 
     az config set defaults.group="azureml-rg"
     az config set defaults.workspace="main"
+
+Create a Workspace
+~~~~~~~~~~~~~~~~~~
 
 Create a workspace:
 
