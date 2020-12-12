@@ -17,11 +17,9 @@ jobs:
         with:
           python-version: "3.8"
       - run: pip install -r requirements.txt
-        with:
-          working-directory: docs
+        working-directory: docs
       - run: make html
-        with: 
-          working-directory: docs
+        working-directory: docs
       - uses: actions/upload-artifact@v1
         with:
           name: DocumentationHTML
