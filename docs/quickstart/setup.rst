@@ -13,8 +13,8 @@ Authentication
 
     az login
 
-Set Subscription
-~~~~~~~~~~~~~~~~
+Configuration
+~~~~~~~~~~~~~
 
 If you have access to multiple subscriptions, set a default:
 
@@ -22,10 +22,17 @@ If you have access to multiple subscriptions, set a default:
 
     az account set -s $SUBSCRIPTION_ID
 
+Configure other defaults:
+
+.. code-block:: console
+
+    az config set defaults.group="azureml-rg"
+    az config set defaults.workspace="main"
+
 .. warning::
     The below not be required for Public Preview.
 
-Add your subscription to the allow list by running from cloudshell:
+Add your subscription to the allow list:
 
 .. code-block:: console
 
@@ -34,16 +41,6 @@ Add your subscription to the allow list by running from cloudshell:
 
 Azure Machine Learning
 ----------------------
-
-Configuration
-~~~~~~~~~~~~~
-
-Setup defaults:
-
-.. code-block:: console
-
-    az config set defaults.group="azureml-rg"
-    az config set defaults.workspace="main"
 
 Create a Workspace
 ~~~~~~~~~~~~~~~~~~
