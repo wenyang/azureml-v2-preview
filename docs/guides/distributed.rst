@@ -1,7 +1,7 @@
 Distributed Processing
 ======================
 
-Distributed processing is easy with `azureml`.
+Distributed processing is easy with `azure.ml`.
 
 Overview
 --------

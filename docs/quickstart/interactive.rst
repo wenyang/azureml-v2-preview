@@ -3,6 +3,9 @@ Interactive Sessions
 
 Interactive sessions are special jobs which can be started via CLI.
 
+.. warning::
+    This is fake.
+
 Overview
 --------
 

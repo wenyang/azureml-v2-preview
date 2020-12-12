@@ -1,7 +1,7 @@
 Concepts
 ========
 
-In `azureml`, all concepts are represented as an asset. Assets are serializable via YAML and backed by Azure Resource Manager (ARM). They can be managed (created, updated, deleted) through the supported interfaces in addition to the Azure Portal and ML Studio.
+In `azure.ml`, all concepts are represented as an asset. Assets are serializable via YAML and backed by Azure Resource Manager (ARM). They can be managed (created, updated, deleted) through the supported interfaces in addition to the Azure Portal and ML Studio.
 
 .. toctree::
    :hidden:
