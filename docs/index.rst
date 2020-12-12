@@ -1,9 +1,9 @@
-Azure Machine Learning
-=======================
+``azure.ml``
+============
 
 *Accelerate the machine learning lifecycle.*
 
-Azure Machine Learning, or `azure.ml`, is a cloud tool for training, deploying, and managing the lifecycle of machine learning (ML) models.
+The ``azure.ml`` package provides user-friendly developer tools for Azure Machine Learning.
 
 .. toctree::
    :hidden:
@@ -57,3 +57,4 @@ Azure Machine Learning, or `azure.ml`, is a cloud tool for training, deploying, 
   reference/templates.rst
   reference/feedback.rst
   reference/qna.rst
+  reference/troubleshooting.rst
