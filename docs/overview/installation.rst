@@ -14,13 +14,7 @@ The CLI through ``az ml`` provides full access to Azure ML and a set of CLI-spec
 Launch a terminal
 ~~~~~~~~~~~~~~~~~
 
-**Option A - Use the Azure Cloud Shell**
-
-You can access the cloud shell at https://shell.azure.com
-
-**Option B - Use your local terminal**
-
-You may use any terminal. 
+You may use any terminal. A cloud shell at https://shell.azure.com is recommended for private preview.
 
 Install the Azure CLI
 ~~~~~~~~~~~~~~~~~~~~~
