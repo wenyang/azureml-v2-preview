@@ -9,7 +9,7 @@ You can install *azure.ml* on Linux, MacOS, and Windows for several interfaces. 
 CLI
 ---
 
-The CLI through ``az ml`` provides full access to Azure ML and a set of CLI-specific functionality for accelerating the ML lifecycle along ``az``, ``git``, ``gh``, and other common tools.
+The CLI through ``az ml`` provides full access to Azure ML and a set of CLI-specific functionality for accelerating the ML lifecycle alongside ``az``, ``git``, ``gh``, and other common tools.
 
 Launch a terminal
 ~~~~~~~~~~~~~~~~~
