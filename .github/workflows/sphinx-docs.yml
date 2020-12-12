@@ -27,11 +27,10 @@ jobs:
           path: docs/_build/html/
       - run: git config --global user.email "azureml@microsoft.com"
       - run: git config --global user.name "Azure ML"
-      - run: git checkout -b sphinx-docs
       - run: git add -f docs
       - run: git commit -m "adding built sphinx docs"
       - name: GitHub Push
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: \{{ secrets.GITHUB_TOKEN }}
-          branch: sphinx-docs
+          branch: main
