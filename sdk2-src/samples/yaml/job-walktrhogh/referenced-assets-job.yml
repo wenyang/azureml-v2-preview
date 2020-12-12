@@ -1,6 +1,0 @@
-# yaml-language-server: $schema=https://azuremlsdk2.blob.core.windows.net/latest/commandJob.schema.json
-command: "pip freeze"
-code: file:../code_asset-Code.yaml
-compute:
-  target: azureml:test-rihorn
-environment: file:C:\work\sdk-cli-v2\samples\yaml\environment_conda.yml

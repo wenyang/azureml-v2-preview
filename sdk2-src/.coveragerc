@@ -1,5 +1,0 @@
-[run]
-omit = */_restclient/*
-       */__init__.py
-       */_schema/*
-       */_vendor/*

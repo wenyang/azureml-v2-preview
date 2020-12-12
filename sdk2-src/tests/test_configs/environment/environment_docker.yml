@@ -1,5 +1,0 @@
-name: TestEnv
-version: 1
-path: environment_files
-docker:
-   image: mcr.microsoft.com/azureml/base:0.2.2
