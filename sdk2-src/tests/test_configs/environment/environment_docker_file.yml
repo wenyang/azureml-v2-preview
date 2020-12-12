@@ -1,0 +1,6 @@
+name: TestEnv
+version: 1
+path: environment_files
+docker:
+   build:
+      dockerfile: Dockerfile
