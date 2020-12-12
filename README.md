@@ -3,7 +3,7 @@ This is the private preview for the Azure ML 2.0 developer experience.
 The 2.0 developer platform provides first class API / CLI / SDK support for model training and scoring scenarios.
 
 # User Guide (WIP)
-https://azure.github.io/azureml-v2-preview/docs/userguide/
+https://azure.github.io/azureml-v2-preview
 
 # Key goals
 [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fmldevplatv2.blob.core.windows.net%2Fcli%2Fazuredeploy.json)
