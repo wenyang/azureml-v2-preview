@@ -1,3 +1,4 @@
 numpydoc
 sphinx
 sphinx-rtd-theme
+furo
