@@ -1,3 +1,6 @@
+# html build artifacts
+docs/_build*
+
 # cli artifacts
 azmlcli
 cli.zip*

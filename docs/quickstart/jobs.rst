@@ -10,7 +10,7 @@ A Job is a Resource that specifies all aspects of a computation job. It aggregat
 A user can execute a job via the cli by executing an `az ml job create` command. The examples below encapsulate how a user might expand their job definition as they progress with their work.
 
 A minimal Job run locally
-============
+-------------------------
 
 First, the user would just execute a simple command to see if python is working and what packages are available in the environment -- here just `pip freeze`:
 
@@ -31,13 +31,14 @@ This will be run by executing:
 
 
 A side-note on tooling
-============
+----------------------
+
 The user is editing the Job yaml file to alter the way the job is run. Job definitions can get very complex, so, to make this easier, we have created JSONSchemas for the Job which can be used in VSCode with the YAML extension. 
 
 Going forward, the VSCode AzureML Extension will add more support, providing code-lenses to lookup compute targets, datasets, components, etc.. 
 
 Run some real code
-============
+------------------
 
 Next, let's assume that the data scientist wants to use a pytorch docker image from dockerhub and start by running a python script on it.
 
@@ -62,7 +63,7 @@ Here's an example that runs on R script:
       target: azureml:goazurego
 
 Upload some data to the cloud
-============
+-----------------------------
 
 Next the input data needs to be moved to the cloud -- therefore the user can create a data artifact in the workspace like so:
 
@@ -75,7 +76,7 @@ Next the input data needs to be moved to the cloud -- therefore the user can cre
 The above command uploads the data from the local folder `.data/` to the `workspaceblobstore` (default). It creates a data entity and registers it under the name `irisdata`.
 
 Use data in your job
-============
+--------------------
 
 In examples/iris, create a job using the base template for iris-job.yml
 
@@ -128,12 +129,12 @@ The above job can be run without reference to the dataset, by removing the input
       directory: train
 
 Distributed Training
-============
+--------------------
 
 Distributed command jobs have a 'distribution' section where you define the distribution type and properties that are unique to distributed training.
 
 MPI based
-============
+---------
 
 .. code-block:: yaml
 
@@ -149,7 +150,7 @@ MPI based
     experiment_name: mfe_distributed
 
 PyTorch based
-============
+-------------
 
 .. code-block:: yaml
 
@@ -163,7 +164,7 @@ PyTorch based
     experiment_name: mfe-test1
   
 Tensorflow based
-============
+----------------
 
 .. code-block:: yaml
 
@@ -180,7 +181,7 @@ Tensorflow based
 
   
 Sweep Job
-============
+---------
 
 A Sweep job executes a hyperparameter sweep of a specific search space for a job. The below yaml uses the command job from the previous section as the 'trial' job in the sweep. It sweeps over different learning rates and subsample rates for each child run. The search space parameters will be passed as arguments to the command in the trial job.
 
@@ -227,7 +228,7 @@ This can be executed by running (after setting compute name in yaml):
 
 
 Other Job Types
-=============
+---------------
 
 Coming soon:
 - PipelineJob
