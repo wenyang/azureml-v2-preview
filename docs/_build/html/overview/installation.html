@@ -95,8 +95,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#understanding-commandjob-yml-and-az-ml-job-create">Understanding commandjob.yml and az ml job create</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#useful-cli-commands">Useful CLI commands</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#extending-the-cli">Extending the CLI</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#feedback">Feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#q-a">Q&amp;A</a></li>
 </ul>
 </li>
 </ul>
@@ -109,18 +107,33 @@
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/setup.html">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/jobs.html">Running Jobs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/endpoints.html">Deploying Endpoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/interactive.html">Interactive Sessions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Interfaces</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../interfaces/cli.html">Command Line Interface (CLI)</a></li>
 </ul>
-<p class="caption"><span class="caption-text">[WIP] Guides</span></p>
+<p class="caption"><span class="caption-text">Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guides/local-development.html">Local Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/cloud-development.html">Cloud Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/distributed.html">Distributed Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/gha.html">GitHub Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/ado.html">Azure DevOps</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Distributed Frameworks</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../distributed/horovod.html">Horovod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../distributed/pytorch.html">PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../distributed/tensorflow.html">Tensorflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../distributed/spark.html">Spark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../distributed/dask.html">Dask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../distributed/ray.html">Ray</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/feedback.html">Feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/qna.html">Q&amp;A</a></li>
 </ul>
 
             
@@ -289,21 +302,6 @@ For language server support you can use VSCode :)</p>
 <li><p>[az config](<a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/param-persist-howto">https://docs.microsoft.com/en-us/cli/azure/param-persist-howto</a>) set allows you to configure default values used when submitting CLI commands. Examples include workspace and group.</p></li>
 <li><p>(more coming soon)</p></li>
 </ul>
-</div>
-<div class="section" id="feedback">
-<h3>Feedback<a class="headerlink" href="#feedback" title="Permalink to this headline">¶</a></h3>
-<p>Thank you for checking out Azure ML CLI! Please open an issue at <a class="reference external" href="https://github.com/Azure/azureml-v2-preview/issues">https://github.com/Azure/azureml-v2-preview/issues</a> to send us feedback. We’re looking forward to hearing it.</p>
-</div>
-<div class="section" id="q-a">
-<h3>Q&amp;A<a class="headerlink" href="#q-a" title="Permalink to this headline">¶</a></h3>
-<p>For Q&amp;A support please visit our <a class="reference external" href="http://aka.ms/stackoverflow">internal StackOverflow</a> with tag <cite>azure-machine-learning</cite>. GitHub and LinkedIn employees can obtain access by following the guidelines <a class="reference external" href="https://www.1eswiki.com/wiki/Stack_Overflow_At_Microsoft_Access">here</a> under “Edge Cases”.</p>
-<p><strong>Whitelist your subscription (if not whitelisted)</strong></p>
-<p>Run the following commands in the cloudshell to whitelist your subscription.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SUBSCRIPTION=`az account show -o tsv --query id`</span>
-<span class="go">TOKEN=$(`echo &quot;az account get-access-token -s $SUBSCRIPTION -o tsv --query accessToken&quot;`)</span>
-<span class="go">curl --location --request POST &quot;https://management.azure.com/subscriptions/$SUBSCRIPTION/providers/Microsoft.Features/providers/Microsoft.MachineLearningServices/features/MFE/register?api-version=2015-12-01&quot; --header &quot;Authorization: Bearer $TOKEN&quot; --header &#39;Content-Length: 0&#39;</span>
-</pre></div>
-</div>
 </div>
 </div>
 </div>

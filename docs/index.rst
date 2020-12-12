@@ -20,6 +20,7 @@ Azure Machine Learning, or `azure.ml`, is a cloud tool for training, deploying, 
    quickstart/setup.rst
    quickstart/jobs.rst
    quickstart/endpoints.rst
+   quickstart/interactive.rst
 
 .. toctree::
    :hidden:
