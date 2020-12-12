@@ -9,7 +9,7 @@ on:
       - .github/workflows/sphinx-docs.yml
 jobs:
   build:
-    name: Push Sphinx Pages
+    name: deploy documentation
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
