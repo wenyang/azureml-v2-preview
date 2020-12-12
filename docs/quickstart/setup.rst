@@ -28,6 +28,7 @@ Configure other defaults:
 
     az config set defaults.group="azureml-rg"
     az config set defaults.workspace="main"
+    az config set defaults.location="eastus"
 
 .. warning::
     The below not be required for Public Preview.
