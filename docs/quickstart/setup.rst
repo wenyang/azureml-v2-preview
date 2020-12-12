@@ -8,11 +8,10 @@ Prerequisites
 ~~~~~~~~~~~~~
 
 #. An Azure subscription. If you don't have an Azure subscription, `create a free account <https://aka.ms/amlfree>`_.
-#. A workspace! Create one from https://portal.azure.com or the ARM template below.
+#. A workspace! Create one from the ARM template below.
 
 .. image:: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true
     :target: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fmldevplatv2.blob.core.windows.net%2Fcli%2Fazuredeploy.json
-
 
 If you don't have an Azure subscription, create one for free.
 
