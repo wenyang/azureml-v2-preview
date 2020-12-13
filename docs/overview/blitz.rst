@@ -1,16 +1,21 @@
-Hello World
-===========
+Tutorial
+========
 
 Follow this 10 minute tutorial to get started with `azure.ml`.
 
 Hello World!
 ------------
 
-Let's start by running our first job tracked in the cloud:
+.. toggle::
 
-.. code-block:: console
+    .. warning::
+        Local execution is not in scope for private preview.
 
-    az ml job create --name
+    Let's start by running our first job tracked in the cloud:
+
+    .. code-block:: console
+
+        az ml job create --name
 
 Hello Azure!
 ------------
@@ -30,15 +35,15 @@ Let's train a simple lightgbm model on the Iris dataset.
 
     az ml job create --name 
 
-Tune Hyperparameters
---------------------
+Tune parameters
+---------------
 
 .. code-block:: console
 
     az ml job create --name 
 
-Deploy model to endpoint
-------------------------
+Deploy to endpoint
+------------------
 
 .. code-block:: console 
 
