@@ -75,7 +75,7 @@ Creating Environment using DockerFile + Conda File:
 
 .. code-block:: console
 
-az ml environment create --file examples/environments/docker-conda-env.yml
+  az ml environment create --file examples/environments/docker-conda-env.yml
 
 where `docker-conda-env.yml` contains: 
 
