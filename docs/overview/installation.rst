@@ -27,12 +27,16 @@ If you do not have the Azure CLI installed, follow the installation instructions
 Install the ML Extension
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Install Azure CLI extension for ML:
+Remove any previous extension installations if you have them:
 
 .. code-block:: console
 
     az extension remove -n ml; az extension remove -n azure-cli-ml
-    az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/27359718/ml-0.0.3-py3-none-any.whl --pip-extra-index-urls https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2/27359718 -y
+
+Run this command to install the new CLI:
+
+.. literalinclude:: ../../.github/workflows/runcliwhl.yml
+   :lines: 22
 
 Verify installation:
 
