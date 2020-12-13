@@ -18,7 +18,7 @@ To create the endpoint, run the following:
   az ml endpoint create --file basicaksendpoint.yml
 
 Minimal endpoint specification - batch
-===================================
+--------------------------------------
 
 .. code-block:: yaml
 
