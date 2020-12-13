@@ -65,7 +65,7 @@ Create a workspace:
 Install the CLI
 ~~~~~~~~~~~~~~~~~~
 
-.. literalinclude:: .github/workflows/runcliwhl.yml
+.. literalinclude:: ../../.github/workflows/runcliwhl.yml
    :lines: 22
 
 You're all set!
