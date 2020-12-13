@@ -1,15 +1,6 @@
 Running Jobs
 ============
 
-.. warning::
-    This needs major updates.
-
-To Organize
------------
-
-Hello world
-~~~~~~~~~~~
-
 Create your first job
 ~~~~~~~~~~~~~~~~~~~~~
 
@@ -21,7 +12,7 @@ Prepare the code you'd like to run. For this example, we'll simply clone the v2 
 
 .. note:: To authenticate the git clone, you may need a PAT. You can generate one here: https://github.com/settings/tokens (use anything as username, the PAT as your password)**
 
-Check that a compute cluster exists in your workspace and the name (goazurego) matches the one specified in the https://github.com/Azure/azureml-v2-preview/examples/commandjob.yml file. If you used the ARM template, this will be set up for you. Submit your first job using the job create command. You should see a new run from the Studio UI (https://ml.azure.com) Home page or Experiments page. 
+Check that a compute cluster exists in your workspace and you have a compute cluster named **goazurego** (if not, you can modify the name of the cluster in your YML file).
 
 .. code-block:: console
 
@@ -37,17 +28,17 @@ A few interesting things to note about the yaml file:
     name: test1
     compute:
         target: azureml:goazurego
-    command: /bin/sh -c 'pip freeze && echo hello world'
+    command: echo hello world
     environment: azureml:AzureML-Minimal:1
     code:
         directory: .
 
-- 'name' is the user defined run name which needs to be **unique**. By default, runs are created in an Experiment called "Default". If you want to use a different experiment name, you can use the parameter experiment_name.
-- 'name' and other parameters can be overwritten from the command line. For example: az ml job create --file azureml-v2-preview/examples/commandjob.yml --name test2
-- 'directory' path is relative to where the yaml file exists, not where the command is being run from.
-- All the files from 'directory' are uploaded as snapshot before the job is created and can be viewed in the Snapshot page of the run from Studio UI.
-- 'azureml' is a special moniker used to refer to an existing entity within the workspace. In this case 'azureml:AzureML-Minimal:1' is expecting that version 1 of an environment called AzureML-Minimal exists in the current workspace. Similarly, 'azureml:testCompute' refers to a compute cluster called 'testCompute' in the current workspace. 
-- 'command' parameter refers to the command that gets run on the remote compute. This usually gets replaced by the relevant training command, example: "python train.py" or "Rscript train.R".
+- **name** is the user defined run name which needs to be **unique**. By default, runs are created in an Experiment called "Default". If you want to use a different experiment name, you can use the parameter experiment_name. 'name' and other parameters can be overwritten from the command line. For example: ```az ml job create --file azureml-v2-preview/examples/commandjob.yml --name test2```
+- **code / directory** is the path to your code directory relative to where the YML file lives. This directory is uploaded as a snapshot to Azure ML and mounted to your job for execution. 
+ - All of the files from 'directory' are uploaded as a snapshot before the job is created and can be viewed in the Snapshot page of the run from Studio UI.
+ - **command** executes from the root of this directory on the remote target.
+- **azureml:** is a special moniker used to refer to an existing entity within the workspace. In this case 'azureml:AzureML-Minimal:1' is expecting that version 1 of an environment called AzureML-Minimal exists in the current workspace. Similarly, 'azureml:testCompute' refers to a compute cluster called 'testCompute' in the current workspace. 
+- **command** parameter refers to the command that gets run on the remote compute. This usually gets replaced by the relevant training command, example: "python train.py" or "Rscript train.R".
 
 A Job is a Resource that specifies all aspects of a computation job. It aggregates 3 things:
 
@@ -57,59 +48,42 @@ A Job is a Resource that specifies all aspects of a computation job. It aggregat
 
 A user can execute a job via the cli by executing an `az ml job create` command. The examples below encapsulate how a user might expand their job definition as they progress with their work.
 
-A minimal Job run locally
--------------------------
-
-First, the user would just execute a simple command to see if python is working and what packages are available in the environment -- here just `pip freeze`:
-
-.. code-block:: yaml
-
-    command: pip freeze
-    code:
-      directory: .
-    environment: azureml:azureml-minimal:1
-    compute:
-      target: azureml:goazurego
-
-This will be run by executing:
-
-.. code-block:: console
-
-    az ml job create --file pipfreezejob.yml
-
-
-A side-note on tooling
-----------------------
-
-The user is editing the Job yaml file to alter the way the job is run. Job definitions can get very complex, so, to make this easier, we have created JSONSchemas for the Job which can be used in VSCode with the YAML extension. 
-
-Going forward, the VSCode AzureML Extension will add more support, providing code-lenses to lookup compute targets, datasets, components, etc.. 
-
 Run some real code
 ------------------
 
-Next, let's assume that the data scientist wants to use a pytorch docker image from dockerhub and start by running a python script on it.
+Here's an example that runs some Python code.
 
-.. code-block:: yaml
-
-    command: python mnist.py
-    environment: azureml:AzureML-PyTorch-1.6-GPU:44
-    code: 
-      directory: train/pytorch
-    compute:
-      target: azureml:goazurego
+.. literalinclude:: ../../examples/train/tensorflow/mnist/tf_mnist_job.yml
+   :language: yaml
 
 Here's an example that runs on R script:
 
-.. code-block:: yaml
+.. literalinclude:: ../../examples/train/r/r_job.yml
+   :language: yaml
 
-    command: Rscript test.R
-    environment: azureml:r-minimal:1
-    code: 
-      directory: train/r
-    compute:
-      target: azureml:goazurego
 
+Next, let's train an xgboost model on an IRIS dataset.
+
+Let's navigate to the examples/iris directory in the repository and see what we should do next.
+
+.. code-block:: console
+
+    cd ./examples/iris/
+    
+Define your environment
+-----------------------------
+
+First we are going to define the xgboost environment we want to run.
+
+.. literalinclude:: ../../examples/iris/xgboost-env.yml
+   :language: yaml
+
+
+.. code-block:: console
+
+    az ml environment create xgboost-env.yml
+    
+    
 Upload some data to the cloud
 -----------------------------
 
@@ -117,24 +91,18 @@ Next the input data needs to be moved to the cloud -- therefore the user can cre
 
 .. code-block:: console
 
-    cd ./iris/
     az ml data upload -n irisdata -v 1 --path ./data
 
 
 The above command uploads the data from the local folder `.data/` to the `workspaceblobstore` (default). It creates a data entity and registers it under the name `irisdata`.
 
-Use data in your job
+Use your uploaded data and custom environment in your job
 --------------------
 
-In examples/iris, create a job using the base template for iris-job.yml
-
-Envirenment creation via job should work, but if it fails, first create environment:
-
-.. code-block:: console
-
-    az ml environment create --file xgboost-env.yml
-
-Then submit the job:
+.. literalinclude:: ../../examples/iris/iris-job.yml
+   :language: yaml
+   
+To submit the job:
 
 .. code-block:: console
 
@@ -163,7 +131,8 @@ we can use the CLI to show this job:
         data: azureml:irisdata:1
         mode: Mount
 
-The above job can be run without reference to the dataset, by removing the inputs and the arg in the command, since teh script sets the default value if no data is input. This is to allow further debugging if data store does not work.
+The above job can be run without reference to the dataset, by removing the inputs and the arg in the command, since the script sets the default value if no data is input. 
+This is to allow further debugging if data store does not work.
 
 .. code-block:: yaml
 
@@ -283,3 +252,4 @@ Coming soon:
 - AutoMLJob (s)
 
 .. literalinclude:: ../../examples/commandjob.yml
+   :language: yaml
