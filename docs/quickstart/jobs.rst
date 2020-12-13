@@ -36,15 +36,17 @@ A few interesting things to note about the yaml file:
 - ``name`` is the user defined run name which needs to be **unique**. 
  - By default, runs are created in an Experiment called "Default". If you want to use a different experiment name, you can use the parameter **experiment_name.** 
  - ``name`` and other parameters can be overwritten from the command line. For example: ```az ml job create --file azureml-v2-preview/examples/commandjob.yml --name test2```
-- ``code / directory`` is the path to your code directory relative to where the YML file lives. This directory is uploaded as a snapshot to Azure ML and mounted to your job for execution. 
+- ``code / directory`` is the path to your code directory relative to where the YML file lives. 
+ - This directory is uploaded as a snapshot to Azure ML and mounted to your job for execution. 
  - All of the files from 'directory' are uploaded as a snapshot before the job is created and can be viewed in the Snapshot page of the run from Studio UI.
- - ``command`` executes from the root of this directory on the remote target.
- - ``environment`` is a definition or reference of the docker image virtual environment you want to run your job in.
-  - ``azureml:`` is a special moniker used to refer to an existing entity within the workspace. 
-  - In this case ``azureml:AzureML-Minimal:1`` is expecting that version 1 of an environment called AzureML-Minimal exists in the current workspace. 
-  - Similarly, ``azureml:testCompute`` refers to a compute cluster called 'testCompute' in the current workspace. 
 - ``command`` parameter refers to the command that gets run on the remote compute. 
-  - This usually gets replaced by the relevant training command, example: "python train.py" or "Rscript train.R".
+ -  ``command`` executes from the root of the code directory defined above.
+ - This is typically the command, example: "python train.py" or "Rscript train.R" and can include as many arguments as you desire.
+- ``environment`` is a definition or reference of the docker image virtual environment you want to run your job in.
+ - ``azureml:`` is a special moniker used to refer to an existing entity within the workspace. 
+ - ``azureml:AzureML-Minimal:1`` is expecting that version 1 of an environment called AzureML-Minimal exists in the current workspace. 
+- ``compute`` is the definition of where you want to run your job
+ - ``azureml:testCompute`` refers to a compute cluster called 'testCompute' in the current workspace.
 
 A Job is a Resource that specifies all aspects of a computation job. It aggregates 3 things:
 
