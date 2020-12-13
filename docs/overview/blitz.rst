@@ -17,6 +17,15 @@ Hello World!
 
         az ml job create --name
 
+    We can view it in the ML studio:
+
+    .. tip::
+        This will open your web browser! Omit the ``--web`` for the CLI view.
+
+    .. code-block:: console 
+
+        az ml job view --web
+
 Hello Azure!
 ------------
 
@@ -38,6 +47,8 @@ Let's train a simple lightgbm model on the Iris dataset.
 Tune parameters
 ---------------
 
+Let's add a sweep section to the job configuration to tune the learning rate and [pick something else].
+
 .. code-block:: console
 
     az ml job create --name 
@@ -45,12 +56,13 @@ Tune parameters
 Deploy to endpoint
 ------------------
 
+Let's deploy the best model as an endpoint.
+
 .. code-block:: console 
 
     az ml endpoint create --name
 
-Test endpoint
--------------
+Let's test the endpoint.
 
 .. code-block:: console 
 
