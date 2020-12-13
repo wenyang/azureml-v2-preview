@@ -20,10 +20,10 @@ jobs:
         working-directory: docs
       - run: make html
         working-directory: docs
-      - uses: actions/upload-artifact@v1
-        with:
-          name: DocumentationHTML
-          path: docs/_build/html/
+      #- uses: actions/upload-artifact@v1
+      #  with:
+      #    name: DocumentationHTML
+      #    path: docs/_build/html/
       - run: git config --global user.email "azureml@microsoft.com"
       - run: git config --global user.name "Azure ML"
       - run: git checkout -b docs
