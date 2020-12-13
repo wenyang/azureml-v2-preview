@@ -37,10 +37,10 @@ Configure other defaults:
     az config set defaults.location="eastus"
     az config set defaults.group="azureml-rg"
 
-Add your subscription to the allow list:
+(If not onboarded) Add your subscription to the allow list:
 
 .. note::
-    This is only required during private preview.
+    This is a one time operation and is only required during private preview. Onboarding will take around 10 minutes, go grab a coffee while you wait. Once onboarded, run the CURL command again and you should see status as "Registered."
 
 .. code-block:: console
 
@@ -65,7 +65,9 @@ Create a workspace:
 Install the CLI
 ~~~~~~~~~~~~~~~~~~
 
+Run the following command in your terminal to install the latest Azure ML preview CLI:
+
 .. literalinclude:: ../../.github/workflows/runcliwhl.yml
    :lines: 22
 
-You're all set!
+You're all set! Let's try it out.
