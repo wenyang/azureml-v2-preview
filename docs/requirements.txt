@@ -1,4 +1,5 @@
 numpydoc
 sphinx
+sphinx-copybutton
 sphinx-rtd-theme
 furo
