@@ -2,7 +2,7 @@ Train Models (Create Jobs)
 ============
 
 Create your first job
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 Prepare the code you'd like to run. For this example, we'll simply clone the v2 preview repo and run the first example!
 
@@ -56,22 +56,24 @@ A Job is a Resource that specifies all aspects of a computation job. It aggregat
 
 A user can execute a job via the cli by executing an `az ml job create` command. The examples below encapsulate how a user might expand their job definition as they progress with their work.
 
-Run some real code
-------------------
+Real training examples
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Here's an example that runs some Python code.
 
 .. literalinclude:: ../../examples/train/tensorflow/mnist/tf_mnist_job.yml
    :language: yaml
+   :caption: az ml job create --file examples/train/tensorflow/mnist/tf_mnist_job.yml
 
 Here's an example that runs on R script:
 
 .. literalinclude:: ../../examples/train/r/r_job.yml
    :language: yaml
+   :caption: az ml job create --file examples/train/r/r_job.yml
 
 
 Train an XGBoost model
-======================
+-----------------------
 
 Next, let's train an xgboost model on an IRIS dataset.
 
@@ -82,7 +84,7 @@ Let's navigate to the examples/iris directory in the repository and see what we 
     cd ./examples/iris/
     
 Define your environment
------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 First we are going to define the xgboost environment we want to run.
 
@@ -96,7 +98,7 @@ First we are going to define the xgboost environment we want to run.
     
     
 Upload data to the cloud
------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Next the input data needs to be moved to the cloud -- therefore the user can create a data artifact in the workspace like so:
 
@@ -107,8 +109,8 @@ Next the input data needs to be moved to the cloud -- therefore the user can cre
 
 The above command uploads the data from the local folder `.data/` to the `workspaceblobstore` (default). It creates a data entity and registers it under the name `irisdata`.
 
-Use your uploaded data and custom environment in your job
---------------------
+Create a job  that uses your uploaded data and custom environment image
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. literalinclude:: ../../examples/iris/iris-job.yml
    :language: yaml
@@ -157,12 +159,12 @@ This is to allow further debugging if data store does not work.
       directory: train
 
 Distributed Training
-=====================
+---------------------
 
 Distributed command jobs have a 'distribution' section where you define the distribution type and properties that are unique to distributed training.
 
 MPI based
----------
+~~~~~~~~
 
 .. code-block:: yaml
 
@@ -178,7 +180,7 @@ MPI based
     experiment_name: mfe_distributed
 
 PyTorch based
--------------
+~~~~~~~~~~~~
 
 .. code-block:: yaml
 
@@ -192,7 +194,7 @@ PyTorch based
     experiment_name: mfe-test1
   
 Tensorflow based
-----------------
+~~~~~~~~~~~~~~~~~
 
 .. code-block:: yaml
 
@@ -213,46 +215,14 @@ Sweep Jobs (Hyperparameter Tuning)
 
 A Sweep job executes a hyperparameter sweep of a specific search space for a job. The below yaml uses the command job from the previous section as the 'trial' job in the sweep. It sweeps over different learning rates and subsample rates for each child run. The search space parameters will be passed as arguments to the command in the trial job.
 
-.. code-block:: yaml
-
-    experiment_name: iris-sweep-trial
-    algorithm: random
-    job_type: Sweep
-    name: test
-    search_space:
-      learning-rate:
-        spec: uniform
-        min_value: 0.001
-        max_value: 0.1
-      subsample:
-        spec: uniform
-        min_value: 0.1
-        max_value: 1.0    
-    objective:
-      primary_metric: accuracy
-      goal: maximize
-    trial:
-      command: >-
-        python train.py --data {inputs.training_data}
-      environment: azureml:xgboost-env:1
-      compute:
-        target: azureml:<compute-name>
-      code: 
-        directory: train
-      inputs:
-        training_data:
-          data: azureml:irisdata:1
-          mode: Mount
-    limits:
-      max_total_runs: 10
-      max_concurrent_runs: 10
-      max_duration_minutes: 20
+.. literalinclude:: ../../examples/iris/iris-sweep.yml
+   :language: yaml
 
 This can be executed by running (after setting compute name in yaml):
 
 .. code-block:: console
 
-    az ml job create --file iris-sweep.yml --name <unique name>
+    az ml job create --file iris-sweep.yml
 
 
 Other Job Types
