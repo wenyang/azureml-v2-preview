@@ -1,4 +1,4 @@
-Running Jobs
+Train Models (Create Jobs)
 ============
 
 Create your first job
