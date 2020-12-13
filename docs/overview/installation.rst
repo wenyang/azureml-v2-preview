@@ -3,7 +3,7 @@ Installation
 
 You can install *azure.ml* on Linux, MacOS, and Windows for several interfaces. The CLI is recommended to get started.
 
-.. warning::
+.. note::
     Installation instructions will be simplified for public preview.
 
 CLI
