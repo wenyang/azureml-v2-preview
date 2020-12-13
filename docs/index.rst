@@ -5,13 +5,6 @@
 
 The ``azure.ml`` package provides user-friendly developer tools for Azure Machine Learning.
 
-.. toctree::
-   :hidden:
-   :caption: Overview
-
-   overview/installation.rst
-   overview/concepts.rst
-   overview/architecture.rst
 
 .. toctree::
    :hidden:
@@ -20,7 +13,15 @@ The ``azure.ml`` package provides user-friendly developer tools for Azure Machin
    quickstart/setup.rst
    quickstart/jobs.rst
    quickstart/endpoints.rst
-   quickstart/interactive.rst
+   quickstart/environments.rst
+
+.. toctree::
+   :hidden:
+   :caption: Overview
+
+   overview/installation.rst
+   overview/concepts.rst
+   overview/architecture.rst
 
 .. toctree::
    :hidden:
