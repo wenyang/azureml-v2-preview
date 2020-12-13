@@ -3,14 +3,15 @@ Manage Environments
 
 
 What are Environments?
-~~~~~~~~~~~~~~~~~~~~
+----------------------
 
 - Environments are used to define the execution environment of a job or an endpoint.
 - All environments are built as docker images.
 - We provide convenience functions to generate a environment.
 
 Creating an environment
-~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------
+
 
 Environment can be created in number of ways. For example using docker file, conda file or even a combination of two. This section shows to represent and create environments using YAML files.
 
@@ -27,7 +28,7 @@ Example - Create Environment from YAML file representing the environment.
 Environments can be created in number of ways. These examples shows YAML files representing environments for supported scenarios.
 
 Creating Environment using existing Docker Image:
-===========================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: console
 
@@ -40,7 +41,7 @@ where `fastai-env.yml` contains:
    :language: yaml
 
 Creating Environment using DockerFile:
-===========================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: console
 
@@ -52,7 +53,7 @@ where `fastai-vision-env.yml` contains:
    :language: yaml
 
 Creating Environment using Conda File:
-======================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: console
 
@@ -70,7 +71,7 @@ where `environment.yml` contains:
 
 
 Creating Environment using DockerFile + Conda File:
-======================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: console
 
