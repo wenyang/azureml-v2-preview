@@ -35,6 +35,8 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",
     "numpydoc",
+    "sphinx_copybutton"
+
 ]
 
 # Add any paths that contain templates here, relative to this directory.
