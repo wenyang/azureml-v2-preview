@@ -6,6 +6,11 @@ Azure
 
 If you need an Azure subscription, `create a free account <https://aka.ms/amlfree>`_.
 
+Launch Terminal
+---------------
+A cloud shell (https://shell.azure.com) is recommended for private preview.
+You may also use your local terminal.
+
 Authentication
 ~~~~~~~~~~~~~~
 
@@ -56,8 +61,11 @@ Create a workspace:
 .. image:: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true
     :target: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fmldevplatv2.blob.core.windows.net%2Fcli%2Fazuredeploy.json
 
-.. code-block:: console
 
-    az ml workspace create
+Install the CLI
+~~~~~~~~~~~~~~~~~~
+
+.. literalinclude:: .github/workflows/runcliwhl.yml
+   :lines: 22
 
 You're all set!
