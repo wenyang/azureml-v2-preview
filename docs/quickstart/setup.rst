@@ -32,10 +32,10 @@ Configure other defaults:
     az config set defaults.location="eastus"
     az config set defaults.group="azureml-rg"
 
-.. warning::
-    Only needed for Private Preview.
-
 Add your subscription to the allow list:
+
+.. note::
+    Only needed for Private Preview.
 
 .. code-block:: console
 
