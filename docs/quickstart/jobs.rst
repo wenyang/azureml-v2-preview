@@ -70,6 +70,9 @@ Here's an example that runs on R script:
    :language: yaml
 
 
+Train an XGBoost model
+======================
+
 Next, let's train an xgboost model on an IRIS dataset.
 
 Let's navigate to the examples/iris directory in the repository and see what we should do next.
@@ -92,7 +95,7 @@ First we are going to define the xgboost environment we want to run.
     az ml environment create xgboost-env.yml
     
     
-Upload some data to the cloud
+Upload data to the cloud
 -----------------------------
 
 Next the input data needs to be moved to the cloud -- therefore the user can create a data artifact in the workspace like so:
@@ -154,7 +157,7 @@ This is to allow further debugging if data store does not work.
       directory: train
 
 Distributed Training
---------------------
+=====================
 
 Distributed command jobs have a 'distribution' section where you define the distribution type and properties that are unique to distributed training.
 
@@ -205,8 +208,8 @@ Tensorflow based
     experiment_name: mfe-test1
 
   
-Sweep Job
----------
+Sweep Jobs (Hyperparameter Tuning)
+===================
 
 A Sweep job executes a hyperparameter sweep of a specific search space for a job. The below yaml uses the command job from the previous section as the 'trial' job in the sweep. It sweeps over different learning rates and subsample rates for each child run. The search space parameters will be passed as arguments to the command in the trial job.
 
@@ -256,8 +259,6 @@ Other Job Types
 ---------------
 
 Coming soon:
+
 - PipelineJob
 - AutoMLJob (s)
-
-.. literalinclude:: ../../examples/commandjob.yml
-   :language: yaml
