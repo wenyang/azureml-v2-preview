@@ -35,7 +35,7 @@ Configure other defaults:
 Add your subscription to the allow list:
 
 .. note::
-    Only needed for Private Preview.
+    Only needed for private preview.
 
 .. code-block:: console
 
