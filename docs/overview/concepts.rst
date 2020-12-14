@@ -6,10 +6,10 @@ In `azure.ml`, all concepts are represented as an asset. Assets are serializable
 .. toctree::
    :hidden:
 
-   concepts/workspace.rst
    concepts/data.rst
    concepts/job.rst
    concepts/model.rst
    concepts/endpoint.rst
    concepts/environment.rst
    concepts/compute.rst
+   concepts/workspace.rst
