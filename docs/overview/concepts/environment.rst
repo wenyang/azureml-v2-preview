@@ -1,4 +1,4 @@
-Managing Environments
+Manage Environments
 =====================
 
 - Environments are used to define the execution environment of a job or an endpoint.
