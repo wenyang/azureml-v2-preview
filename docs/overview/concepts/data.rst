@@ -1,5 +1,6 @@
-Manage Data
+Manage Data Assets
 ====
+
 Data in Azure ML is used in the context of a Job. 
 Data assets can be created from files on your local machine or as references to files in cloud storage.
 When you create a data asset from your local machine, you upload this data into the workspace's default blob storage account (called 'workspaceblobstore').
@@ -51,7 +52,7 @@ Reference data in another storage account
 
   az ml data create --file examples/datasets/datafromsomewhere.yml
 
-Connect to Storage Resources with Datastores
+Manage Datastore Connections
 ==========
 
 Datastore connections are used to securely connect to your storage services. Datastores store connection information without putting your authentication credentials and the integrity of your original data source at risk. 
