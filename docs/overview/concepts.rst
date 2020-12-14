@@ -8,8 +8,8 @@ In `azure.ml`, all concepts are represented as an asset. Assets are serializable
 
    concepts/workspace.rst
    concepts/data.rst
-   concepts/compute.rst
-   concepts/environment.rst
-   concepts/model.rst
    concepts/job.rst
+   concepts/model.rst
    concepts/endpoint.rst
+   concepts/environment.rst
+   concepts/compute.rst
