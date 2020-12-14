@@ -1,4 +1,4 @@
-Deploying Endpoints
+Deploy Models (Create Endpoints)
 ===================
 
 Models can be deployed as online or batch mode Endpoints.
