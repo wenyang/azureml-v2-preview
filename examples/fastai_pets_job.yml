@@ -1,8 +1,0 @@
-# yaml-language-server: $schema=https://azuremlsdk2.blob.core.windows.net/latest/commandJob.schema.json
-name: fastai_pets_example
-code: 
-  directory: ../code/train/fastai/pets-resnet34
-command: python train.py
-environment: "azureml:fastai-vision/versions/1"
-compute:
-  target: "azureml:testCompute"
