@@ -19,6 +19,7 @@ What constitutes a model?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Minimum required definition for a model:
+
 .. code-block:: yaml
 
   name: my-model
@@ -27,41 +28,52 @@ Minimum required definition for a model:
 ```
 
 Full specification of a model:
-```yml
-name: my-model6
-asset_path: ./model
-version: 3
-environment: azureml:AzureML-Minimal/versions/1
-description: this is my test model
-tags:
-  foo: bar
-  abc: 123
-utc_time_created: '2020-10-19 17:44:02.096572'
-flavors:
-  sklearn:
-    sklearn_version: 0.23.2
-  python_function:
-    loader_module: office.plrmodel
-    python_version: 3.8.5
-```
 
-## List models 
+.. code-block:: yaml
+
+  name: my-model6
+  asset_path: ./model
+  version: 3
+  environment: azureml:AzureML-Minimal/versions/1
+  description: this is my test model
+  tags:
+    foo: bar
+    abc: 123
+  utc_time_created: '2020-10-19 17:44:02.096572'
+  flavors:
+    sklearn:
+      sklearn_version: 0.23.2
+    python_function:
+      loader_module: office.plrmodel
+      python_version: 3.8.5
+
+
+List models 
+--------------
 Run the following command to list models in your workspace, use --name paramter to list all models in a workspace with the specified name.
-```console
+
+.. code-block:: console
+
 az ml model list
-```
 
-## Show model
+
+Show model details
+----------
+
 Run the following command to show specific models in your workspace.
-```console
+
+.. code-block:: console
+
 az ml model show --name <model name> --version <version>
-```
 
-## Delete models
+
+Delete models
+-------------
+
 Run the following command to delete your model.
-```console
-az ml model delete --name <model name> --version <version>
-```
 
-### How do I use a model?
-See [Endpoint](endpoint.md) for more information.
+.. code-block:: console
+
+  az ml model delete --name <model name> --version <version>
+
+
