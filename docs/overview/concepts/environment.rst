@@ -1,5 +1,5 @@
-What are Environments?
-----------------------
+Managing Environments
+=====================
 
 - Environments are used to define the execution environment of a job or an endpoint.
 - All environments are built as docker images.
@@ -80,7 +80,7 @@ where `docker-conda-env.yml` contains:
 
 
 Environment Parameters
-----------
+---------------------
 
 **Required**
 
