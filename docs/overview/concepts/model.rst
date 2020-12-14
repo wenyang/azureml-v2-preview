@@ -5,7 +5,9 @@ Models are artifacts generated during a job or uploaded by a user. They contain 
 
 At its simplest, a model is packaged code that takes an input and predicts an output. Creating a machine learning model involves selecting an algorithm and providing it with data. Training is an iterative process that produces a trained model, which encapsulates what the model learned during the training process.	
 
-## Create a Model
+Create a Model
+-----------------
+
 Registered models are identified by name and version. Each time you register a model with the same name as an existing one, the registry assumes that it's a new version. The version is incremented, and the new model is registered under the same name.	Models are identified by name and version. If you register a model with the same name and version as a previously registered model, this will throw an error. You can update the model version or name in the yaml. 
 
 Run the following command to create a model.
@@ -54,7 +56,7 @@ Run the following command to list models in your workspace, use --name paramter 
 
 .. code-block:: console
 
-az ml model list
+  az ml model list
 
 
 Show model details
@@ -64,7 +66,7 @@ Run the following command to show specific models in your workspace.
 
 .. code-block:: console
 
-az ml model show --name <model name> --version <version>
+  az ml model show --name <model name> --version <version>
 
 
 Delete models
