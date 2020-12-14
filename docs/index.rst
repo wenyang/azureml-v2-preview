@@ -53,7 +53,6 @@ March 20201 (pending):
 
    overview/installation.rst
    overview/setup.rst
-   overview/tutorial.rst
    overview/concepts.rst
 
 .. toctree::
