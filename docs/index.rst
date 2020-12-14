@@ -74,8 +74,6 @@ March 20201 (pending):
   :hidden:
   :caption: Reference
 
-  reference/examples.rst
-  reference/templates.rst
   reference/feedback.rst
   reference/qna.rst
   reference/troubleshooting.rst
