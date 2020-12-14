@@ -59,17 +59,26 @@ A user can execute a job via the cli by executing an `az ml job create` command.
 Real training examples
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Here's an example that runs some Python code.
+Here's an example that runs some **Python code.**
+
+.. code-block:: console
+
+    az ml environment create --file examples/train/tensorflow/mnist/tf_env.yml
+    az ml job create --file examples/train/tensorflow/mnist/tf_mnist_job.yml
+
 
 .. literalinclude:: ../../examples/train/tensorflow/mnist/tf_mnist_job.yml
    :language: yaml
-   :caption: az ml job create --file examples/train/tensorflow/mnist/tf_mnist_job.yml
 
-Here's an example that runs on R script:
+Here's an example that runs **R code:**
+
+.. code-block:: console
+
+    az ml environment create --file examples/train/r/r_cran_env.yml
+    az ml job create --file examples/train/r/r_job.yml
 
 .. literalinclude:: ../../examples/train/r/r_job.yml
    :language: yaml
-   :caption: az ml job create --file examples/train/r/r_job.yml
 
 
 Train an XGBoost model
@@ -94,7 +103,7 @@ First we are going to define the xgboost environment we want to run.
 
 .. code-block:: console
 
-    az ml environment create xgboost-env.yml
+    az ml environment create --file xgboost-env.yml
     
     
 Upload data to the cloud
