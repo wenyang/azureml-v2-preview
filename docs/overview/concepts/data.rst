@@ -1,24 +1,62 @@
-Data
+Manage Data
 ====
+Data in Azure ML is used in the context of a Job. 
+Data assets can be created from files on your local machine or as references to files in cloud storage.
+When you create a data asset from your local machine, you upload this data into the workspace's default blob storage account (called 'workspaceblobstore').
 
-A Data...
 
-Parameters
-----------
+Upload local data
+---------------------------
 
-**Required**
+Move some input data to the cloud by creating and naming a data artifact, following the below convention:
 
-- ``name``, type = string
+.. code-block:: console
 
-**Optional**
+  cd ./iris/
+  az ml data upload -n irisdata -v 1 --path ./data
 
-- ``id``, type = guid, defaults to auto-gen on creation 
-- ``version``, type = string, default = ``"latest"``
-- ``description``, type = string, default = ``""``
-- ``tags``, type = map, default = ``{}``
-- ``storage_account``, type = enum,  options: see available regions, defaults to workspace location
-- ``path``, type = string, default = ``"/"``
-- ``mode``, type = enum, options: ``"mount"``, ``"download"``, default = ``"mount"``
 
-  - set to ``"download"`` to force downloading the data to each compute node
+Create a Data asset from cloud data
+-------------------------------------------------------
+
+This example assumes you already have some data in cloud storage.
+
+
+.. code-block:: yaml
+
+  name: test_directory_dataset
+  version: 1
+  datastore: azureml:workspaceblobstore
+  directory: v2test
+
+
+.. code-block:: console
+  az ml data create --file examples/datasets/datadir.yml
+
+Reference data in another storage account
+-----------------------------------------
+
+.. code-block:: console
+
+  az ml datastore attach-blob -n anotherstorageaccount SAS_TOKEN
+
+.. code-block:: yaml
+
+  name: datafromsomewherelse
+  version: 1
+  datastore: azure:anotherstorageaccount
+  directory: examples/cocodata
+
+.. code-block:: console
+
+  az ml data create --file examples/datasets/datafromsomewhere.yml
+
+Connect to Storage Resources with Datastores
+==========
+
+Datastore connections are used to securely connect to your storage services. Datastores store connection information without putting your authentication credentials and the integrity of your original data source at risk. 
+
+They store connection information, like your subscription ID and token authorization in your Key Vault associated with the workspace, so you can securely access your storage without having to hard code them in your script.
+
+
 
