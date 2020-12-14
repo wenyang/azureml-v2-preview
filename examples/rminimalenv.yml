@@ -1,6 +1,0 @@
-# yaml-language-server: $schema=https://azuremlsdk2.blob.core.windows.net/latest/environment.schema.json
-name: r-minimal
-version: 1
-docker:
-   build:
-     dockerfile: ../environments/r.dockerfile
