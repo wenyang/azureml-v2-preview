@@ -1,8 +1,0 @@
-# yaml-language-server: $schema=https://azuremlsdk2.blob.core.windows.net/latest/commandJob.schema.json
-command: /bin/sh -c '"git clone https://github.com/scikit-learn/scikit-learn.git --depth 1" && "python examples/classification/plot_classifier_comparison.py"'
-environment: azureml:AzureML-Minimal:1
-name: test1
-compute:
-  target: azureml:goazurego
-code:
-  directory: .

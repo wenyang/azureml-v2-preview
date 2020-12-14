@@ -1,8 +1,0 @@
-# yaml-language-server: $schema=https://azuremlsdk2.blob.core.windows.net/latest/commandJob.schema.json
-name: test1
-compute:
-  target: azureml:goazurego
-command: /bin/sh -c 'pip freeze && echo hello world'
-environment: azureml:AzureML-Minimal:1
-code:
-  directory: .

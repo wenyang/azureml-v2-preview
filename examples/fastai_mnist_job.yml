@@ -1,8 +1,0 @@
-# yaml-language-server: $schema=https://azuremlsdk2.blob.core.windows.net/latest/commandJob.schema.json
-name: fastai_mnist_example_2
-code: 
-  directory: ../code/train/fastai/mnist-resnet18
-command: python train.py
-environment: azureml:fastai-env/versions/1
-compute:
-  target: azureml:testCompute
