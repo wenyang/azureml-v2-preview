@@ -27,52 +27,22 @@ ARM Support
 - per-resource/per-asset/per-action RBAC and policy support
 - x-workspace discovery, consumption, and sharing (CI/CD) of assets and resources with proper git-flow support
 
-Timeline
---------
-
-November 2020 (committed):
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-- cloud execution of job (command job and sweep job)
-- support for data/code/environment/model assets in jobs
-
-March 20201 (pending):
-~~~~~~~~~~~~~~~~~~~~~~
-
-- private preview of full feature set of end-to-end training flow
-- includes above plus:
-
-  - local docker training (w/ local+data)
-  - spark job support
-  - workflow - full support & alignment with jobs
-  - real time and batch endpoint
-
 .. toctree::
    :hidden:
-   :caption: Overview
+   :caption: User Guide
 
    overview/installation.rst
    overview/setup.rst
-   overview/concepts.rst
-
-.. toctree::
-   :hidden:
-   :caption: Quickstart 
-
    quickstart/jobs.rst
    quickstart/endpoints.rst
-
-.. toctree::
-   :hidden:
-   :caption: Interfaces
-
-   interfaces/cli.rst
-   interfaces/python.rst
+   overview/concepts.rst
 
 .. toctree::
   :hidden:
   :caption: Reference
-
+  
+   interfaces/cli.rst
+   interfaces/python.rst
   reference/feedback.rst
   reference/qna.rst
   reference/troubleshooting.rst
