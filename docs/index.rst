@@ -71,27 +71,6 @@ March 20201 (pending):
    interfaces/python.rst
 
 .. toctree::
-   :hidden:
-   :caption: Guides
-
-   guides/local-development.rst
-   guides/cloud-development.rst
-   guides/distributed.rst
-   guides/gha.rst
-   guides/ado.rst
-
-.. toctree::
-  :hidden:
-  :caption: Distributed Frameworks
-
-  distributed/horovod.rst
-  distributed/pytorch.rst
-  distributed/tensorflow.rst
-  distributed/spark.rst
-  distributed/dask.rst
-  distributed/ray.rst
-
-.. toctree::
   :hidden:
   :caption: Reference
 
