@@ -166,58 +166,6 @@ This is to allow further debugging if data store does not work.
       target: azureml:<compute-name>
     code: 
       directory: train
-
-Distributed Training
----------------------
-
-Distributed command jobs have a 'distribution' section where you define the distribution type and properties that are unique to distributed training.
-
-MPI based
-~~~~~~~~
-
-.. code-block:: yaml
-
-    name: test1
-    command: pip freeze
-    environment: azureml:AzureML-Minimal:1
-    compute:
-      target: azureml:testCompute
-      instance_count: 4
-    distribution:
-      type: mpi
-      process_count_per_node: 4
-    experiment_name: mfe_distributed
-
-PyTorch based
-~~~~~~~~~~~~
-
-.. code-block:: yaml
-
-    command: pip freeze
-    environment: azureml:AzureML-Minimal:1
-    name: test1
-    compute:
-      target: azureml:testCompute
-    distribution:
-      type: PyTorch
-    experiment_name: mfe-test1
-  
-Tensorflow based
-~~~~~~~~~~~~~~~~~
-
-.. code-block:: yaml
-
-    command: pip freeze
-    environment: azureml:AzureML-Minimal:1
-    name: "test1"
-    compute:
-      target: azureml:testCompute
-    distribution:
-      type: TensorFlow
-      parameter_server_count: 3
-      worker_count: 3
-    experiment_name: mfe-test1
-
   
 Sweep Jobs (Hyperparameter Tuning)
 ----------------------------------
