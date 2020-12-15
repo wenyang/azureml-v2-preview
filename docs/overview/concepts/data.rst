@@ -37,9 +37,24 @@ This example assumes you already have some data in cloud storage.
 Reference data in another storage account
 -----------------------------------------
 
+
+
+Manage Datastore Connections
+==========
+
+Datastore connections are used to securely connect to your storage services. Datastores store connection information without putting your authentication credentials and the integrity of your original data source at risk. 
+
+They store connection information, like your subscription ID and token authorization in your Key Vault associated with the workspace, so you can securely access your storage without having to hard code them in your script.
+
+Attach an external datastore
+----------------------------
+
+The following command will attach an external storage account to your workspace.
 .. code-block:: console
 
   az ml datastore attach-blob -n anotherstorageaccount SAS_TOKEN
+
+Next, we can create a Data asset which references this other storage account.
 
 .. code-block:: yaml
 
@@ -51,13 +66,4 @@ Reference data in another storage account
 .. code-block:: console
 
   az ml data create --file examples/datasets/datafromsomewhere.yml
-
-Manage Datastore Connections
-==========
-
-Datastore connections are used to securely connect to your storage services. Datastores store connection information without putting your authentication credentials and the integrity of your original data source at risk. 
-
-They store connection information, like your subscription ID and token authorization in your Key Vault associated with the workspace, so you can securely access your storage without having to hard code them in your script.
-
-
 
