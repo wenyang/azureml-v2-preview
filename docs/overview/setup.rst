@@ -38,7 +38,7 @@ If needed, add your subscription to the allow list:
     This is a one-time operation only required during private preview. Onboarding will take around 10 minutes. Once onboarded, running the CURL command will result in a state of "Registered."
 
 .. code-block:: console
-
+    SUBSCRIPTION_ID=`az account show -o tsv --query id`
     TOKEN=$(`echo "az account get-access-token -s $SUBSCRIPTION_ID -o tsv --query accessToken"`)
     curl --location --request POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.Features/providers/Microsoft.MachineLearningServices/features/MFE/register?api-version=2015-12-01" --header "Authorization: Bearer $TOKEN" --header 'Content-Length: 0'
 
