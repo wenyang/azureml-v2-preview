@@ -53,7 +53,7 @@ In TensorFlow, the ``TF_CONFIG`` environment variable is required for training o
 
 Example structure of TF_CONFIG set on a chief worker node:
 
-.. code-block:: yaml
+.. code-block:: json
 
     TF_CONFIG='{
       "cluster": {
