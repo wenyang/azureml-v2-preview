@@ -34,6 +34,7 @@ ARM Support
    overview/installation.rst
    overview/setup.rst
    quickstart/jobs.rst
+   quickstart/distributed-training.rst
    quickstart/endpoints.rst
    overview/concepts.rst
 
