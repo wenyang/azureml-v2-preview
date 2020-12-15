@@ -52,3 +52,20 @@ Verify installation:
 .. code-block:: console
 
     az ml -h
+
+You should see the following output:
+
+.. code-block:: console
+    Group
+        az ml
+
+    Subgroups:
+        code        [Experimental] : Ml code.
+        compute     [Experimental] : Ml compute.
+        data        [Experimental] : Ml data.
+        datastore   [Experimental] : Ml datastore.
+        endpoint    [Experimental] : Ml endpoint.
+        environment [Experimental] : Ml environment.
+        job         [Experimental] : Ml job.
+        model       [Experimental] : Ml model.
+        workspace   [Experimental] : Ml workspace.
