@@ -29,10 +29,9 @@ Check that a compute cluster exists in your workspace and you have a compute clu
     az ml job create --file azureml-v2-preview/examples/train/basic-command-job/pip_freeze_job.yml
 
 Understanding a job specification
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A few interesting things to note about the yaml file:
+The following is a fully fleshed out job specification YML:
 
 .. literalinclude:: ../../examples/iris/iris-job.yml
    :language: yaml
