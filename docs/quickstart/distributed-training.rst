@@ -1,7 +1,10 @@
 Distributed Training
 ====================
 
-You can run a distributed job by specifying the ``distribution`` section in a command job yaml file. Azure ML supports the following distributed job types: MPI, PyTorch, and TensorFlow.
+You can run a distributed job by specifying the ``distribution`` section in a command job yaml file. 
+
+The CLI currently supports the following distributed job types: MPI, TensorFlow. 
+Native PyTorch distributed support is in progress.
 
 MPI job
 -------
@@ -10,21 +13,9 @@ Azure ML supports launching an MPI job across multiple nodes and multiple proces
 
 To launch an MPI job, specify ``type: mpi`` and the number of processes per node to launch (``process_count_per_instance``) in the ``distribution`` section. If this field is not specified, Azure ML will default to launching one process per node. To run a multi-node job, specify the ``node_count`` field in the ``compute`` section.
 
-.. code-block:: yaml
-
-    name: mpi-job-example
-    experiment_name: tf-mnist-horovod
-    code:
-      directory: ./src
-    command: python train.py
-    environment: azureml:pytorch-env:1
-    distribution:
-      type: mpi
-      process_count_per_instance: 2
-    compute:
-      target: azureml:testCompute
-      node_count: 2
-
+.. literalinclude:: ../../examples/train/tensorflow/mnist-horovod/tf_horovod_job.yml
+   :language: yaml
+   
 TensorFlow job
 --------------
 
@@ -34,20 +25,8 @@ To launch a distributed TensorFlow job, specify ``type: tensorflow`` and the num
 
 If your training code uses the parameter server strategy for distributed training, i.e. for legacy TensorFlow 1.x, you will also need to specify the number of parameter servers to use in the job via the ``parameter_server_count`` field in the ``distribution`` section.
 
-.. code-block:: yaml
-
-    name: tf-job-example
-    experiment_name: tf-mnist-distr
-    code:
-      directory: ./src
-    command: python train.py --epochs 30 --model-dir outputs/keras-model
-    environment: azureml:tf-env:1
-    distribution:
-      type: tensorflow
-      worker_count: 2
-    compute:
-      target: azureml:testCompute
-      node_count: 2
+.. literalinclude:: ../../examples/train/tensorflow/mnist-distributed/tf_distr_job.yml
+   :language: yaml
 
 In TensorFlow, the ``TF_CONFIG`` environment variable is required for training on multiple machines. Azure ML will configure and set the ``TF_CONFIG`` variable appropriately for each worker before executing your training script. You can access ``TF_CONFIG`` from your training script if you need to via ``os.environ['TF_CONFIG']``.
 
