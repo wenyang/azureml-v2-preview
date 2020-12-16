@@ -32,15 +32,21 @@ Configure other defaults:
     az config set defaults.location="eastus"
     az config set defaults.group="azureml-rg"
 
-If needed, add your subscription to the allow list:
+**If needed**, add your subscription to the allow list:
 
 .. note::
-    This is a one-time operation only required during private preview. Onboarding will take around 10 minutes. Once onboarded, running the CURL command will result in a state of "Registered."
+    This is a **one-time operation per subscription** only required during private preview. Onboarding will take around 10 minutes. Once onboarded, running the CURL command will result in a state of "Registered."
 
 .. code-block:: console
+
     SUBSCRIPTION_ID=`az account show -o tsv --query id`
     TOKEN=$(`echo "az account get-access-token -s $SUBSCRIPTION_ID -o tsv --query accessToken"`)
     curl --location --request POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.Features/providers/Microsoft.MachineLearningServices/features/MFE/register?api-version=2015-12-01" --header "Authorization: Bearer $TOKEN" --header 'Content-Length: 0'
+
+Pleae let us know you are using the private preview by filling out this `onboarding form
+<https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_TNt2p4AONDgvQ7_H0xYN5UNzFTTE5YNkdERUZOSkJQV09NNUszSUsyWS4u/>`_.
+
+
 
 Azure Machine Learning
 ----------------------
