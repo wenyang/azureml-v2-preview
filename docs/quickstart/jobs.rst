@@ -55,21 +55,25 @@ A few interesting things to note about the yaml file:
 ..    
      - This directory is uploaded as a snapshot to Azure ML and mounted to your job for execution. 
      - All of the files from 'directory' are uploaded as a snapshot before the job is created and can be viewed in the Snapshot page of the run from Studio UI.
+     
 ``command`` parameter refers to the command that gets run on the remote compute. 
 
 ..
 
-      ``command`` executes from the root of the code directory defined above.
+     - ``command`` executes from the root of the code directory defined above.
      - This is typically the command, example: "python train.py" or "Rscript train.R" and can include as many arguments as you desire.
 
 - ``environment`` is a definition or reference of the docker image virtual environment you want to run your job in.
+
 ..
 
      - ``azureml:`` is a special moniker used to refer to an existing entity within the workspace. 
      - ``azureml:AzureML-Minimal:1`` is expecting that version 1 of an environment called AzureML-Minimal exists in the current workspace. 
 
 - ``compute`` is the definition of where you want to run your job
+
 ..
+
     - ``azureml:testCompute`` refers to a compute cluster called 'testCompute' in the current workspace.
     - You can override the compute (or any parameter) by using ``--set compute.target=azureml:cpu-cluster
 
