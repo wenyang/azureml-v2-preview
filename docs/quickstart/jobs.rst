@@ -28,7 +28,7 @@ Check that a compute cluster exists in your workspace and you have a compute clu
 
     az ml job create --file azureml-v2-preview/examples/train/basic-command-job/pip_freeze_job.yml
 
-Understanding commandjob.yml and az ml job create
+Understanding commandjob.yml
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A few interesting things to note about the yaml file:
@@ -139,7 +139,7 @@ Next the input data needs to be moved to the cloud -- therefore the user can cre
 
 The above command uploads the data from the local folder `.data/` to the `workspaceblobstore` (default). It creates a data entity and registers it under the name `irisdata`.
 
-Create a job  that uses your uploaded data and custom environment image
+Create your xgboost training job
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. literalinclude:: ../../examples/iris/iris-job.yml
