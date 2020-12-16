@@ -53,6 +53,7 @@ A few interesting things to note about the yaml file:
 ``code / directory`` is the path to your code directory relative to where the YML file lives. 
 
 ..    
+
      - This directory is uploaded as a snapshot to Azure ML and mounted to your job for execution. 
      - All of the files from 'directory' are uploaded as a snapshot before the job is created and can be viewed in the Snapshot page of the run from Studio UI.
      
@@ -61,7 +62,7 @@ A few interesting things to note about the yaml file:
 ..
 
      - ``command`` executes from the root of the code directory defined above.
-     - This is typically the command, example: "python train.py" or "Rscript train.R" and can include as many arguments as you desire.
+     - This is typically the command, example: ``python train.py`` or ``Rscript train.R`` and can include as many arguments as you desire.
 
 - ``environment`` is a definition or reference of the docker image virtual environment you want to run your job in.
 
