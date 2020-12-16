@@ -68,6 +68,8 @@ jobs:
           az ml job create --file examples/sweep/sweepjob.yml --name sweeptest_$GITHUB_RUN_ID --query metadata.interaction_endpoints.studio
     - run: |
           az ml model create --file examples/deploy/sklearn/simplemodel.yml
+      continue-on-error: true
+
     - run: |
           az ml endpoint create --file examples/deploy/sklearn/basicaksendpoint.yml
       continue-on-error: true
