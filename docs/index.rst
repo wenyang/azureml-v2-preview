@@ -36,8 +36,9 @@ Coming soon:
   :hidden:
   :caption: Reference
   
-   interfaces/cli.rst
-   interfaces/python.rst
+  interfaces/cli.rst
+  interfaces/python.rst
+  reference/templates.rst
   reference/feedback.rst
   reference/qna.rst
   reference/troubleshooting.rst
