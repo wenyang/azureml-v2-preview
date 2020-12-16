@@ -28,20 +28,15 @@ Check that a compute cluster exists in your workspace and you have a compute clu
 
     az ml job create --file azureml-v2-preview/examples/train/basic-command-job/pip_freeze_job.yml
 
-Understanding commandjob.yml
+Understanding a job specification
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A few interesting things to note about the yaml file:
 
-.. code-block:: yaml
+.. literalinclude:: ../../examples/iris/iris-job.yml
+   :language: yaml
 
-    name: test1
-    code:
-        directory: .
-    command: python train.py
-    environment: azureml:AzureML-Minimal:1
-    compute:
-        target: azureml:goazurego
         
 ``name`` is the user defined run name which needs to be **unique**. 
 
@@ -62,25 +57,29 @@ A few interesting things to note about the yaml file:
      - ``command`` executes from the root of the code directory defined above.
      - This is typically the command, example: ``python train.py`` or ``Rscript train.R`` and can include as many arguments as you desire.
 
-- ``environment`` is a definition or reference of the docker image virtual environment you want to run your job in.
+``environment`` is a definition or reference of the docker image virtual environment you want to run your job in.
 
 ..
 
      - ``azureml:`` is a special moniker used to refer to an existing entity within the workspace. 
      - ``azureml:AzureML-Minimal:1`` is expecting that version 1 of an environment called AzureML-Minimal exists in the current workspace. 
 
-- ``compute`` is the definition of where you want to run your job
+``compute`` is the definition of where you want to run your job
 
 ..
 
     - ``azureml:testCompute`` refers to a compute cluster called 'testCompute' in the current workspace.
     - You can override the compute (or any parameter) by using ``--set compute.target=azureml:cpu-cluster
 
-
+``inputs`` is used to define data you want mounted or downloaded into your job.
+    
+    - ``data`` is the reference pointer to the dataset you want to use 
+    - ``mode`` indicates how you want the data made available in the job. Mount and Download are the two supported options.
+    
 Real training examples
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Here's an example that runs some **Python code.**
+Here's an example that runs  **Python code.**
 
 .. code-block:: bash
 
