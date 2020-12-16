@@ -26,7 +26,14 @@ Check that a compute cluster exists in your workspace and you have a compute clu
 
 .. code-block:: bash
 
-    az ml job create --file azureml-v2-preview/examples/train/basic-command-job/pip_freeze_job.yml
+    az ml job create --file azureml-v2-preview/examples/train/basic-command-job/hello_python_job.yml
+
+This will run a simple "hello world" python script. Here is the YML that we ran.
+
+.. literalinclude:: ../../examples/train/basic-command-job/hello_python_job.yml
+   :language: yaml
+
+Let's continue by going into more details on the job specification.
 
 Understanding a job specification
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
