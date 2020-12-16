@@ -16,7 +16,7 @@ Create your first job
 
 For this example, we'll simply clone the v2 preview repo and run the first example!
 
-.. code-block:: console
+.. code-block:: bash
 
     git clone https://github.com/Azure/azureml-v2-preview
 
@@ -24,7 +24,7 @@ For this example, we'll simply clone the v2 preview repo and run the first examp
 
 Check that a compute cluster exists in your workspace and you have a compute cluster named **goazurego** (if not, you can modify the name of the cluster in your YML file).
 
-.. code-block:: console
+.. code-block:: bash
 
     az ml job create --file azureml-v2-preview/examples/train/basic-command-job/pip_freeze_job.yml
 
@@ -82,7 +82,7 @@ Real training examples
 
 Here's an example that runs some **Python code.**
 
-.. code-block:: console
+.. code-block:: bash
 
     az ml environment create --file examples/train/tensorflow/mnist/tf_env.yml
     az ml job create --file examples/train/tensorflow/mnist/tf_mnist_job.yml
@@ -93,7 +93,7 @@ Here's an example that runs some **Python code.**
 
 Here's an example that runs **R code:**
 
-.. code-block:: console
+.. code-block:: bash
 
     az ml environment create --file examples/train/r/r_cran_env.yml
     az ml job create --file examples/train/r/r_job.yml
@@ -109,7 +109,7 @@ Next, let's train an xgboost model on an IRIS dataset.
 
 Let's navigate to the examples/iris directory in the repository and see what we should do next.
 
-.. code-block:: console
+.. code-block:: bash
 
     cd ./examples/iris/
     
@@ -122,7 +122,7 @@ First we are going to define the xgboost environment we want to run.
    :language: yaml
 
 
-.. code-block:: console
+.. code-block:: bash
 
     az ml environment create --file xgboost-env.yml
     
@@ -132,7 +132,7 @@ Upload data to the cloud
 
 Next the input data needs to be moved to the cloud -- therefore the user can create a data artifact in the workspace like so:
 
-.. code-block:: console
+.. code-block:: bash
 
     az ml data upload -n irisdata -v 1 --path ./data
 
@@ -154,7 +154,7 @@ To submit the job:
 The query parameter will return just the studio url for the run, rather than the entire job object. To view the entire job object,
 we can use the CLI to show this job:
 
-.. code-block:: console
+.. code-block:: bash
 
     az ml job show <name of previous job>
 
