@@ -1,5 +1,8 @@
-Deploy Models (Create Endpoints)
+Deploy Models (WIP)
 ===================
+
+.. warning::
+    This documentation is not fully functional. Endpoint creation is officially launching in January.
 
 Models can be deployed as online or batch mode Endpoints.
 
