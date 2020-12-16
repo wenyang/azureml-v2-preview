@@ -6,26 +6,20 @@
 Overview
 --------
 
-The ``azure.ml`` package provides user-friendly developer tools for Azure Machine Learning.
+Welcome to the Azure ML Developer Platform 2.0 private preview! Please use the navigation links on the left to get started.
 
-It is available via the typical installation tools for each interface, e.g. via `pip` for Python. 
+Currently supported:
+~~~~~~~~~~~~~~~~~~~~
+- Command Job for normal and distributed training
+- Sweep Job for hyperparameter tuning
+- Asset management for data / model / environment
 
-Goals
------
+Coming soon:
+~~~~~~~~~~~~
 
-- consistent job and endpoint stories
-- all resources are serializable in a human-readable format
-- reduce to fundamental concepts
-- jobs are composable
-
-ARM Support
------------
-
-- improved API surface area and clean APIs for ISVs and language SDKs to be built on top of
-- ARM for key uses cases (job/endpoint creation), including batch scoring endpoints
-- consistent asset management experience (all assets registered via ARM, enforces consistent behavior, etc.)
-- per-resource/per-asset/per-action RBAC and policy support
-- x-workspace discovery, consumption, and sharing (CI/CD) of assets and resources with proper git-flow support
+- PipelineJob
+- AutoMLJob
+- Endpoint (real-time and batch)
 
 .. toctree::
    :hidden:
