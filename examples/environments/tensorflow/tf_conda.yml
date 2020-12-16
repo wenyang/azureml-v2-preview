@@ -7,3 +7,4 @@ dependencies:
     - mlflow
     - azureml-mlflow
     - tensorflow-gpu==2.3.0
+    - horovod==0.19.5
