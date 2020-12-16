@@ -84,7 +84,7 @@ Here's an example that runs some **Python code.**
 
 .. code-block:: bash
 
-    az ml environment create --file examples/train/tensorflow/mnist/tf_env.yml
+    az ml environment create --file examples/environments/tensorflow/tf_env.yml
     az ml job create --file examples/train/tensorflow/mnist/tf_mnist_job.yml
 
 
