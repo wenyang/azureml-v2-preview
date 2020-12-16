@@ -7,7 +7,7 @@ Public
 ------
 
 .. warning::
-    While Azure ML v2 is in private preview, support is limited and best-effort. GitHub issues will be triaged weekly.
+    While Azure ML v2 is in private preview, support is limited and best-effort.
 
 - https://github.com/Azure/azureml-v2-preview/discussions
 - https://stackoverflow.com/questions/tagged/azure-machine-learning-service
