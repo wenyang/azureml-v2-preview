@@ -5,4 +5,4 @@ compute:
   target: azureml:goazurego
 code:
   directory: .
-environment: azureml:mldotnet:1
+environment: azureml:mldotnetenv:1
