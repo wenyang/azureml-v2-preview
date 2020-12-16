@@ -1,12 +1,9 @@
-Templates
+ARM Templates
 =========
 
 Find templates for a variety of ML scenarios! 
 
+We have defined a collection of ARM templates for model training and scoring which can be found here:  https://github.com/mrudulan/DevPlatv2Template
+
 .. warning:: 
-    Templates are not yet converted to Azure ML v2.
-
-GitHub
-------
-
-- https://github.com/Azure/azureml-template
+    Templates are experimental and subject to change.
