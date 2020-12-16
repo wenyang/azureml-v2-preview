@@ -45,8 +45,6 @@ A few interesting things to note about the yaml file:
         
 ``name`` is the user defined run name which needs to be **unique**. 
 
-..
-
     - By default, runs are created in an Experiment called "Default". If you want to use a different experiment name, you can use the parameter **experiment_name.** 
     - ``name`` and other parameters can be overwritten from the command line. For example: ```az ml job create --file azureml-v2-preview/examples/commandjob.yml --name test2```
 
