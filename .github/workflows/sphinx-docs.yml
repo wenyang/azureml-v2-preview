@@ -6,7 +6,7 @@ on:
     paths: 
       - docs/**
       - sdk2-src/**
-      - .github/workflows/sphinx-docs.yml
+      - .github/**
 jobs:
   build:
     name: deploy documentation
