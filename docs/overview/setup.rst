@@ -47,7 +47,7 @@ Pleae let us know you are using the private preview by filling out this `onboard
 <https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_TNt2p4AONDgvQ7_H0xYN5UNzFTTE5YNkdERUZOSkJQV09NNUszSUsyWS4u>`_.
 
 .. note::
-    This is a staged rollout. Current regions available for private preview include canary regions in addition to: **eastus2, eastus, westeurope, Westus2S, northcentralus**
+    This is a staged rollout. Current regions available for private preview include canary regions in addition to: **eastus2, eastus, westeurope, westus2, northcentralus**
 
 
 Azure Machine Learning
