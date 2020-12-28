@@ -44,10 +44,6 @@ The following is a fully fleshed out job specification YML:
    :language: yaml
 
         
-``name`` is the user defined run name which needs to be **unique**. **If you do not provide a name a GUID name will be generated for you.**
-
-    - By default, runs are created in an Experiment called "Default". If you want to use a different experiment name, you can use the parameter **experiment_name.** 
-    - ``name`` and other parameters can be overwritten from the command line. For example: ```az ml job create --file azureml-v2-preview/examples/commandjob.yml --name test2```
 
 ``code / directory`` is the path to your code directory relative to where the YML file lives. 
 
@@ -56,32 +52,37 @@ The following is a fully fleshed out job specification YML:
      - This directory is uploaded as a snapshot to Azure ML and mounted to your job for execution. 
      - All of the files from 'directory' are uploaded as a snapshot before the job is created and can be viewed in the Snapshot page of the run from Studio UI.
      
-``command`` parameter refers to the command that gets run on the remote compute. 
+``command`` defines the command that gets run on the remote compute. 
 
 ..
 
      - ``command`` executes from the root of the code directory defined above.
      - This is typically the command, example: ``python train.py`` or ``Rscript train.R`` and can include as many arguments as you desire.
 
-``environment`` is a definition or reference of the docker image virtual environment you want to run your job in.
+``environment`` defines the docker image virtual environment you want to run your job in.
 
 ..
 
      - ``azureml:`` is a special moniker used to refer to an existing entity within the workspace. 
      - ``azureml:AzureML-Minimal:1`` is expecting that version 1 of an environment called AzureML-Minimal exists in the current workspace. 
 
-``compute`` is the definition of where you want to run your job
+``compute`` defines where you want to run your job and compute-specific information
 
 ..
 
-    - ``azureml:testCompute`` refers to a compute cluster called 'testCompute' in the current workspace.
+    - ``target`` indicates the compute you want to run your job against. For example, ``azureml:testCompute`` refers to a compute cluster called 'testCompute' in the current workspace.
     - You can override the compute (or any parameter) by using ``--set compute.target=azureml:cpu-cluster
 
-``inputs`` is used to define data you want mounted or downloaded into your job.
+``inputs`` defines data you want mounted or downloaded for your job.
     
     - ``data`` is the reference pointer to the dataset you want to use 
     - ``mode`` indicates how you want the data made available in the job. Mount and Download are the two supported options.
-    
+
+``name`` is the (optional) user defined run identifier which needs to be **unique**. **If you do not provide a name a GUID name will be generated for you.**
+
+    - By default, runs are created in an Experiment called "Default". If you want to use a different experiment name, you can use the parameter **experiment_name.** 
+    - ``--name`` and other parameters can be overwritten from the command line. For example: ```az ml job create --file azureml-v2-preview/examples/commandjob.yml --name test2```
+
 Real training examples
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
