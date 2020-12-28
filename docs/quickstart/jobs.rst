@@ -78,10 +78,10 @@ The following is a fully fleshed out job specification YML:
     - ``data`` is the reference pointer to the dataset you want to use 
     - ``mode`` indicates how you want the data made available in the job. Mount and Download are the two supported options.
 
-``name`` is the (optional) user defined run identifier which needs to be **unique**. **If you do not provide a name a GUID name will be generated for you.**
+``name`` is the (optional) user defined run identifier which needs to be *unique*. If you do not provide a name a GUID name will be generated for you.
 
-    - By default, runs are created in an Experiment called "Default". If you want to use a different experiment name, you can use the parameter **experiment_name.** 
-    - ``--name`` and other parameters can be overwritten from the command line. For example: ```az ml job create --file azureml-v2-preview/examples/commandjob.yml --name test2```
+    - By default, runs are tagged with the experiment name "Default". If you want to use a different experiment name, you can use the parameter *experiment_name.*
+    - ``--name`` and other parameters can be overwritten from the command line. For example: ``az ml job create --file azureml-v2-preview/examples/commandjob.yml --name test2``
 
 Real training examples
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
