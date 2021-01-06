@@ -20,8 +20,6 @@ For this example, we'll simply clone the v2 preview repo and run the first examp
 
     git clone https://github.com/Azure/azureml-v2-preview
 
-.. note:: To authenticate the git clone, you may need a PAT. You can generate one here: https://github.com/settings/tokens (use anything as username, the PAT as your password)**
-
 Check that a compute cluster exists in your workspace and you have a compute cluster named **goazurego** (if not, you can modify the name of the cluster in your YML file).
 
 .. code-block:: bash
