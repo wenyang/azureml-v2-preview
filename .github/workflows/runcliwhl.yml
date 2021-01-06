@@ -37,7 +37,7 @@ jobs:
       with:
         creds: ${{secrets.AZURE_TOKEN}}
     - run: |
-          az config set defaults.workspace=devplataus
+          az config set defaults.workspace=e2edemos
           az config set defaults.group=demorg
           az account set -s 92c76a2f-0e1c-4216-b65e-abf7a3f34c1e
     - run: |
