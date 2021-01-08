@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://azuremlsdk2.blob.core.windows.net/latest/sweepJob.schema.json
 experiment_name: sweep-trial-v3
 algorithm: random
-job_type: sweep
+job_type: Sweep
 name: test_v3111
 search_space:
   lr:
