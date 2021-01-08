@@ -30,7 +30,7 @@ limits:
   max_concurrent_runs: 10
   max_duration_minutes: 10000
 early_termination:
-  spec: truncation
+  type: truncation
   evaluation_interval: 100
   delay_evaluation: 200
   truncation_percentage: 40
