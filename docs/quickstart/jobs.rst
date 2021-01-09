@@ -186,7 +186,7 @@ This is to allow further debugging if data store does not work.
 Sweep Jobs (Hyperparameter Tuning)
 ----------------------------------
 
-A Sweep job executes a hyperparameter sweep of a specific search space for a job. The below yaml uses the command job from the previous section as the 'trial' job in the sweep. It sweeps over different learning rates and subsample rates for each child run. The search space parameters will be passed as arguments to the command in the trial job.
+A Sweep job executes a hyperparameter sweep of a specific search space for a job. The below example uses the command job from the previous section as the 'trial' job in the sweep. It sweeps over different learning rates and subsample rates for each child run. The search space parameters will be passed as arguments to the command in the trial job.
 
 .. literalinclude:: ../../examples/iris/iris-sweep.yml
    :language: yaml
