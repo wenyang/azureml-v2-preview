@@ -1,26 +1,14 @@
-Manage Endpoints
-========
+Manage Endpoints (WIP)
+======================
 
-(WIP)
+.. note::
+    Private preview for this functionality is invite only at this point
 
-Commands:
----------
+You can use Endpoints to deploy your models and score them. Endpoints provide a simple interface to create and manage both online and batch deployments.
 
-az ml endpoint create
-~~~~~~~~~~~~~~~~~~~
-
-az ml endpoint delete
-~~~~~~~~~~~~~~~~~~~
-
-az ml endpoint list
-~~~~~~~~~~~~~~~~~~~
-
-az ml endpoint list-keys
-~~~~~~~~~~~~~~~~~~~
-
-az ml endpoint log
-~~~~~~~~~~~~~~~~~~~
-
-az ml endpoint show
-~~~~~~~~~~~~~~~~~~~
+To get started with online endpoints checkout the :ref:`simple-deploy-flow`.
     
+.. toctree::
+   :hidden:
+
+   endpoints/online-endpoint/online-endpoint.rst  

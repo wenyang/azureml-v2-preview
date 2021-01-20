@@ -55,5 +55,4 @@ Minimal endpoint specification - batch
 .. code-block:: console
 
   az ml endpoint create --file batchendpoint.yml
-  `
-
+  `  
