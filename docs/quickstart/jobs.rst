@@ -36,7 +36,7 @@ Here is another example that runs a simple pytorch test.
 .. literalinclude:: ../../examples/train/pytorch/torchjob.yml
    :language: yaml
    
-Let's continue by going into more details on the job specification.
+Let's go into more details on the job specification.
 
 Understanding a job specification
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
