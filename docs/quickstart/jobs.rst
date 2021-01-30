@@ -35,7 +35,13 @@ Here is another example that runs a simple pytorch test.
 
 .. literalinclude:: ../../examples/train/pytorch/torchjob.yml
    :language: yaml
-   
+
+Run the following CLI command to initialize the job: 
+
+.. code-block:: bash
+
+    az ml job create --file azureml-v2-preview/examples/train/pytorch/torchjob.yml
+
 Let's go into more details on the job specification.
 
 Understanding a job specification
