@@ -1,6 +1,5 @@
 command: python train_torch.py
 environment:
-  name: torch-official
   docker:
     image: docker.io/pytorch/pytorch
 code:
