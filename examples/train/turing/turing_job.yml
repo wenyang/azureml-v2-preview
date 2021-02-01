@@ -2,7 +2,10 @@
 code: 
   directory: .
 command: MASTER_ADDR=$AZ_BATCHAI_MPI_MASTER_NODE MASTER_PORT=6105 RANK=$OMPI_COMM_WORLD_RANK WORLD_SIZE=$OMPI_COMM_WORLD_SIZE LOCAL_RANK=$OMPI_COMM_WORLD_LOCAL_RANK python run_seq2seq.py --local_rank $OMPI_COMM_WORLD_LOCAL_RANK --train_file {inputs.training_data}/cnndm.train.uncased_tokenized.json --output_dir /tmp/output    --model_type unilm --model_name_or_path unilm2-base-uncased --do_lower_case --fp16 --fp16_opt_level O2   --max_source_seq_length 256 --max_target_seq_length 160 --per_gpu_train_batch_size 4 --gradient_accumulation_steps 2 --learning_rate 7e-5 --num_warmup_steps 1000 --num_training_steps 2500 --cache_dir /tmp/cache --save_steps 1500 --target_mask_prob 0.7
-environment: azureml:turingv3:6
+environment: 
+  docker:
+     build:
+       dockerfile: ./turing.dockerfile
 experiment_name: turing-cnndm-2-node
 inputs:
   training_data:
