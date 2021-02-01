@@ -1,0 +1,5 @@
+name: turingv3
+version: 6
+docker:
+   build:
+     dockerfile: ./turing.dockerfile
