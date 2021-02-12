@@ -22,7 +22,7 @@ jobs:
       with:
         python-version: 3.7
     - run: |
-        az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/ml-0.0.27-py3-none-any.whl --pip-extra-index-urls https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2 -y
+        az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/ml-0.0.31-py3-none-any.whl --pip-extra-index-urls https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2 -y
     - run: az ml -h
     - run: az ml job -h
       continue-on-error: true
@@ -47,8 +47,6 @@ jobs:
           az ml environment create --file examples/train/r/r_minimal_env.yml
     - run: |
           az ml environment create --file examples/train/r/r_cran_env.yml
-    - run: |
-          az ml environment create --file examples/iris/xgboost-env.yml
     - run: |
           az ml environment create --file examples/train/fastai/mnist-resnet18/fastai_env.yml
     - run: |
