@@ -17,7 +17,7 @@ Create a batch endpoint for batch scoring.
   
   az ml endpoint create --type batch --file examples/endpoints/batch/create-batch-endpoint.yml
 
-Below is the yaml file
+Below is the yaml file. To use a registered model, please replace the model section in yaml with **azureml:<modelName>:<modelVersion>**.
 
 .. literalinclude:: ../../../../../examples/endpoints/batch/create-batch-endpoint.yml
    :language: yaml
@@ -158,17 +158,13 @@ Option 1: Input is registered data.
 
 Please provide the full ARMId. Replace with your own information following the sample below. 
 
-::
-  
-  /subscriptions/{{subscription}}/resourceGroups/{{resourcegroup}}/providers/Microsoft.MachineLearningServices/workspaces/{{workspaceName}}/data/{{datasetName}}/versions/1
-
 .. code-block:: json
   
   {
       "properties": {
           "dataset": {
               "dataInputType": 1,
-              "datasetId": "<datasetARMId>"
+              "datasetId": "/subscriptions/{{subscription}}/resourceGroups/{{resourcegroup}}/providers/Microsoft.MachineLearningServices/workspaces/{{workspaceName}}/data/{{datasetName}}/versions/1"
               }
           }        
       }
