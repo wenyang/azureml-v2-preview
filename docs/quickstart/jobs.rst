@@ -207,7 +207,7 @@ Automated Machine Learning, also referred to as Automated ML or AutoML, is the p
 
 Apply automated ML when you want Azure Machine Learning to train and tune a model for you using the target metric you specify. Automated ML democratizes the machine learning model development process.
 
-Azure AutoML CLI currently supports these 3 ML tasks:
+Azure AutoML CLI currently supports these three ML tasks:
 
 - Classification (Binary classification and multi-class classification)
 - Regression
