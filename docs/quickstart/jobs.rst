@@ -197,8 +197,8 @@ This can be executed by running (after setting compute name in yaml):
     az ml job create --file iris_sweep.yml
 
 
-AutoML jobs (Azure Automated Machine Learning jobs)
----------------------------------------------------
+AutoML jobs (Azure Automated Machine Learning jobs) - PRIVATE PREVIEW state
+---------------------------------------------------------------------------
 
 **NOTE: 'AutoML job' (CLI) is currently in PRIVATE PREVIEW.** 
 *In order to get access to that PRIVATE PREVIEW for AutoML, please send an email to CESARDL@MICROSOFT.COM requesting access to it.*
