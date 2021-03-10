@@ -12,13 +12,13 @@ deployments:
     model:
       name: model-1
       version: 1
-      path: ../../model-1/model/sklearn_regression_model.pkl
+      local_path: ../../model-1/model/sklearn_regression_model.pkl
     code_configuration:
       code: 
-        directory: ../../model-1/onlinescoring/
+        local_path: ../../model-1/onlinescoring/
       scoring_script: score.py
     environment: 
-      name: env-model-1
+      name: env-model1
       version: 1
       path: .
       conda_file: file:../../model-1/environment/conda.yml
