@@ -214,6 +214,14 @@ The below example uses the command job similar to previous sections but using a 
 The .YAML config below will train multiple models until it finds the best model under the configuration settings (.YAML config file) provided to AutoML.
 
 
+.. literalinclude:: ../../examples/AutoML/classification/01-portoseguro-classif-job-single-dataset.yaml
+   :language: yaml
+
+This can be executed by running (after setting compute name in yaml):
+
+.. code-block:: console
+
+    az ml job create --file 01-portoseguro-classif-job-single-dataset.yaml
 
 
 Other Job Types
