@@ -18,7 +18,9 @@ deployments:
       code: 
         directory: ../../model-1/onlinescoring/
       scoring_script: score.py
-    environment:         
+    environment: 
+      name: env-model-1
+      version: 1        
       path: .
       conda_file: file:../../model-1/environment/conda.yml
       docker:
@@ -41,6 +43,8 @@ deployments:
         directory: ../../model-2/onlinescoring/
       scoring_script: score.py
     environment:         
+      name: env-model-2
+      version: 1 
       path: .
       conda_file: file:../../model-2/environment/conda.yml
       docker:
