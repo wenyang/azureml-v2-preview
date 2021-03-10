@@ -200,7 +200,10 @@ This can be executed by running (after setting compute name in yaml):
 AutoML jobs (Azure Automated Machine Learning jobs)
 ---------------------------------------------------
 
-Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality.
+**NOTE: 'AutoML job' (CLI) is currently in PRIVATE PREVIEW.** 
+*In order to get access to that PRIVATE PREVIEW for AutoML, please send an email to CESARDL@MICROSOFT.COM requesting access to it.*
+
+Automated Machine Learning, also referred to as Automated ML or AutoML, is the process of automating the time consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to quickly and easily build ML models with high scale, efficiency, and productivity all while sustaining model quality.
 
 Apply automated ML when you want Azure Machine Learning to train and tune a model for you using the target metric you specify. Automated ML democratizes the machine learning model development process.
 
