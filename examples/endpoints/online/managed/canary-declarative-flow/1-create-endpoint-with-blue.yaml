@@ -15,7 +15,7 @@ deployments:
       path: ../../model-1/model/sklearn_regression_model.pkl
     code_configuration:
       code: 
-        directory: ../../model-1/onlinescoring/
+        local_path: ../../model-1/onlinescoring/
       scoring_script: score.py
     environment:
       name: env-model-1
