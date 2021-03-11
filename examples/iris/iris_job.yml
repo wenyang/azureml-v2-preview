@@ -4,7 +4,7 @@ code:
 command: >-
   python train.py 
   --data {inputs.training_data} 
-environment: azureml:xgboost-env:1
+environment: azureml:xgboost-environment:1
 compute:
   target: azureml:goazurego
 inputs:

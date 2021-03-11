@@ -3,6 +3,6 @@ experiment_name: fastai-mnist-example
 code: 
   local_path: ./src
 command: python train.py
-environment: azureml:fastai-env:1
+environment: azureml:fastai-environment:1
 compute:
   target: azureml:goazurego
