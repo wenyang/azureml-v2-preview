@@ -10,6 +10,8 @@ command: >-
   
 environment: 
   conda_file: file:dask-conda.yaml
+  docker: 
+    image: mcr.microsoft.com/azureml/intelmpi2018.3-ubuntu16.04:20210301.v1
 
 inputs:
   nyc_taxi_dataset:
