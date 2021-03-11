@@ -71,6 +71,7 @@ jobs:
           az ml job create --file examples/train/fastai/mnist-resnet18/fastai_mnist_job.yml --name fastai_mnist_$GITHUB_RUN_ID 
     - run: |
           az ml data upload --name wikitext-2 --version 1 --path examples/train/pytorch/word-language-model/data/wikitext-2
+      continue-on-error: true
     - run: |
           az ml job create --file examples/train/pytorch/word-language-model/job.yml --name pytorch_lm_$GITHUB_RUN_ID
     - run: |
