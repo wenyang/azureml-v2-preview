@@ -13,7 +13,7 @@ deployments:
       path: ./mnist/model/
     code_configuration:
       code:
-        local_path ./mnist/code/
+        local_path: ./mnist/code/
       scoring_script: digit_identification.py
     environment: 
       name: mnistenv
