@@ -3,4 +3,4 @@ name: irisdata
 version: 1
 description: iris dataset
 datastore: azureml:workspaceblobstore
-local_path: data
+path: data

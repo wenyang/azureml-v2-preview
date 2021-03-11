@@ -3,7 +3,7 @@ experiment_name: tf-mnist
 code:
   local_path: ./src
 command: python train.py
-environment: azureml:tf-env:1
+environment: azureml:tf-environment:1
 distribution:
   type: mpi
   process_count_per_instance: 2

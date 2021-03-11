@@ -3,7 +3,7 @@ experiment_name: tf-mnist
 code:
   local_path: ./src
 command: python train.py --epochs 30 --model-dir outputs/keras-model
-environment: azureml:tf-env:1
+environment: azureml:tf-environment:1
 distribution:
   type: tensorflow
   worker_count: 2
