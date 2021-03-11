@@ -21,7 +21,7 @@ trial:
   compute:
     target: azureml:goazurego
   code: 
-    local_path train
+    local_path: train
   inputs:
     training_data:
       data: azureml:irisdata:1
