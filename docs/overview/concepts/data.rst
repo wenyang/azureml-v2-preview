@@ -1,123 +1,70 @@
 Manage Data Assets
 ====
 
-An Azure ML data asset is a reference to data in your storage, along with metadata. You can use data assets to seamlessly access your data during model training.
-
+Data in Azure ML is used in the context of a Job. 
+Data assets can be created from files on your local machine or as references to files in cloud storage.
 When you create a data asset from your local machine, you upload this data into the workspace's default blob storage account (called 'workspaceblobstore').
 
-Create a data asset
--------------------
-Data assets can be created from files on your local machine or as references to files in cloud storage. Creating a data asset creates a versioned data asset
-that gets registered to your workspace.
 
-The following sections go over the different ways you can create a data asset.
+Upload local data
+---------------------------
 
-Use the help option for more information on all the valid parameters:
+Move some input data to the cloud by creating and naming a data artifact, following the below convention:
 
 .. code-block:: console
 
-  az ml data create -h
+  cd azureml-v2-preview/examples/iris/
+  az ml data upload -n irisdata -v 1 --path ./data
 
-Create a data asset from local files
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-You can create a data asset from files on your local machine. Azure ML will upload this data to the workspace's default datastore (Blob storage account), which
-is named 'workspaceblobstore'.
 
-Create YAML config file, e.g. data_from_local.yml:
+Create a Data asset from cloud data
+-------------------------------------------------------
+
+This example assumes you already have some data in cloud storage.
+
+dataset_from_storage.yml:
 
 .. code-block:: yaml
 
-  name: my-data
+  name: test_directory_dataset
   version: 1
-  local_path: ./mnist
+  datastore: azureml:workspaceblobstore
+  directory: v2test
 
-Create data:
+
+.. code-block:: console
+  az ml data create --file dataset_from_storage.yml
+
+
+Manage Datastore Connections
+==========
+
+Datastore connections are used to securely connect to your storage services. Datastores store connection information without putting your authentication credentials and the integrity of your original data source at risk. 
+
+They store connection information, like your subscription ID and token authorization in your Key Vault associated with the workspace, so you can securely access your storage without having to hard code them in your script.
+
+Attach an external datastore
+----------------------------
+
+The following command will attach an external storage account to your workspace.
 
 .. code-block:: console
 
-  az ml data create --file data_from_local.yml
+  az ml datastore attach-blob -n anotherstorageaccount SAS_TOKEN
 
-Create a data asset from a URL
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-You can also create a data asset from a storage URL or public URL.
+Next, we can create a Data asset which references this other storage account.
 
-Create YAML config file, e.g. data_from_url.yml:
+dataset_from_another_storage.yml:
 
 .. code-block:: yaml
 
-  name: my-data
+  name: datafromsomewherelse
   version: 1
-  path: https://pipelinedata.blob.core.windows.net/sampledata/mnist
+  datastore: azure:anotherstorageaccount
+  directory: examples/cocodata
 
-Create data:
 
 .. code-block:: console
 
-  az ml data create --file data_from_url.yml
+  az ml data create --file dataset_from_another_storage.yml
 
-Create a data asset from files in cloud storage
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-To create a data asset that references files in cloud storage, specify the datastore and the path to the files on the datastore.
-
-Create YAML config file, e.g. data_from_datastore.yml:
-
-.. code-block:: yaml
-
-  name: my-data
-  version: 1
-  datastore: my-datastore
-  path: ./mnist
-
-Create data:
-
-.. code-block:: console
-
-  az ml data create --file data_from_datastore.yml
-
-
-Update a data asset
--------------------
-See help:
-
-.. code-block:: console
-
-  az ml data update -h
-
-Show details for a data asset
------------------------------
-Show details for the latest version of a data asset:
-
-.. code-block:: console
-
-  az ml data show --name my-data
-  
-Show details for a data asset of a specific name and version:
-
-.. code-block:: console
-
-  az ml data show --name my-data --version 1
-
-List data assets in a workspace
--------------------------------
-List all data assets in a workspace:
-
-.. code-block:: console
-
-  az ml data list
-
-List all data asset versions under a specific name:
-
-.. code-block:: console
-
-  az ml data list --name my-data
-
-Delete a data asset
--------------------
-Delete a data asset. Note that this not delete the underlying data files in your storage service.
-
-.. code-block:: console
-
-  az ml data delete --name my-data
-
-Access data in a job
---------------------
