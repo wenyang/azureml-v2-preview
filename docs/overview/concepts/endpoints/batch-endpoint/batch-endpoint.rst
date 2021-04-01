@@ -129,7 +129,7 @@ Follow below steps to view scoring results.
 Add a deployment to the batch endpoint
 --------------------------------------
 
-One batch endpoint can have multiple deployments hosting different models. Use below command to add a new deployment to an existing batch endpoint.
+One batch endpoint can have multiple deployments hosting different models. Use the command below to add a new deployment to an existing batch endpoint.
 
 .. code-block:: bash
   
@@ -143,15 +143,15 @@ This sample uses an MLFlow model, the deployment yaml is much simpler, as enviro
 Activate the new deployment
 ---------------------------
 
-When invoke an endpoint, the deployment with 100 traffic is in use. Use below command to activate the new deployment by switching the traffic (can only be 0 or 100). Now you can invoke a batch scoring job with this new deployment.
+When invoking an endpoint, the deployment with 100 traffic is in use. Use the command below to activate the new deployment by switching the traffic (can only be 0 or 100). Now you can invoke a batch scoring job with this new deployment.
 
 .. code-block:: bash
   
   az ml endpoint update --name mybatchendpoint --type batch --traffic autolog_deployment:100
 
-Use ``endpoint show`` to check which deployment takes 100 traffic, or follow below steps to check from UI.
+Use ``endpoint show`` to check which deployment takes 100 traffic, or follow below steps to check in the UI.
 
-1. In AML Studio, go to `Endpoints` page, click `Pipeline endpoints` tab. 
+1. In Azure Machine Learning studio, go to `Endpoints` page, click `Pipeline endpoints` tab. 
 2. Click the endpoint link, click `Published pipelines`.
 3. The deployment with 100 traffic has a `Default` tag.
 
@@ -174,7 +174,7 @@ Copy the value of the accessToken from the response.
 
 3. Use the scoring URI and the token in your REST client
 
-If you use postman, then go to the Authorization tab in the request and paste the value of the token. Use the scoring uri from above as the URI for the **POST** request.
+If you use Postman, then go to the Authorization tab in the request and paste the value of the token. Use the scoring uri from above as the URI for the **POST** request.
 
 Option 1: Input is registered data. 
 
