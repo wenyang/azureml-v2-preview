@@ -86,7 +86,7 @@ Use ``--set`` to overwrite other settings including error_threshold and logging_
 
 .. code-block:: bash
   
-  az ml endpoint invoke --name mybatchendpoint --type batch --input-data azureml:mnist-data:1 --mini-batch-size 10 --instance-count 2
+  az ml endpoint invoke --name mybatchendpoint --type batch --input-data azureml:taxi-tip-data:1 --mini-batch-size 10 --instance-count 2
 
 Check batch scoring job execution progress
 ------------------------------------------
