@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 $schema: https://azuremlsdk2.blob.core.windows.net/latest/environment.schema.json
+=======
+$schema=https://azuremlsdk2.blob.core.windows.net/latest/environment.schema.json
+>>>>>>> main
 name: fastai-vision
 version: 1
 docker:

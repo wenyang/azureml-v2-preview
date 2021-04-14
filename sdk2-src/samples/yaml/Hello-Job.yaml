@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 $schema: https://azuremlsdk2.blob.core.windows.net/latest/commandJob.schema.json
+=======
+$schema=https://azuremlsdk2.blob.core.windows.net/latest/commandJob.schema.json
+>>>>>>> main
 code: azureml:8b222672-21b1-4989-aa1a-4f051df003c0:1
 command: echo HelloWorld
 environment: file:environment_conda.yml

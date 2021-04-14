@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 $schema: https://azuremlsdk2.blob.core.windows.net/latest/model.schema.json
+=======
+$schema=https://azuremlsdk2.blob.core.windows.net/latest/model.schema.json
+>>>>>>> main
 name: my-model
 version: 3
 local_path: ./model
