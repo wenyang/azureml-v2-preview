@@ -1,4 +1,4 @@
-$schema=https://azuremlsdk2.blob.core.windows.net/latest/onlineEndpoint.schema.json
+$schema: https://azuremlsdk2.blob.core.windows.net/latest/onlineEndpoint.schema.json
 location: centraluseuap
 name: myendpoint2
 type: online
